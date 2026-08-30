@@ -263,7 +263,7 @@ against the others would not be like for like.
 
 ### Two components were removed
 
-`v3_analyst` and `v4_memory` cost **+60% and +54% more** in money and model time
+`v3_analyst` and `v4_memory` cost **+60% and +53% more** in money and model time
 for **zero** additional shippable migrations. Both were built, measured, and
 cut; both stay in the repository behind `--variants all` because the ablation
 showing they do not pay is part of the evidence. The reasoning, including the

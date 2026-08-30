@@ -113,7 +113,7 @@ which Flask idioms are present, which are externally observable — and the
 migrator gets it alongside the source.
 
 **Evidence.** **16/16. Identical to V2 on every case.** Calls 25 → 40, cost
-$0.73 → $1.17 (+60%), model time 71 → 109 minutes (+54%). The briefs themselves
+$0.73 → $1.17 (+60%), model time 71 → 109 minutes (+53%). The briefs themselves
 are good; they are simply redundant once the repair loop exists, because the
 loop finds the same problems empirically and only pays when there is a problem
 to find.
@@ -536,7 +536,7 @@ Two components, both built, both measured, both cut.
 
 ### The analyst brief
 
-+15 LLM calls per run, +60% cost, +54% model time, **+0 shippable migrations**.
++15 LLM calls per run, +60% cost, +53% model time, **+0 shippable migrations**.
 
 It is not that the briefs were wrong. They correctly identified the lenient
 `request.get_json(silent=True)` gate, the explicit non-default status codes, the
