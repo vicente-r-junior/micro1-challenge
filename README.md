@@ -331,8 +331,8 @@ cd micro1-challenge
 docker compose run --rm reproduce
 ```
 
-That prints the results table in about sixteen seconds, with **no API key and no
-network access**. It must match [`results/REPORT.md`](results/REPORT.md)
+That prints the results table in well under a minute — 23 s of work, about 40 s
+through Docker on a laptop — with **no API key and no network access**. It must match [`results/REPORT.md`](results/REPORT.md)
 exactly — the file is committed, so **`git diff` after the run comes back
 empty**. Both results files are byte-deterministic: run it twice and you get
 identical bytes.
@@ -346,14 +346,14 @@ run the same command from inside the folder.
 
 ### Path A — without any AI at all
 
-**No API key. No network. No cost. About 25 seconds total.**
+**No API key. No network. No cost. Under a minute of wall-clock.**
 
 Everything that decides correctness in this project is deterministic, so all of
 it can be checked with the models switched off entirely.
 
 ```bash
-docker compose run --rm test        # 47 tests, ~7s
-docker compose run --rm reproduce   # the full benchmark, ~16s
+docker compose run --rm test        # 48 tests, ~12s
+docker compose run --rm reproduce   # the full benchmark, ~40s
 ```
 
 The first command exercises the parts that no model touches: route extraction

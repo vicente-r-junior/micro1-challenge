@@ -31,7 +31,36 @@ from typing import Any, Optional
 
 from tracing import Tracer
 
-DEFAULT_MODEL = os.getenv("MIGRATION_MODEL", "openai/gpt-4o-mini")
+# Ordered by how well each performed in the reported benchmark, so a live run on
+# a machine that set one key and no model still picks a sensible model rather
+# than failing against a provider the operator never configured.
+KNOWN_PROVIDERS = (
+    ("DEEPSEEK_API_KEY", "deepseek/deepseek-v4-flash"),
+    ("ANTHROPIC_API_KEY", "anthropic/claude-sonnet-4-5"),
+    ("OPENAI_API_KEY", "openai/gpt-4o-mini"),
+)
+FALLBACK_MODEL = "openai/gpt-4o-mini"
+
+
+def default_model() -> str:
+    """The model a live run uses when nobody named one.
+
+    ``MIGRATION_MODEL`` wins if it is set. Otherwise the choice follows the keys
+    that are actually present: a judge who exports one provider key and runs the
+    demo should reach that provider, not whichever one happened to be compiled
+    in. With no key at all the fallback is returned so the caller raises
+    ``NoCredentials`` with its actionable message instead of a KeyError here.
+    """
+    named = os.getenv("MIGRATION_MODEL")
+    if named:
+        return named
+    for env_var, model in KNOWN_PROVIDERS:
+        if os.getenv(env_var, "").strip():
+            return model
+    return FALLBACK_MODEL
+
+
+DEFAULT_MODEL = default_model()
 
 
 class LLMError(RuntimeError):
@@ -361,7 +390,7 @@ def resolve_model(requested, cache, replay: bool, fail) -> str:
     An explicit ``--model`` always wins. Otherwise a replay adopts the model the
     cache was recorded with, so the reproduction command works on a machine that
     has never seen a .env file. Only a live run falls back to the compiled-in
-    default.
+    default, which follows whichever provider key is actually set.
     """
     if requested:
         return requested
@@ -375,4 +404,4 @@ def resolve_model(requested, cache, replay: bool, fail) -> str:
                 f"({', '.join(recorded)}); pass --model to choose one"
             )
         fail("the replay cache is empty; record it first with a provider key")
-    return DEFAULT_MODEL
+    return default_model()

@@ -528,6 +528,35 @@ matches one spelling of the thing it protects against is a protection you will
 outgrow the first time you type a slightly different filename — and for a
 credentials file, outgrowing it once is enough.
 
+### H16 — the live default pointed at a provider the operator had not configured
+
+**Tried:** let anyone run the tool against any provider by naming the model as a
+string, with a compiled-in default so the demo works with no arguments.
+
+**Evidence:** found by simulating a judge rather than by reading the code —
+downloading the published zip, running the documented commands, and setting only
+one provider key. The default was `openai/gpt-4o-mini` unconditionally, and
+`docker-compose.yml` passed it through explicitly, so a reader who exported
+`DEEPSEEK_API_KEY` and ran `docker compose run --rm demo` authenticated against
+OpenAI and got a credentials error naming a provider they had never chosen. The
+replay path was never affected: it adopts the model the cache was recorded with,
+which is why the reproduction command had always worked on a bare machine.
+
+**Decision:** `llm.default_model()` now reads the keys that are actually present
+and picks the matching model, ordered by measured performance in this benchmark.
+`MIGRATION_MODEL` still wins when set, an empty value is not a choice, and with
+no key at all the old fallback is returned so the caller still raises
+`NoCredentials` with its actionable message. Compose stopped forcing a value.
+Locked by a test that walks all four states.
+
+**Why it is in this document:** the bug was not in any code path the tests
+covered, because it lived in the gap between what the code does and what the
+documentation tells a stranger to type. It was only reachable by being the
+stranger — which is the argument this whole project makes about verification,
+turned back on the project itself.
+
+---
+
 ---
 
 ## Part 3 — what was removed

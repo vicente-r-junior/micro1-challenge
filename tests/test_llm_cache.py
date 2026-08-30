@@ -120,3 +120,33 @@ def test_a_mixed_cache_refuses_to_guess(tmp_path):
     errors = []
     resolve_model(None, cache, replay=True, fail=errors.append)
     assert errors and "several models" in errors[0]
+
+
+def test_live_default_follows_whichever_provider_key_is_set(monkeypatch):
+    """A judge who exports one key and no model should reach that provider.
+
+    The compiled-in fallback used to be OpenAI unconditionally, so someone with
+    only a DeepSeek key got an authentication failure against a provider they
+    had never configured. The choice now follows the keys actually present.
+    """
+    import llm
+
+    for env_var, _ in llm.KNOWN_PROVIDERS:
+        monkeypatch.delenv(env_var, raising=False)
+    monkeypatch.delenv("MIGRATION_MODEL", raising=False)
+
+    # No key at all: the fallback, so the caller raises NoCredentials with its
+    # actionable message rather than failing here.
+    assert llm.default_model() == llm.FALLBACK_MODEL
+
+    monkeypatch.setenv("DEEPSEEK_API_KEY", "sk-test")
+    assert llm.default_model().startswith("deepseek/")
+
+    # An explicit choice always wins over the inferred one.
+    monkeypatch.setenv("MIGRATION_MODEL", "anthropic/claude-sonnet-4-5")
+    assert llm.default_model() == "anthropic/claude-sonnet-4-5"
+
+    # An empty variable is not a choice — compose passes one through when the
+    # operator set nothing.
+    monkeypatch.setenv("MIGRATION_MODEL", "")
+    assert llm.default_model().startswith("deepseek/")

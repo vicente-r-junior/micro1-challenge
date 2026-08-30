@@ -320,7 +320,7 @@ footer a{color:var(--ink-2)}
     <h1>Does this migration still do what the old one did?</h1>
     <p class="lede">A Flask&nbsp;&rarr;&nbsp;FastAPI migration agent whose verifier is <em>not</em> a language model. Writing the new code is the easy half &mdash; a model does it in eight seconds. The hard half is earning the right to merge it.</p>
     <div class="meta">
-      <span>16 cases</span><span>212 probes</span><span>5 models</span><span>7 baseline runs</span><span>47 tests</span><span>reproduces in 16&nbsp;s, offline</span>
+      <span>16 cases</span><span>212 probes</span><span>5 models</span><span>7 baseline runs</span><span>48 tests</span><span>reproduces in 23&nbsp;s, offline</span>
     </div>
   </header>
 
@@ -634,14 +634,14 @@ footer a{color:var(--ink-2)}
 
       <div class="paths">
         <div class="path">
-          <h3>Path A &mdash; no AI at all <span class="cost">&asymp;25 s &middot; $0.00</span></h3>
+          <h3>Path A &mdash; no AI at all <span class="cost">&lt;1 min &middot; $0.00</span></h3>
           <p>No API key. No network. Everything that decides correctness here is deterministic, so all of it can be checked with the models switched off.</p>
-          <div class="cmd"><pre><span class="c"># 47 tests, no model involved</span>
+          <div class="cmd"><pre><span class="c"># 48 tests, no model involved</span>
 docker compose run --rm test
 
 <span class="c"># the full five-variant ablation, from the committed cache</span>
 docker compose run --rm reproduce</pre><button class="copy" data-copy="docker compose run --rm test&#10;docker compose run --rm reproduce">Copy</button></div>
-          <p>These models are not deterministic even at temperature 0, so a live re-run produces <em>different</em> numbers and nobody could check the reported ones. Every request was recorded instead &mdash; turning four dollars and six hours of model time into sixteen seconds.</p>
+          <p>These models are not deterministic even at temperature 0, so a live re-run produces <em>different</em> numbers and nobody could check the reported ones. Every request was recorded instead &mdash; turning four dollars and six hours of model time into twenty-three seconds.</p>
           <p><strong>It cannot cheat.</strong> A prompt missing from the cache raises <code>CacheMiss</code> and stops the run with a non-zero exit. Truncate the cache and watch it refuse:</p>
           <div class="cmd"><pre>head -5 data/llm_cache.jsonl &gt; /tmp/t &amp;&amp; mv /tmp/t data/llm_cache.jsonl
 make reproduce  <span class="c"># CacheMiss, exit 1</span></pre><button class="copy" data-copy="head -5 data/llm_cache.jsonl > /tmp/t && mv /tmp/t data/llm_cache.jsonl&#10;make reproduce">Copy</button></div>
@@ -694,7 +694,7 @@ make record            <span class="c"># re-runs everything live</span></pre><bu
 
   <footer>
     <div class="cols">
-      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 47 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 24-entry improvement changelog</p></div>
+      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 48 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 25-entry improvement changelog</p></div>
       <div class="card"><h3 style="color:var(--ink)">Provenance</h3><p>Two cases are real flask-restful code, BSD-3-Clause, vendored unmodified. One AGPL case is fetched on demand, never redistributed.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Agent use</h3><p>Every model call, tool call, decision and approval is recorded as JSONL. The coding-agent session that built this is included, redacted.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Author</h3><p>Vicente Jr &mdash; built for the micro1 Frontier Engineering Challenge 2026.<br>

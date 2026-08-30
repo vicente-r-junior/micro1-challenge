@@ -65,7 +65,7 @@ a replay that claimed to be free would be describing the cache, not the work.
 docker compose run --rm test        # or: make test
 ```
 
-47 tests, no model involved. They cover the parts that decide correctness:
+48 tests, no model involved. They cover the parts that decide correctness:
 
 - route extraction from decorators **and** from `add_url_rule` + `MethodView`
 - probe determinism, and that the 405 probe never hits a sibling handler
@@ -135,13 +135,15 @@ python data/cases/case_99_flowintel_misp/fetch.py    # needs network
 
 | | Calls | Cost | Model time | Wall clock |
 |---|---|---|---|---|
-| **`make reproduce` — what a judge runs** | 0 | **$0.00** | — | **16 s** |
-| `make test` | 0 | $0.00 | — | 7 s |
+| **`make reproduce` — what a judge runs** | 0 | **$0.00** | — | **23 s** |
+| `make test` | 0 | $0.00 | — | 8 s |
 | Live re-record of the whole ablation | 137 | **$4.02** | 379 min | ~95 min at 4 workers |
 
-Sixteen seconds against six hours of model time, for the same table. That gap is
-the entire argument for shipping the cache: without it, checking the reported
-numbers means spending four dollars and an evening, so nobody checks them.
+Twenty-three seconds against six hours of model time, for the same table. That
+gap is the entire argument for shipping the cache: without it, checking the
+reported numbers means spending four dollars and an evening, so nobody checks
+them. Both wall-clock figures are the work itself; going through Docker on a
+laptop roughly doubles them, which is still under a minute.
 
 The live figures come from the run that produced
 [`results/REPORT.md`](results/REPORT.md): 270,396 prompt tokens and 3,006,130

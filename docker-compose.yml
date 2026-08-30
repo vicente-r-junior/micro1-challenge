@@ -26,7 +26,7 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
       - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
-      - MIGRATION_MODEL=${MIGRATION_MODEL:-openai/gpt-4o-mini}
+      - MIGRATION_MODEL=${MIGRATION_MODEL:-}
     command: >
       python src/migrate.py data/cases/case_01_inventory/legacy_app.py
 
@@ -39,6 +39,6 @@ services:
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
       - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
-      - MIGRATION_MODEL=${MIGRATION_MODEL:-openai/gpt-4o-mini}
+      - MIGRATION_MODEL=${MIGRATION_MODEL:-}
     command: >
       python src/evaluate.py --variants all --checkpoint auto
