@@ -27,3 +27,6 @@ submission.zip
 
 # tool caches
 .serena/
+
+# working note, not part of the deliverable
+docs/whole-repo-prompt.md
