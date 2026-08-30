@@ -16,7 +16,7 @@
       "completion_tokens": 197958,
       "cost_usd": 0.2659,
       "model_s": 1384.4,
-      "wall_s": 3.9,
+      "wall_s": 3.2,
       "workers": 4,
       "wave_size": 16,
       "memory": {
@@ -87,7 +87,7 @@
             "cost_usd": 0.031986,
             "model_s": 151.7,
             "cost_is_complete": true,
-            "wall_s": 0.794
+            "wall_s": 0.855
           },
           "trace": "trajectories/v0_baseline/case_01_inventory.jsonl",
           "output_file": "results/migrated/v0_baseline/case_01_inventory.py",
@@ -155,7 +155,7 @@
             "cost_usd": 0.018051,
             "model_s": 97.5,
             "cost_is_complete": true,
-            "wall_s": 0.789
+            "wall_s": 0.856
           },
           "trace": "trajectories/v0_baseline/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v0_baseline/case_02_blueprint_auth.py",
@@ -223,7 +223,7 @@
             "cost_usd": 0.017787,
             "model_s": 93.9,
             "cost_is_complete": true,
-            "wall_s": 0.742
+            "wall_s": 0.828
           },
           "trace": "trajectories/v0_baseline/case_03_app_config.jsonl",
           "output_file": "results/migrated/v0_baseline/case_03_app_config.py",
@@ -287,7 +287,7 @@
             "cost_usd": 0.030448,
             "model_s": 149.5,
             "cost_is_complete": true,
-            "wall_s": 0.764
+            "wall_s": 0.836
           },
           "trace": "trajectories/v0_baseline/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v0_baseline/case_04_error_handlers.py",
@@ -354,7 +354,7 @@
             "cost_usd": 0.011984,
             "model_s": 59.5,
             "cost_is_complete": true,
-            "wall_s": 0.914
+            "wall_s": 0.69
           },
           "trace": "trajectories/v0_baseline/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v0_baseline/case_05_response_shapes.py",
@@ -410,7 +410,7 @@
             "cost_usd": 0.009767,
             "model_s": 48.8,
             "cost_is_complete": true,
-            "wall_s": 0.94
+            "wall_s": 0.715
           },
           "trace": "trajectories/v0_baseline/case_06_query_params.jsonl",
           "output_file": "results/migrated/v0_baseline/case_06_query_params.py",
@@ -462,7 +462,7 @@
             "cost_usd": 0.004381,
             "model_s": 21.6,
             "cost_is_complete": true,
-            "wall_s": 0.929
+            "wall_s": 0.704
           },
           "trace": "trajectories/v0_baseline/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v0_baseline/case_07_path_converters.py",
@@ -526,7 +526,7 @@
             "cost_usd": 0.007862,
             "model_s": 42.3,
             "cost_is_complete": true,
-            "wall_s": 0.922
+            "wall_s": 0.703
           },
           "trace": "trajectories/v0_baseline/case_08_method_view.jsonl",
           "output_file": "results/migrated/v0_baseline/case_08_method_view.py",
@@ -590,7 +590,7 @@
             "cost_usd": 0.005048,
             "model_s": 25.7,
             "cost_is_complete": true,
-            "wall_s": 1.05
+            "wall_s": 0.677
           },
           "trace": "trajectories/v0_baseline/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v0_baseline/case_09_bulk_status.py",
@@ -658,7 +658,7 @@
             "cost_usd": 0.016088,
             "model_s": 82.8,
             "cost_is_complete": true,
-            "wall_s": 1.123
+            "wall_s": 0.738
           },
           "trace": "trajectories/v0_baseline/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v0_baseline/case_10_conditional_update.py",
@@ -710,7 +710,7 @@
             "cost_usd": 0.015928,
             "model_s": 90.5,
             "cost_is_complete": true,
-            "wall_s": 1.127
+            "wall_s": 0.743
           },
           "trace": "trajectories/v0_baseline/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v0_baseline/case_11_trailing_slash.py",
@@ -768,7 +768,7 @@
             "cost_usd": 0.009168,
             "model_s": 48.8,
             "cost_is_complete": true,
-            "wall_s": 1.11
+            "wall_s": 0.723
           },
           "trace": "trajectories/v0_baseline/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v0_baseline/case_12_pagination_headers.py",
@@ -840,7 +840,7 @@
             "cost_usd": 0.018925,
             "model_s": 106.5,
             "cost_is_complete": true,
-            "wall_s": 1.042
+            "wall_s": 0.885
           },
           "trace": "trajectories/v0_baseline/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v0_baseline/case_13_restful_todo.py",
@@ -911,7 +911,7 @@
             "cost_usd": 0.018132,
             "model_s": 108.0,
             "cost_is_complete": true,
-            "wall_s": 1.041
+            "wall_s": 0.88
           },
           "trace": "trajectories/v0_baseline/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v0_baseline/case_14_restful_todo_simple.py",
@@ -975,7 +975,7 @@
             "cost_usd": 0.016467,
             "model_s": 76.4,
             "cost_is_complete": true,
-            "wall_s": 1.054
+            "wall_s": 0.889
           },
           "trace": "trajectories/v0_baseline/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v0_baseline/case_15_inconsistent_errors.py",
@@ -1043,7 +1043,7 @@
             "cost_usd": 0.033861,
             "model_s": 180.9,
             "cost_is_complete": true,
-            "wall_s": 1.055
+            "wall_s": 0.9
           },
           "trace": "trajectories/v0_baseline/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v0_baseline/case_16_state_machine.py",
@@ -1065,7 +1065,7 @@
       "completion_tokens": 514577,
       "cost_usd": 0.6819,
       "model_s": 4017.2,
-      "wall_s": 3.6,
+      "wall_s": 3.9,
       "workers": 4,
       "wave_size": 16,
       "memory": {
@@ -1136,7 +1136,7 @@
             "cost_usd": 0.050396,
             "model_s": 222.5,
             "cost_is_complete": true,
-            "wall_s": 0.911
+            "wall_s": 0.892
           },
           "trace": "trajectories/v1_contract/case_01_inventory.jsonl",
           "output_file": "results/migrated/v1_contract/case_01_inventory.py",
@@ -1204,7 +1204,7 @@
             "cost_usd": 0.060874,
             "model_s": 345.2,
             "cost_is_complete": true,
-            "wall_s": 0.92
+            "wall_s": 0.897
           },
           "trace": "trajectories/v1_contract/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v1_contract/case_02_blueprint_auth.py",
@@ -1272,7 +1272,7 @@
             "cost_usd": 0.015252,
             "model_s": 82.1,
             "cost_is_complete": true,
-            "wall_s": 0.863
+            "wall_s": 0.837
           },
           "trace": "trajectories/v1_contract/case_03_app_config.jsonl",
           "output_file": "results/migrated/v1_contract/case_03_app_config.py",
@@ -1336,7 +1336,7 @@
             "cost_usd": 0.071239,
             "model_s": 459.2,
             "cost_is_complete": true,
-            "wall_s": 0.887
+            "wall_s": 0.861
           },
           "trace": "trajectories/v1_contract/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v1_contract/case_04_error_handlers.py",
@@ -1400,7 +1400,7 @@
             "cost_usd": 0.046593,
             "model_s": 274.7,
             "cost_is_complete": true,
-            "wall_s": 0.932
+            "wall_s": 0.902
           },
           "trace": "trajectories/v1_contract/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v1_contract/case_05_response_shapes.py",
@@ -1456,7 +1456,7 @@
             "cost_usd": 0.027952,
             "model_s": 155.8,
             "cost_is_complete": true,
-            "wall_s": 0.885
+            "wall_s": 0.866
           },
           "trace": "trajectories/v1_contract/case_06_query_params.jsonl",
           "output_file": "results/migrated/v1_contract/case_06_query_params.py",
@@ -1508,7 +1508,7 @@
             "cost_usd": 0.057708,
             "model_s": 368.8,
             "cost_is_complete": true,
-            "wall_s": 0.922
+            "wall_s": 0.937
           },
           "trace": "trajectories/v1_contract/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v1_contract/case_07_path_converters.py",
@@ -1572,7 +1572,7 @@
             "cost_usd": 0.045438,
             "model_s": 327.5,
             "cost_is_complete": true,
-            "wall_s": 0.917
+            "wall_s": 0.939
           },
           "trace": "trajectories/v1_contract/case_08_method_view.jsonl",
           "output_file": "results/migrated/v1_contract/case_08_method_view.py",
@@ -1636,7 +1636,7 @@
             "cost_usd": 0.011345,
             "model_s": 70.2,
             "cost_is_complete": true,
-            "wall_s": 0.798
+            "wall_s": 1.076
           },
           "trace": "trajectories/v1_contract/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v1_contract/case_09_bulk_status.py",
@@ -1704,7 +1704,7 @@
             "cost_usd": 0.035984,
             "model_s": 217.7,
             "cost_is_complete": true,
-            "wall_s": 0.854
+            "wall_s": 1.137
           },
           "trace": "trajectories/v1_contract/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v1_contract/case_10_conditional_update.py",
@@ -1756,7 +1756,7 @@
             "cost_usd": 0.063986,
             "model_s": 386.8,
             "cost_is_complete": true,
-            "wall_s": 0.868
+            "wall_s": 1.109
           },
           "trace": "trajectories/v1_contract/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v1_contract/case_11_trailing_slash.py",
@@ -1812,7 +1812,7 @@
             "cost_usd": 0.025575,
             "model_s": 140.4,
             "cost_is_complete": true,
-            "wall_s": 0.806
+            "wall_s": 1.033
           },
           "trace": "trajectories/v1_contract/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v1_contract/case_12_pagination_headers.py",
@@ -1881,7 +1881,7 @@
             "cost_usd": 0.056312,
             "model_s": 352.8,
             "cost_is_complete": true,
-            "wall_s": 0.909
+            "wall_s": 1.021
           },
           "trace": "trajectories/v1_contract/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v1_contract/case_13_restful_todo.py",
@@ -1949,7 +1949,7 @@
             "cost_usd": 0.041311,
             "model_s": 256.5,
             "cost_is_complete": true,
-            "wall_s": 0.915
+            "wall_s": 0.99
           },
           "trace": "trajectories/v1_contract/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v1_contract/case_14_restful_todo_simple.py",
@@ -2013,7 +2013,7 @@
             "cost_usd": 0.04247,
             "model_s": 205.5,
             "cost_is_complete": true,
-            "wall_s": 0.938
+            "wall_s": 1.009
           },
           "trace": "trajectories/v1_contract/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v1_contract/case_15_inconsistent_errors.py",
@@ -2081,7 +2081,7 @@
             "cost_usd": 0.029512,
             "model_s": 151.5,
             "cost_is_complete": true,
-            "wall_s": 0.926
+            "wall_s": 0.98
           },
           "trace": "trajectories/v1_contract/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v1_contract/case_16_state_machine.py",
@@ -2103,7 +2103,7 @@
       "completion_tokens": 549299,
       "cost_usd": 0.7311,
       "model_s": 4284.6,
-      "wall_s": 4.1,
+      "wall_s": 4.0,
       "workers": 4,
       "wave_size": 16,
       "memory": {
@@ -2174,7 +2174,7 @@
             "cost_usd": 0.050396,
             "model_s": 222.5,
             "cost_is_complete": true,
-            "wall_s": 0.882
+            "wall_s": 0.952
           },
           "trace": "trajectories/v2_repair/case_01_inventory.jsonl",
           "output_file": "results/migrated/v2_repair/case_01_inventory.py",
@@ -2242,7 +2242,7 @@
             "cost_usd": 0.060874,
             "model_s": 345.2,
             "cost_is_complete": true,
-            "wall_s": 0.891
+            "wall_s": 0.962
           },
           "trace": "trajectories/v2_repair/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v2_repair/case_02_blueprint_auth.py",
@@ -2310,7 +2310,7 @@
             "cost_usd": 0.015252,
             "model_s": 82.1,
             "cost_is_complete": true,
-            "wall_s": 0.83
+            "wall_s": 0.905
           },
           "trace": "trajectories/v2_repair/case_03_app_config.jsonl",
           "output_file": "results/migrated/v2_repair/case_03_app_config.py",
@@ -2374,7 +2374,7 @@
             "cost_usd": 0.071239,
             "model_s": 459.2,
             "cost_is_complete": true,
-            "wall_s": 0.858
+            "wall_s": 0.91
           },
           "trace": "trajectories/v2_repair/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v2_repair/case_04_error_handlers.py",
@@ -2438,7 +2438,7 @@
             "cost_usd": 0.046593,
             "model_s": 274.7,
             "cost_is_complete": true,
-            "wall_s": 0.901
+            "wall_s": 0.896
           },
           "trace": "trajectories/v2_repair/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v2_repair/case_05_response_shapes.py",
@@ -2494,7 +2494,7 @@
             "cost_usd": 0.027952,
             "model_s": 155.8,
             "cost_is_complete": true,
-            "wall_s": 0.858
+            "wall_s": 0.862
           },
           "trace": "trajectories/v2_repair/case_06_query_params.jsonl",
           "output_file": "results/migrated/v2_repair/case_06_query_params.py",
@@ -2546,7 +2546,7 @@
             "cost_usd": 0.057708,
             "model_s": 368.8,
             "cost_is_complete": true,
-            "wall_s": 0.905
+            "wall_s": 0.886
           },
           "trace": "trajectories/v2_repair/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v2_repair/case_07_path_converters.py",
@@ -2610,7 +2610,7 @@
             "cost_usd": 0.045438,
             "model_s": 327.5,
             "cost_is_complete": true,
-            "wall_s": 0.893
+            "wall_s": 0.887
           },
           "trace": "trajectories/v2_repair/case_08_method_view.jsonl",
           "output_file": "results/migrated/v2_repair/case_08_method_view.py",
@@ -2674,7 +2674,7 @@
             "cost_usd": 0.011345,
             "model_s": 70.2,
             "cost_is_complete": true,
-            "wall_s": 0.918
+            "wall_s": 0.806
           },
           "trace": "trajectories/v2_repair/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v2_repair/case_09_bulk_status.py",
@@ -2742,7 +2742,7 @@
             "cost_usd": 0.035984,
             "model_s": 217.7,
             "cost_is_complete": true,
-            "wall_s": 0.956
+            "wall_s": 0.864
           },
           "trace": "trajectories/v2_repair/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v2_repair/case_10_conditional_update.py",
@@ -2794,7 +2794,7 @@
             "cost_usd": 0.063986,
             "model_s": 386.8,
             "cost_is_complete": true,
-            "wall_s": 0.938
+            "wall_s": 0.859
           },
           "trace": "trajectories/v2_repair/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v2_repair/case_11_trailing_slash.py",
@@ -2850,7 +2850,7 @@
             "cost_usd": 0.025575,
             "model_s": 140.4,
             "cost_is_complete": true,
-            "wall_s": 0.893
+            "wall_s": 0.813
           },
           "trace": "trajectories/v2_repair/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v2_repair/case_12_pagination_headers.py",
@@ -2937,7 +2937,7 @@
             "cost_usd": 0.082055,
             "model_s": 489.7,
             "cost_is_complete": true,
-            "wall_s": 1.423
+            "wall_s": 1.397
           },
           "trace": "trajectories/v2_repair/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v2_repair/case_13_restful_todo.py",
@@ -3011,7 +3011,7 @@
             "cost_usd": 0.064727,
             "model_s": 387.0,
             "cost_is_complete": true,
-            "wall_s": 1.369
+            "wall_s": 1.364
           },
           "trace": "trajectories/v2_repair/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v2_repair/case_14_restful_todo_simple.py",
@@ -3075,7 +3075,7 @@
             "cost_usd": 0.04247,
             "model_s": 205.5,
             "cost_is_complete": true,
-            "wall_s": 0.965
+            "wall_s": 0.922
           },
           "trace": "trajectories/v2_repair/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v2_repair/case_15_inconsistent_errors.py",
@@ -3143,7 +3143,7 @@
             "cost_usd": 0.029512,
             "model_s": 151.5,
             "cost_is_complete": true,
-            "wall_s": 0.951
+            "wall_s": 0.917
           },
           "trace": "trajectories/v2_repair/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v2_repair/case_16_state_machine.py",
@@ -3165,7 +3165,7 @@
       "completion_tokens": 872148,
       "cost_usd": 1.1683,
       "model_s": 6540.6,
-      "wall_s": 4.0,
+      "wall_s": 3.9,
       "workers": 4,
       "wave_size": 16,
       "memory": {
@@ -3236,7 +3236,7 @@
             "cost_usd": 0.069177,
             "model_s": 371.1,
             "cost_is_complete": true,
-            "wall_s": 0.857
+            "wall_s": 0.849
           },
           "trace": "trajectories/v3_analyst/case_01_inventory.jsonl",
           "output_file": "results/migrated/v3_analyst/case_01_inventory.py",
@@ -3304,7 +3304,7 @@
             "cost_usd": 0.061817,
             "model_s": 341.4,
             "cost_is_complete": true,
-            "wall_s": 0.852
+            "wall_s": 0.844
           },
           "trace": "trajectories/v3_analyst/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v3_analyst/case_02_blueprint_auth.py",
@@ -3372,7 +3372,7 @@
             "cost_usd": 0.066259,
             "model_s": 384.3,
             "cost_is_complete": true,
-            "wall_s": 0.807
+            "wall_s": 0.794
           },
           "trace": "trajectories/v3_analyst/case_03_app_config.jsonl",
           "output_file": "results/migrated/v3_analyst/case_03_app_config.py",
@@ -3436,7 +3436,7 @@
             "cost_usd": 0.059333,
             "model_s": 292.7,
             "cost_is_complete": true,
-            "wall_s": 0.83
+            "wall_s": 0.819
           },
           "trace": "trajectories/v3_analyst/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v3_analyst/case_04_error_handlers.py",
@@ -3500,7 +3500,7 @@
             "cost_usd": 0.06995,
             "model_s": 423.2,
             "cost_is_complete": true,
-            "wall_s": 0.96
+            "wall_s": 0.877
           },
           "trace": "trajectories/v3_analyst/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v3_analyst/case_05_response_shapes.py",
@@ -3556,7 +3556,7 @@
             "cost_usd": 0.051556,
             "model_s": 286.3,
             "cost_is_complete": true,
-            "wall_s": 0.903
+            "wall_s": 0.829
           },
           "trace": "trajectories/v3_analyst/case_06_query_params.jsonl",
           "output_file": "results/migrated/v3_analyst/case_06_query_params.py",
@@ -3608,7 +3608,7 @@
             "cost_usd": 0.057701,
             "model_s": 295.8,
             "cost_is_complete": true,
-            "wall_s": 0.952
+            "wall_s": 0.879
           },
           "trace": "trajectories/v3_analyst/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v3_analyst/case_07_path_converters.py",
@@ -3672,7 +3672,7 @@
             "cost_usd": 0.084242,
             "model_s": 462.4,
             "cost_is_complete": true,
-            "wall_s": 0.956
+            "wall_s": 0.884
           },
           "trace": "trajectories/v3_analyst/case_08_method_view.jsonl",
           "output_file": "results/migrated/v3_analyst/case_08_method_view.py",
@@ -3736,7 +3736,7 @@
             "cost_usd": 0.03548,
             "model_s": 198.6,
             "cost_is_complete": true,
-            "wall_s": 0.867
+            "wall_s": 0.803
           },
           "trace": "trajectories/v3_analyst/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v3_analyst/case_09_bulk_status.py",
@@ -3804,7 +3804,7 @@
             "cost_usd": 0.104762,
             "model_s": 582.1,
             "cost_is_complete": true,
-            "wall_s": 0.93
+            "wall_s": 0.863
           },
           "trace": "trajectories/v3_analyst/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v3_analyst/case_10_conditional_update.py",
@@ -3856,7 +3856,7 @@
             "cost_usd": 0.081576,
             "model_s": 516.0,
             "cost_is_complete": true,
-            "wall_s": 0.926
+            "wall_s": 0.864
           },
           "trace": "trajectories/v3_analyst/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v3_analyst/case_11_trailing_slash.py",
@@ -3912,7 +3912,7 @@
             "cost_usd": 0.05221,
             "model_s": 294.3,
             "cost_is_complete": true,
-            "wall_s": 0.898
+            "wall_s": 0.841
           },
           "trace": "trajectories/v3_analyst/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v3_analyst/case_12_pagination_headers.py",
@@ -3997,7 +3997,7 @@
             "cost_usd": 0.177808,
             "model_s": 1043.6,
             "cost_is_complete": true,
-            "wall_s": 1.37
+            "wall_s": 1.447
           },
           "trace": "trajectories/v3_analyst/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v3_analyst/case_13_restful_todo.py",
@@ -4061,7 +4061,7 @@
             "cost_usd": 0.07117,
             "model_s": 412.4,
             "cost_is_complete": true,
-            "wall_s": 0.842
+            "wall_s": 0.906
           },
           "trace": "trajectories/v3_analyst/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v3_analyst/case_14_restful_todo_simple.py",
@@ -4125,7 +4125,7 @@
             "cost_usd": 0.059952,
             "model_s": 306.4,
             "cost_is_complete": true,
-            "wall_s": 0.893
+            "wall_s": 0.944
           },
           "trace": "trajectories/v3_analyst/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v3_analyst/case_15_inconsistent_errors.py",
@@ -4193,7 +4193,7 @@
             "cost_usd": 0.065274,
             "model_s": 330.0,
             "cost_is_complete": true,
-            "wall_s": 0.885
+            "wall_s": 0.942
           },
           "trace": "trajectories/v3_analyst/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v3_analyst/case_16_state_machine.py",
@@ -4215,7 +4215,7 @@
       "completion_tokens": 872148,
       "cost_usd": 1.1683,
       "model_s": 6540.6,
-      "wall_s": 4.0,
+      "wall_s": 3.9,
       "workers": 4,
       "wave_size": 4,
       "memory": {
@@ -4286,7 +4286,7 @@
             "cost_usd": 0.069177,
             "model_s": 371.1,
             "cost_is_complete": true,
-            "wall_s": 0.842
+            "wall_s": 0.8
           },
           "trace": "trajectories/v4_memory/case_01_inventory.jsonl",
           "output_file": "results/migrated/v4_memory/case_01_inventory.py",
@@ -4354,7 +4354,7 @@
             "cost_usd": 0.061817,
             "model_s": 341.4,
             "cost_is_complete": true,
-            "wall_s": 0.83
+            "wall_s": 0.798
           },
           "trace": "trajectories/v4_memory/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v4_memory/case_02_blueprint_auth.py",
@@ -4422,7 +4422,7 @@
             "cost_usd": 0.066259,
             "model_s": 384.3,
             "cost_is_complete": true,
-            "wall_s": 0.76
+            "wall_s": 0.752
           },
           "trace": "trajectories/v4_memory/case_03_app_config.jsonl",
           "output_file": "results/migrated/v4_memory/case_03_app_config.py",
@@ -4486,7 +4486,7 @@
             "cost_usd": 0.059333,
             "model_s": 292.7,
             "cost_is_complete": true,
-            "wall_s": 0.8
+            "wall_s": 0.777
           },
           "trace": "trajectories/v4_memory/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v4_memory/case_04_error_handlers.py",
@@ -4550,7 +4550,7 @@
             "cost_usd": 0.06995,
             "model_s": 423.2,
             "cost_is_complete": true,
-            "wall_s": 0.852
+            "wall_s": 0.924
           },
           "trace": "trajectories/v4_memory/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v4_memory/case_05_response_shapes.py",
@@ -4606,7 +4606,7 @@
             "cost_usd": 0.051556,
             "model_s": 286.3,
             "cost_is_complete": true,
-            "wall_s": 0.823
+            "wall_s": 0.896
           },
           "trace": "trajectories/v4_memory/case_06_query_params.jsonl",
           "output_file": "results/migrated/v4_memory/case_06_query_params.py",
@@ -4658,7 +4658,7 @@
             "cost_usd": 0.057701,
             "model_s": 295.8,
             "cost_is_complete": true,
-            "wall_s": 0.852
+            "wall_s": 0.926
           },
           "trace": "trajectories/v4_memory/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v4_memory/case_07_path_converters.py",
@@ -4722,7 +4722,7 @@
             "cost_usd": 0.084242,
             "model_s": 462.4,
             "cost_is_complete": true,
-            "wall_s": 0.851
+            "wall_s": 0.929
           },
           "trace": "trajectories/v4_memory/case_08_method_view.jsonl",
           "output_file": "results/migrated/v4_memory/case_08_method_view.py",
@@ -4786,7 +4786,7 @@
             "cost_usd": 0.03548,
             "model_s": 198.6,
             "cost_is_complete": true,
-            "wall_s": 0.822
+            "wall_s": 0.803
           },
           "trace": "trajectories/v4_memory/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v4_memory/case_09_bulk_status.py",
@@ -4854,7 +4854,7 @@
             "cost_usd": 0.104762,
             "model_s": 582.1,
             "cost_is_complete": true,
-            "wall_s": 0.866
+            "wall_s": 0.85
           },
           "trace": "trajectories/v4_memory/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v4_memory/case_10_conditional_update.py",
@@ -4906,7 +4906,7 @@
             "cost_usd": 0.081576,
             "model_s": 516.0,
             "cost_is_complete": true,
-            "wall_s": 0.866
+            "wall_s": 0.85
           },
           "trace": "trajectories/v4_memory/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v4_memory/case_11_trailing_slash.py",
@@ -4962,7 +4962,7 @@
             "cost_usd": 0.05221,
             "model_s": 294.3,
             "cost_is_complete": true,
-            "wall_s": 0.85
+            "wall_s": 0.832
           },
           "trace": "trajectories/v4_memory/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v4_memory/case_12_pagination_headers.py",
@@ -5047,7 +5047,7 @@
             "cost_usd": 0.177808,
             "model_s": 1043.6,
             "cost_is_complete": true,
-            "wall_s": 1.468
+            "wall_s": 1.356
           },
           "trace": "trajectories/v4_memory/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v4_memory/case_13_restful_todo.py",
@@ -5111,7 +5111,7 @@
             "cost_usd": 0.07117,
             "model_s": 412.4,
             "cost_is_complete": true,
-            "wall_s": 0.953
+            "wall_s": 0.844
           },
           "trace": "trajectories/v4_memory/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v4_memory/case_14_restful_todo_simple.py",
@@ -5175,7 +5175,7 @@
             "cost_usd": 0.059952,
             "model_s": 306.4,
             "cost_is_complete": true,
-            "wall_s": 0.999
+            "wall_s": 0.897
           },
           "trace": "trajectories/v4_memory/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v4_memory/case_15_inconsistent_errors.py",
@@ -5243,7 +5243,7 @@
             "cost_usd": 0.065274,
             "model_s": 330.0,
             "cost_is_complete": true,
-            "wall_s": 0.993
+            "wall_s": 0.892
           },
           "trace": "trajectories/v4_memory/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v4_memory/case_16_state_machine.py",

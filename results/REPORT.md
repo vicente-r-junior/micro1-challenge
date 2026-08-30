@@ -70,4 +70,4 @@ The synthetic cases were written for this benchmark by the author of the tool. T
 - Tool calls: `get_probe_detail` ×18, `run_differential` ×1, `search_legacy` ×1
 - Lessons in the ledger at the end: 0
 - Probes scored on status alone (framework error pages): 55/212
-- Concurrency: 4 workers, wave size 4
+- Concurrency: 4 workers, wave size 4 (affects wall-clock only, never a score)
