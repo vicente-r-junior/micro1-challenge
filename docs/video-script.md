@@ -103,9 +103,13 @@ reads as confidence, rushing reads as nerves.
 > its own order. You never switch apps until the very last scene. Every scene is
 > **scroll to the heading, stop, then talk** — never scroll and talk at once.
 >
-> The page's own navigation bar is your running order:
-> **Measurements → Mechanism → Agent → Results → Changelog → Limits**.
-> If you lose your place, click the next name in that bar.
+> The page's navigation bar **is** your running order, left to right, with two
+> names skipped:
+>
+> **Measurements → Regressions → Agent → Results → Changelog → Limits → Hot take**
+>
+> Skip **Mechanism** and **Verify it**. If you lose your place, click the next
+> name on that list.
 
 ---
 
@@ -139,8 +143,8 @@ reads as confidence, rushing reads as nerves.
 
 # 3 · What it broke · 38 words
 
-**DO** — Click **Mechanism** in the nav, or scroll to *"The regressions that
-matter are not crashes"*. Stop. Then talk.
+**DO** — Click **Regressions** in the nav. The heading reads *"The regressions
+that matter are not crashes"*. Stop. Then talk.
 
 > None of it was a crash. The app started, and it lied.
 
@@ -172,7 +176,7 @@ matter are not crashes"*. Stop. Then talk.
 
 # 5 · Baseline, and advanced · 40 words
 
-**DO** — Click **Results**. Stop at the baseline/advanced table. Then talk.
+**DO** — Click **Results** in the nav. Stop at the baseline/advanced table. Then talk.
 
 > The baseline is one prompt. Twelve out of sixteen, and zero on real code.
 >
@@ -180,8 +184,9 @@ matter are not crashes"*. Stop. Then talk.
 >
 > Sixteen out of sixteen. Two out of two on real code.
 
-**DO** — Scroll back up to the grid. Set **gpt-5.5** and **"one prompt"** — 44 red
-cells. Click **"+ repair loop"**. **Say nothing for two seconds.**
+**DO** — Click **Measurements** in the nav to come back to the grid. Set
+**gpt-5.5** and **"one prompt"** — 44 red cells. Click **"+ repair loop"**.
+**Say nothing for two seconds.**
 
 > That is the repair loop. The change that mattered most.
 
@@ -194,7 +199,8 @@ cells. Click **"+ repair loop"**. **Say nothing for two seconds.**
 > Does a better model fix it? Five models, two companies. Thirteen tries on real
 > code, and zero passed.
 
-**DO** — Scroll to *"Two components were removed"*. Stop. Then talk.
+**DO** — Click **Results** in the nav, then scroll to *"Two components were
+removed"*. Stop. Then talk.
 
 > Two parts of my agent did not pay for themselves. Sixty percent more cost, zero
 > more results. So I removed both.
@@ -212,7 +218,7 @@ cells. Click **"+ repair loop"**. **Say nothing for two seconds.**
 
 # 8 · The limit · 12 words
 
-**DO** — Click **Limits**. Stop. Then talk.
+**DO** — Click **Limits** in the nav. Stop. Then talk.
 
 > One limit. The old app has to run. If it needs a database, I record nothing.
 
@@ -220,7 +226,7 @@ cells. Click **"+ repair loop"**. **Say nothing for two seconds.**
 
 # 9 · The take · 42 words
 
-**DO** — Camera, or leave the page still. Slow right down.
+**DO** — Click **Hot take** in the nav. Stop. Slow right down.
 
 > The easy answer is to let a model write the tests.
 >
