@@ -101,127 +101,104 @@ reads as confidence, rushing reads as nerves.
 
 ---
 
-# Block 0 — the open · 8 s
+# Block 0 — the open · 15 s
 
 **DO** — Camera only. No screen share yet.
 
-> Hi, I am Vicente. I built a migration agent, Flask to FastAPI.
+> Hi, I am Vicente. I built an agent that migrates Flask to FastAPI.
 >
-> I will be moving between a report, some code, and a terminal.
->
-> So let me start with the problem.
+> Let me start with the problem.
 
-**Do not** thank anyone here. The sign-off is at the very end, in Block 8.
+**Do not** thank anyone here. The sign-off is the last line of Block 8.
 
 ---
 
-# Block 1 — the problem · 28 s
+# Block 1 — the problem · 35 s
 
 **DO** — Switch to **VS Code**, showing
 `data/cases/case_14_restful_todo_simple/legacy_app.py`.
 
-> So this is a Flask service, and it runs in production.
+> This is a Flask service. It runs in production.
 >
-> The team wants FastAPI. They have wanted that for two years.
+> The team wants FastAPI. Writing the new code is easy.
 >
-> But writing the new code is easy. A model does it in eight seconds.
+> A model does it in eight seconds.
 >
-> The real problem is proof. Nobody can prove the new app behaves the same.
+> The hard part is proof. Nobody can prove the new app behaves the same.
 >
 > And the old one is what every client was built on.
 
 ---
 
-# Block 2 — how I measure it · 45 s
+# Block 2 — how I measure it · 40 s
 
-**DO** — Switch to the **Browser**. Click **Measurements**. Set the controls to
+**DO** — Switch to the **Browser**. Click **Measurements**. Controls on
 **"one prompt"** and **gpt-5.5**.
 
-> So how do you know if a migration is correct? This is how I measure it.
+> How do I know a migration is correct?
 >
-> Each green cell is one HTTP request, sent to both apps. Green means: same answer.
+> Each green cell is one request, sent to both apps. Green means the same answer.
 >
-> Now, I wrote fourteen test cases. Each one is a trap I knew about.
->
-> And a modern model passed eleven. So by my benchmark, it looks fine.
+> I wrote fourteen test cases. A modern model passed eleven.
 
-**DO** — Move the cursor to the two rows tagged **REAL** (13 and 14). Leave it
-there.
+**DO** — Cursor on the two rows tagged **REAL**. Leave it there. *Then* speak.
 
-> But these two are not mine. This is real open-source code.
+> These two are not mine. This is real open-source code.
 >
-> And it is zero out of two.
+> Zero out of two.
 
 ---
 
-# Block 3 — what it broke · 35 s
+# Block 3 — what it broke · 40 s
 
-**DO** — Same page. Scroll to the section *"The regressions that matter are not
-crashes"*.
+**DO** — Same page. Scroll to *"The regressions that matter are not crashes"*.
 
-> So what did it break? Three things, and none is a crash.
+> So what broke? None of it is a crash.
 >
-> One route just disappeared. It answered two hundred. Now, four zero five.
+> One route disappeared. Every error message changed shape.
 >
-> Every error message changed shape. But my favourite is this one.
+> But this one is my favourite.
 
-**DO** — Cursor on the **last row**. **Pause two seconds.**
+**DO** — Cursor on the **last row**. **Pause two seconds.** *Then* speak.
 
-> The old app had a bug here. It returned five hundred.
+> The old app had a bug. It returned five hundred.
 >
-> And the migration fixed it. Now it returns a clean four zero four.
+> The migration fixed it. Now it says four zero four.
 >
-> So, better code. But a different contract.
+> Better code. Different contract.
 >
 > Because every client that retries on five hundred breaks tomorrow.
 
 ---
 
-# Block 4 — one real run · 45 s
+# Block 4 — one real run · 40 s
 
-**DO** — Switch to the **Terminal**. Paste:
+**DO** — Switch to the **Terminal**. Paste, and **say nothing while it prints**:
 
 ```bash
 python src/show_trajectory.py trajectories/cross_model/v2_repair/case_02_blueprint_auth.jsonl --compact
 ```
 
-**DO** — 34 coloured lines. It fits one screen if your terminal is 40 rows or
-taller, so check that before you record — if it scrolls, the shot is ruined.
-There are only **three** things to point at, in this order:
+**DO** — Hands off the mouse. Just read. The judge can see the screen.
 
-1. the yellow **★ FIRST DIFFERENTIAL** — 11 out of 14
-2. the three **legacy 401 … got 500** lines
-3. the green **parity 100%**
-
-> Now let me show you the agent working. This is one real run.
+> This is one real run.
 >
-> The old app protects these routes. No token, and it answers four zero one.
-
-**DO** — Point at the three probe lines. **Pause two seconds.**
-
-> But the migration answers five hundred. The guard broke.
+> The old app wants a token. Without one, it answers four zero one.
 >
-> So the agent opens the three requests that failed, and reads both answers.
+> The migration answered five hundred. So the guard broke.
 >
-> Then it writes a fix, and runs the whole thing again before handing it over.
+> The agent read the three requests that failed. It wrote a fix, and tested again.
 
-**DO** — Point at the green `parity 100%`.
+**DO** — *Now* point at the green `parity 100%`. **One gesture, and that is the
+only one in this block.**
 
-> Fourteen out of fourteen. And nothing here was scripted by me.
->
-> I only told it: eight turns, and three tries.
-
-**DO** — Point at the last line, `⏸ HUMAN [auto] answered '(not asked)'`.
-
-> One thing though. This run was the benchmark, so nobody was asked.
->
-> Let me show you what happens when someone is.
+> Fourteen out of fourteen. I only told it: eight turns.
 
 ---
 
 # Block 5 — the human in the loop · 25 s
 
-**DO** — Back to the **Terminal**. Clear the stale file first, or the demo lies:
+**DO** — Clear the stale file first, or the demo lies:
 
 ```bash
 rm -f /tmp/demo_fastapi.py
@@ -233,9 +210,7 @@ rm -f /tmp/demo_fastapi.py
 python src/migrate.py data/cases/case_14_restful_todo_simple/legacy_app.py --out /tmp/demo_fastapi.py --replay --no-memory
 ```
 
-> Now, the part I care most about. The human in the loop.
->
-> So before writing anything to disk, it asks me.
+> Before it writes anything, it asks me.
 
 **DO** — Type **`n`**, Enter. Then:
 
@@ -243,90 +218,58 @@ python src/migrate.py data/cases/case_14_restful_todo_simple/legacy_app.py --out
 ls /tmp/demo_fastapi.py
 ```
 
-> I say no. And nothing was written.
-
-**DO** — Same migrate command again. Type **`y`**. Then:
-
-```bash
-ls -la /tmp/demo_fastapi.py
-```
-
-> Now I say yes. And there it is.
+> I said no. And nothing was written.
 
 ---
 
 # Block 6 — does it work? · 60 s
 
-**DO** — Switch to the **Browser**. Click **Measurements**. Model on
-**gpt-5.5**, configuration on **"one prompt"** — 44 red cells on screen.
+**DO** — Browser. **Measurements**. **gpt-5.5**, **"one prompt"** — 44 red cells.
 
-> Okay, so, does this actually work?
+> Does this actually work?
 
 **DO** — Click **"+ repair loop"**. **Say nothing for two seconds** while the 44
 red cells turn green.
 
 > That is the repair loop. The change that mattered most.
 
-**DO** — Click through the models, slowly: **gpt-4o-mini → gpt-5.4-mini →
-ds-v4-pro**.
+**DO** — Click through the models: **gpt-4o-mini → gpt-5.4-mini → ds-v4-pro**.
 
-> So, does a better model fix this? I ran the baseline seven times.
+> Does a better model fix it? I ran the baseline seven times.
 >
-> Five models, two companies. The score moves a lot, from one up to twelve.
->
-> But thirteen tries on real code, and zero passed. Every model.
->
-> So a better model is not the fix.
+> Five models, two companies. Thirteen tries on real code. Zero passed.
 
-**DO** — Click **Results**, scroll to the table headed *"Two components were
-removed"*.
+**DO** — Click **Results**, scroll to *"Two components were removed"*.
 
 > And two parts of my agent did not pay for themselves.
 >
-> The analyst and the memory. Sixty percent more cost, zero more results.
->
-> So I measured both, and I removed both.
+> Sixty percent more cost. Zero more results. So I removed both.
 
-**DO** — Switch to **VS Code**. Open **`CHANGELOG.md`**. Scroll fast, top to
-bottom, so the length registers.
+**DO** — VS Code. Open **`CHANGELOG.md`**. Scroll fast, top to bottom.
 
-> And all of that is in the changelog. Seventeen times I got the harness wrong.
->
-> Every entry is one decision, and the evidence that forced the next one.
+> It is all in the changelog. Seventeen times I got the harness wrong.
 
----
+**DO** — Camera.
 
-# Block 7 — where it fails · 25 s
-
-**DO** — Look at the **camera**.
-
-> Now, where does this not work?
->
-> It has to run the old app. I tried a real file, one thousand lines.
->
-> It found thirty-nine routes, and recorded nothing. That file needs a database.
->
-> No running app, no truth. So this works best on simple code.
+> One limit. The old app has to run. If it needs a database, I record nothing.
 
 ---
 
-# Block 8 — the take, and out · 35 s
+# Block 8 — the take, and out · 55 s
 
 **DO** — Camera. Slow right down. This is the ending.
 
-> So, what did I learn?
->
 > The easy answer is to let a model write the tests.
 >
-> But those tests come from the new code. They check what the code decided.
+> But those tests come from the new code.
 >
-> It changed "error" to "detail". So the test checks "detail". Green.
+> It renamed "error" to "detail". So the test checks "detail". Green.
 >
-> Actually, the test and the code make the same mistake together.
+> The test and the code make the same mistake, together.
 >
-> So, my rule. A verifier gets its truth from something the agent cannot change.
+> So, my rule. A verifier needs its truth from something the agent cannot change.
 >
-> And here that was easy. The old system is still running, and it answers everything.
+> Here that was easy. The old app is still running, and it answers everything.
 
 **DO** — One beat of silence. Then, flat and short:
 
@@ -334,33 +277,69 @@ bottom, so the length registers.
 
 ---
 
-# If you run over five minutes
+# Timing — read this before you record again
 
-The spoken text is **660 words**. At a clear, unhurried pace that is about
-4:35, and the pauses and window switches written into the blocks add roughly
-another twenty seconds — so a clean take lands near **4:50 against a hard 5:00
-limit**. That is real but thin.
+The first attempt ran long, and that was a fault in the script, not in you. It
+was written at 145 words a minute. **You read at 81** — measured from your own
+run: 244 words in about three minutes, pauses and clicks included. At that pace
+the old script was 7:50. It was never going to fit.
 
-**Time your read-through first**, then cut from this list in order until you are
-under 4:35. Each cut is exact — delete the boxed lines named, nothing else.
+This version is **400 words**, and its sentences are much shorter, which is what
+actually costs time — a long sentence in a second language is where you stop and
+restart. Short lines should carry you faster than 81.
 
-| # | Cut | Saves | What you lose |
-|---|---|---|---|
-| 1 | **Block 7** entirely — *"Now, where does this not work?"* to *"…best on simple code"* | **~22 s** | The limitation. Volunteering it is a strong signal, so cut this only if you must. The README carries it. |
-| 2 | **Block 3**, the line *"Every error message changed shape. But my favourite is this one."* | **~6 s** | One finding. Keep the five-hundred story after it; that is the best moment. |
-| 3 | **Block 8**, the two lines about `"error"` and `"detail"` | **~12 s** | Detail on the hot take. The rule that follows still lands. |
-| 4 | **Block 0**, *"I will be moving between a report, some code, and a terminal."* | **~5 s** | A small courtesy. |
+## The ninety-second test
 
-**Never cut Block 4, Block 5, the changelog beat in Block 6, or the last three
-lines of Block 8.** The brief names seven things the video must contain — the
-problem, the baseline, one execution end to end, the final comparison, the
-changelog, the change that mattered most, and the experiment you removed — and
-those four moments are where five of them live. The approval gate is also the
-ground rule on human oversight, and the closing line is the insight the whole
+Do this once before recording. Stopwatch, out loud, at the pace you would use on
+camera:
+
+**Read Blocks 0 to 3. Nothing else.** That is 174 words.
+
+| Your time | What it means | What to do |
+|---|---|---|
+| under **1:50** | you are at 95+ wpm | record the script as written, you have margin |
+| **1:50 – 2:10** | you are near 85 wpm | make **cut A** below, then record |
+| over **2:10** | still around 80 | make **cut A and cut B**, then record |
+
+The test is the whole point: it tells you before you press record, instead of
+you finding out at Block 4 with two minutes left.
+
+## The two cuts, in order
+
+**Cut A — Block 6, the models line.** Delete:
+
+> Does a better model fix it? I ran the baseline seven times.
+
+Keep the line after it. You lose the setup, not the evidence. **Saves ~9 s.**
+
+**Cut B — Block 3, the two middle findings.** Delete:
+
+> One route disappeared. Every error message changed shape.
+
+Go straight from *"None of it is a crash"* to *"But this one is my favourite"*.
+The five-hundred story is the best moment in the video and it survives intact.
+**Saves ~8 s.**
+
+## Never cut these
+
+Block 4, Block 5, any of Block 6, and the last four lines of Block 8.
+
+The brief names seven things the video must contain: the problem, the baseline,
+one execution end to end, the final comparison, the changelog, the change that
+mattered most, and the experiment you removed. Block 6 alone holds four of them.
+Block 5 is the human-approval ground rule. Block 8 is the insight the whole
 project is built on.
 
+## Two rules for the take itself
+
 **Never fix an overrun by speaking faster.** Speed is the first thing that makes
-an accent hard to follow.
+an accent hard to follow, and a judge who has to work to understand you stops
+hearing the argument.
+
+**Never point and speak at the same time.** That is what made Block 4 hard. Every
+block now separates them: the **DO** happens, *then* you talk, or you talk and
+*then* point. Block 4 has exactly one gesture in it now, and it comes after the
+sentence is finished.
 
 # Words to practise
 
