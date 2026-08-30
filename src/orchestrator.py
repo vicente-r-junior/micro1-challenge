@@ -68,7 +68,16 @@ class CaseResult:
     stop_reason: str = ""
 
     def row(self) -> dict[str, Any]:
-        return asdict(self)
+        """Serialise for results/summary.json.
+
+        `wall_s` is dropped here and kept in the trajectory. In a live run it is
+        real information; in a replay it measures the reader's CPU, and a
+        results file meant to be diffed against the committed copy must not
+        carry a field that moves for a reason unrelated to the result.
+        """
+        data = asdict(self)
+        data["totals"] = {k: v for k, v in data["totals"].items() if k != "wall_s"}
+        return data
 
 
 # --------------------------------------------------------------------------- #
