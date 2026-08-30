@@ -89,8 +89,8 @@ goes Browser → VS Code → Terminal in that order.
 Not vocabulary — choices. Four habits:
 
 1. **Lead with the decision, not the feature.** The script already does this.
-2. **Say a trade-off out loud.** Block 7 has one.
-3. **Name the limit before they find it.** Block 8.
+2. **Say a trade-off out loud.** The last line of Block 6 is one.
+3. **Name the limit before they find it.** Same line.
 4. **Never narrate the screen.** Do not say "here I click". Say what it means.
 
 No apologising. No "I tried to". No "I hope". State what you measured.
@@ -368,11 +368,13 @@ sentence is finished.
 
 - [ ] Under 5:00
 - [ ] The baseline shown **and** its silent regression shown
-- [ ] One execution, uncut (Block 5)
-- [ ] The approval gate: `n` then `y` (Block 6)
-- [ ] Comparison table on screen (Block 7)
-- [ ] The change that mattered most, said out loud (Block 7)
-- [ ] The removed experiment, said out loud (Block 7)
-- [ ] The limitation, volunteered (Block 8)
+- [ ] One execution, uncut (Block 4)
+- [ ] The approval gate refusing the write (Block 5)
+- [ ] Comparison grid on screen (Block 6)
+- [ ] The change that mattered most, said out loud (Block 6)
+- [ ] The removed experiment, said out loud (Block 6)
+- [ ] The changelog, on screen and explained (Block 6)
+- [ ] The limitation, volunteered (Block 6, last line)
+- [ ] The hot take (Block 8)
 - [ ] Terminal readable at laptop size
 - [ ] Audio clear, no room echo
