@@ -1,0 +1,8 @@
+{
+  "id": "case_09_bulk_status",
+  "title": "JSON array body and a 207 multi-status response",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "The request body is a top-level array, which a Pydantic BaseModel cannot represent without List[...] at the parameter level. The 207 status is chosen at runtime from the results."
+}

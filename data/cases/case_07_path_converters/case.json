@@ -1,0 +1,9 @@
+{
+  "id": "case_07_path_converters",
+  "title": "String, int, uuid and path converters",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Flask's <path:...> matches slashes; the FastAPI equivalent needs {file_path:path} explicitly, and <uuid:...> rejects malformed ids with 404 rather than 422.",
+  "path_values": {"org_slug": "acme", "repo_id": "7", "file_path": "src/main.py"}
+}

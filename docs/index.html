@@ -1,0 +1,783 @@
+<title>The Old App Is the Spec</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap">
+
+<style>
+:root{
+  --ground:#F3F4F1;
+  --surface:#FBFBFA;
+  --surface-2:#EAEBE7;
+  --ink:#16191C;
+  --ink-2:#4A5055;
+  --ink-3:#767D82;
+  --rule:#D8DAD4;
+  --rule-2:#C3C6BE;
+  --accent:#4B3FA7;
+  --accent-2:#2A2560;
+  --accent-wash:#ECEAF7;
+  --match:#2F7A4F;
+  --match-cell:#59A97C;
+  --diverge:#A76A16;
+  --break:#B0392F;
+  --break-cell:#D2695E;
+  --shadow:0 1px 2px rgba(22,25,28,.05),0 8px 24px -16px rgba(22,25,28,.28);
+  --maxw:1080px;
+  --prose:66ch;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#101216;
+    --surface:#171A1F;
+    --surface-2:#1F232A;
+    --ink:#E9EBE8;
+    --ink-2:#A9AFB4;
+    --ink-3:#7C838A;
+    --rule:#2A2F36;
+    --rule-2:#39404A;
+    --accent:#9C92E8;
+    --accent-2:#C4BDF3;
+    --accent-wash:#1E1B33;
+    --match:#6FBF92;
+    --match-cell:#4E9A72;
+    --diverge:#D69B4A;
+    --break:#E0776B;
+    --break-cell:#B85449;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#101216;
+  --surface:#171A1F;
+  --surface-2:#1F232A;
+  --ink:#E9EBE8;
+  --ink-2:#A9AFB4;
+  --ink-3:#7C838A;
+  --rule:#2A2F36;
+  --rule-2:#39404A;
+  --accent:#9C92E8;
+  --accent-2:#C4BDF3;
+  --accent-wash:#1E1B33;
+  --match:#6FBF92;
+  --match-cell:#4E9A72;
+  --diverge:#D69B4A;
+  --break:#E0776B;
+  --break-cell:#B85449;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16.5px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.prose{max-width:var(--prose)}
+
+h1,h2,h3{font-family:"IBM Plex Serif",Georgia,serif;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.08;letter-spacing:-.02em;font-weight:600}
+h2{font-size:clamp(1.5rem,3vw,2rem);line-height:1.18;letter-spacing:-.015em;font-weight:600}
+h3{font-size:1.12rem;line-height:1.3;font-weight:600}
+p{margin:0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{color:var(--accent-2)}
+strong{font-weight:600}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.87em;background:var(--surface-2);padding:.1em .34em;border-radius:3px}
+
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;font-weight:500;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);
+}
+
+/* -- top bar --------------------------------------- */
+.bar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--ground) 88%,transparent);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.bar-in{max-width:var(--maxw);margin:0 auto;padding:11px 28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.mark{font-family:"IBM Plex Mono",monospace;font-size:.76rem;font-weight:600;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
+.mark span{color:var(--accent)}
+.bar nav{display:flex;gap:18px;flex-wrap:wrap;margin-left:auto}
+.bar nav a{
+  font-family:"IBM Plex Mono",monospace;font-size:.73rem;color:var(--ink-2);
+  text-decoration:none;letter-spacing:.02em;
+}
+.bar nav a:hover{color:var(--accent)}
+
+/* -- hero ------------------------------------------ */
+.hero{padding:76px 0 42px;display:flex;flex-direction:column;gap:26px}
+.lede{font-size:1.18rem;line-height:1.6;color:var(--ink-2);max-width:60ch}
+.lede em{font-style:normal;color:var(--ink);font-weight:500}
+.meta{
+  display:flex;gap:10px;flex-wrap:wrap;font-family:"IBM Plex Mono",monospace;
+  font-size:.72rem;color:var(--ink-3);
+}
+.meta span{border:1px solid var(--rule-2);border-radius:999px;padding:3px 11px}
+
+section{padding:46px 0;border-top:1px solid var(--rule)}
+.stack{display:flex;flex-direction:column;gap:20px}
+.stack-tight{display:flex;flex-direction:column;gap:12px}
+
+/* -- probe grid (signature) ------------------------ */
+.instrument{
+  background:var(--surface);border:1px solid var(--rule);border-radius:10px;
+  box-shadow:var(--shadow);overflow:hidden;
+}
+.inst-head{
+  display:flex;gap:16px;align-items:center;flex-wrap:wrap;
+  padding:15px 20px;border-bottom:1px solid var(--rule);background:var(--surface-2);
+}
+.ctrl{display:flex;align-items:center;gap:8px}
+.ctrl-label{font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.seg{display:flex;border:1px solid var(--rule-2);border-radius:6px;overflow:hidden;background:var(--surface)}
+.seg button{
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;font-weight:500;
+  padding:5px 12px;border:0;background:transparent;color:var(--ink-2);cursor:pointer;
+  border-right:1px solid var(--rule-2);transition:background .15s,color .15s;
+}
+.seg button:last-child{border-right:0}
+.seg button:hover{background:var(--accent-wash);color:var(--accent)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.seg button:disabled{opacity:.35;cursor:not-allowed}
+.seg button:disabled:hover{background:transparent;color:var(--ink-2)}
+:root[data-theme="dark"] .seg button[aria-pressed="true"],
+:root:not([data-theme="light"]) .seg button[aria-pressed="true"]{color:#14121F}
+
+.tally{margin-left:auto;font-family:"IBM Plex Mono",monospace;font-size:.8rem;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.tally b{color:var(--ink);font-weight:600}
+
+.grid-scroll{overflow-x:auto}
+.grid{display:grid;grid-template-columns:auto 1fr auto;gap:0;min-width:620px}
+.g-row{display:contents}
+.g-row > *{padding:6px 10px;border-bottom:1px solid var(--rule)}
+.g-row:last-child > *{border-bottom:0}
+.g-name{
+  font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-2);
+  white-space:nowrap;display:flex;align-items:center;gap:7px;padding-left:20px !important;
+}
+.g-real{
+  font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600;
+  color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:0 4px;
+}
+.cells{display:flex;align-items:center;gap:2px;flex-wrap:wrap}
+.cell{
+  width:10px;height:16px;border-radius:2px;background:var(--match-cell);
+  transition:background .45s cubic-bezier(.2,.7,.3,1);
+}
+.cell.bad{background:var(--break-cell)}
+.cell.dead{
+  background:repeating-linear-gradient(45deg,var(--rule-2) 0 2px,transparent 2px 4px);
+  border:1px solid var(--rule-2);
+}
+.g-score{
+  font-family:"IBM Plex Mono",monospace;font-size:.74rem;text-align:right;
+  font-variant-numeric:tabular-nums;white-space:nowrap;padding-right:20px !important;color:var(--ink-2);
+}
+.g-score.ok{color:var(--match);font-weight:600}
+.inst-foot{
+  padding:13px 20px;border-top:1px solid var(--rule);background:var(--surface-2);
+  font-size:.79rem;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+}
+.key{display:flex;align-items:center;gap:6px;font-family:"IBM Plex Mono",monospace;font-size:.7rem}
+.key i{width:10px;height:12px;border-radius:2px;display:inline-block}
+
+/* -- tables ---------------------------------------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:8px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.87rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:.67rem;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--ink-3);font-weight:500;background:var(--surface-2);
+  white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.win{color:var(--match);font-weight:600}
+.lose{color:var(--break);font-weight:600}
+.mid{color:var(--diverge);font-weight:600}
+tr.hi td{background:var(--accent-wash)}
+
+/* -- callouts -------------------------------------- */
+.note{
+  border-left:2px solid var(--accent);padding:2px 0 2px 18px;color:var(--ink-2);
+  max-width:var(--prose);
+}
+.note strong{color:var(--ink)}
+.big{
+  font-family:"IBM Plex Serif",Georgia,serif;font-size:clamp(1.25rem,2.6vw,1.6rem);
+  line-height:1.42;letter-spacing:-.01em;max-width:32ch;
+}
+
+/* -- pipeline -------------------------------------- */
+.pipe{display:flex;flex-direction:column;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.step{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;padding:13px 18px;background:var(--surface)}
+.step-n{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.step-b{font-size:.9rem}
+.step-b b{font-weight:600}
+.step-b span{color:var(--ink-2)}
+.tag{
+  font-family:"IBM Plex Mono",monospace;font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 8px;border-radius:999px;white-space:nowrap;font-weight:600;
+}
+.tag.det{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--rule-2)}
+.tag.ai{background:var(--accent-wash);color:var(--accent);border:1px solid var(--accent)}
+.tag.you{background:transparent;color:var(--diverge);border:1px solid var(--diverge)}
+
+/* -- turn-by-turn ---------------------------------- */
+.turns{display:flex;flex-direction:column;gap:0;counter-reset:t}
+.turn{display:grid;grid-template-columns:auto 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.turn:last-child{border-bottom:0}
+.turn-n{
+  font-family:"IBM Plex Mono",monospace;font-size:.7rem;color:var(--ink-3);
+  padding-top:3px;white-space:nowrap;
+}
+.turn-b{display:flex;flex-direction:column;gap:9px;min-width:0}
+.turn-b h3{font-size:1rem}
+.turn-b p{color:var(--ink-2);font-size:.92rem;max-width:62ch}
+.io{
+  font-family:"IBM Plex Mono",monospace;font-size:.76rem;line-height:1.55;
+  background:var(--surface);border:1px solid var(--rule);border-radius:6px;
+  padding:11px 13px;overflow-x:auto;white-space:pre;color:var(--ink-2);
+}
+.io .out{color:var(--accent)}
+.io .in{color:var(--ink-3)}
+.io .g{color:var(--match)}
+.io .r{color:var(--break)}
+
+/* -- commands -------------------------------------- */
+.cmd{position:relative;display:flex;align-items:stretch;gap:0;background:var(--surface);border:1px solid var(--rule);border-radius:7px;overflow:hidden}
+.cmd pre{
+  margin:0;padding:12px 14px;overflow-x:auto;flex:1;
+  font-family:"IBM Plex Mono",monospace;font-size:.8rem;line-height:1.6;color:var(--ink);
+}
+.cmd pre .c{color:var(--ink-3)}
+.copy{
+  border:0;border-left:1px solid var(--rule);background:var(--surface-2);color:var(--ink-2);
+  font-family:"IBM Plex Mono",monospace;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;
+  padding:0 14px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap;
+}
+.copy:hover{background:var(--accent);color:#fff}
+.copy:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+:root[data-theme="dark"] .copy:hover,:root:not([data-theme="light"]) .copy:hover{color:#14121F}
+
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:18px}
+.path{
+  background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:20px;
+  display:flex;flex-direction:column;gap:14px;
+}
+.path h3{display:flex;align-items:center;gap:9px}
+.path .cost{font-family:"IBM Plex Mono",monospace;font-size:.72rem;color:var(--ink-3)}
+.path p{font-size:.89rem;color:var(--ink-2)}
+
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.card{display:flex;flex-direction:column;gap:7px}
+.card h3{font-size:.95rem}
+.card p{font-size:.88rem;color:var(--ink-2)}
+
+ul{margin:0;padding-left:1.15em;display:flex;flex-direction:column;gap:8px}
+li{color:var(--ink-2)}
+li strong{color:var(--ink)}
+
+footer{border-top:1px solid var(--rule);padding:34px 0 56px;color:var(--ink-3);font-size:.82rem}
+footer .cols{gap:26px}
+footer a{color:var(--ink-2)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}}
+@media (max-width:640px){
+  .hero{padding:48px 0 30px}
+  .step{grid-template-columns:auto 1fr;gap:12px}
+  .step .tag{grid-column:2}
+  .turn{grid-template-columns:1fr;gap:8px}
+}
+</style>
+
+<div class="bar">
+  <div class="bar-in">
+    <div class="mark">the old app<span>&middot;</span>is the spec</div>
+    <nav>
+      <a href="#instrument">Measurements</a>
+      <a href="#how">Mechanism</a>
+      <a href="#agent">Agent</a>
+      <a href="#results">Results</a>
+      <a href="#verify">Verify it</a>
+      <a href="#limits">Limits</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">micro1 Frontier Engineering Challenge 2026 &middot; individual entry</div>
+    <h1>Does this migration still do what the old one did?</h1>
+    <p class="lede">A Flask&nbsp;&rarr;&nbsp;FastAPI migration agent whose verifier is <em>not</em> a language model. Writing the new code is the easy half &mdash; a model does it in eight seconds. The hard half is earning the right to merge it.</p>
+    <div class="meta">
+      <span>16 cases</span><span>212 probes</span><span>5 models</span><span>7 baseline runs</span><span>47 tests</span><span>reproduces in 16&nbsp;s, offline</span>
+    </div>
+  </header>
+
+  <section id="instrument">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">The measurement</div>
+        <h2>Every cell is one HTTP request, asked of both applications</h2>
+        <p style="color:var(--ink-2)">The routes of each legacy Flask module are read statically, a fixed set of requests is derived from them, and those exact requests are replayed against the old app and the new one. <strong>The old app's answers are the specification.</strong> Green means the migration reproduced the status <em>and</em> the body. Switch the agent configuration and watch the red disappear.</p>
+      </div>
+
+      <div class="instrument">
+        <div class="inst-head">
+          <div class="ctrl">
+            <span class="ctrl-label">Configuration</span>
+            <div class="seg" id="seg-variant" role="group" aria-label="Agent configuration">
+              <button data-v="0" aria-pressed="true">one prompt</button>
+              <button data-v="1" aria-pressed="false">+ contract</button>
+              <button data-v="2" aria-pressed="false">+ repair loop</button>
+            </div>
+          </div>
+          <div class="ctrl">
+            <span class="ctrl-label">Model</span>
+            <div class="seg" id="seg-model" role="group" aria-label="Model">
+              <button data-m="4omini" aria-pressed="false">gpt-4o-mini</button>
+              <button data-m="54mini" aria-pressed="false">gpt-5.4-mini</button>
+              <button data-m="55" aria-pressed="false">gpt-5.5</button>
+              <button data-m="flash" aria-pressed="true">ds-v4-flash</button>
+              <button data-m="pro" aria-pressed="false">ds-v4-pro</button>
+            </div>
+          </div>
+          <div class="tally" id="tally"></div>
+        </div>
+
+        <div class="grid-scroll"><div class="grid" id="grid"></div></div>
+
+        <div class="inst-foot">
+          <span class="key"><i style="background:var(--match-cell)"></i> reproduces the legacy response</span>
+          <span class="key"><i style="background:var(--break-cell)"></i> a client would see a difference</span>
+          <span class="key"><i style="background:repeating-linear-gradient(45deg,var(--rule-2) 0 2px,transparent 2px 4px);border:1px solid var(--rule-2)"></i> the module never started</span>
+          <span style="margin-left:auto">Cells are ordered matched-first; counts are exact.</span>
+        </div>
+      </div>
+
+      <p class="note" id="grid-note"></p>
+    </div>
+  </section>
+
+  <section id="bottleneck">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">The bottleneck</div>
+        <h2>The regressions that matter are not crashes</h2>
+        <p style="color:var(--ink-2)">Every row below is a change this project <strong>measured</strong> in a migration a current model actually produced. None is hypothetical.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>What the migration did</th><th>What the client sees</th><th>Case</th></tr></thead>
+          <tbody>
+            <tr><td>Dropped a route while rewriting the rest</td><td><code>GET /todos</code> answered <span class="win">200</span> before, <span class="lose">405</span> after</td><td class="num">13</td></tr>
+            <tr><td>Raised <code>HTTPException</code> instead of returning the body</td><td><code>{"detail": &hellip;}</code> where <code>{"message": &hellip;}</code> used to be</td><td class="num">13, 14</td></tr>
+            <tr><td>Modelled the body with Pydantic</td><td><span class="lose">422</span> for input the old app coerced and accepted with <span class="win">201</span></td><td class="num">13</td></tr>
+            <tr><td>Typed a query parameter</td><td><span class="lose">422</span> for <code>?page=not-a-number</code>, which returned <span class="win">200</span> with data</td><td class="num">12</td></tr>
+            <tr class="hi"><td><strong>Fixed a bug</strong> &mdash; wrapped an unhandled <code>KeyError</code></td><td>a tidy <span class="mid">404</span> where a <span class="lose">500</span> used to surface</td><td class="num">14</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>Read the last row again.</strong> The new code is better. It is also a different contract, and every client with retry-on-5xx behaves differently tomorrow. A migration is not allowed to improve behaviour any more than it is allowed to break it &mdash; and no reviewer reading that diff would have stopped it.</p>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">Why the obvious design fails</div>
+        <h2>A model cannot be the oracle for its own output</h2>
+        <p style="color:var(--ink-2)">The natural build is: migrate with a model, then ask a model to write tests for the result. That verifier is worthless &mdash; and worse than worthless, because it is confident. The tests are generated <em>from the migrated code</em>, so they encode whatever the migration decided. Change <code>{"error": &hellip;}</code> to <code>{"detail": &hellip;}</code> and the generated test asserts <code>detail</code>. Green.</p>
+        <p style="color:var(--ink-2)">The specification has to come from somewhere the model does not control. Here it already exists, and it is still running: the legacy application itself.</p>
+      </div>
+
+      <div class="pipe">
+        <div class="step"><span class="step-n">01</span><span class="step-b"><b>Read the routes</b> <span>&mdash; parse the Flask source with <code>ast</code>, never execute it. Recovers decorators, <code>add_url_rule</code>, and Flask-RESTful resources.</span></span><span class="tag det">no model</span></div>
+        <div class="step"><span class="step-n">02</span><span class="step-b"><b>Derive the probes</b> <span>&mdash; happy path, missing field, wrong type, malformed JSON, absent id, wrong method, bad query type, unauthenticated.</span></span><span class="tag det">no model</span></div>
+        <div class="step"><span class="step-n">03</span><span class="step-b"><b>Record the contract</b> <span>&mdash; run the <em>original</em> app in a sandbox and store how it answers every probe. This is the specification.</span></span><span class="tag det">no model</span></div>
+        <div class="step"><span class="step-n">04</span><span class="step-b"><b>Migrate</b> <span>&mdash; analyst writes a risk brief, migrator writes the FastAPI module.</span></span><span class="tag ai">model</span></div>
+        <div class="step"><span class="step-n">05</span><span class="step-b"><b>Replay and diff</b> <span>&mdash; the same probes against the new app; compare status and normalised body.</span></span><span class="tag det">no model</span></div>
+        <div class="step"><span class="step-n">06</span><span class="step-b"><b>Repair</b> <span>&mdash; an agent receives the behavioural diff, inspects probes, greps the original, tests candidates.</span></span><span class="tag ai">model</span></div>
+        <div class="step"><span class="step-n">07</span><span class="step-b"><b>Approve</b> <span>&mdash; nothing is written to disk until a person says so.</span></span><span class="tag you">human</span></div>
+      </div>
+      <p class="note">Steps 1, 2, 3 and 5 contain no model at all. That is the design, not an implementation detail.</p>
+    </div>
+  </section>
+
+  <section id="agent">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">The agent</div>
+        <h2>One repair, turn by turn</h2>
+        <p style="color:var(--ink-2)">Taken verbatim from the committed trajectory for <code>case_14</code> &mdash; fifty lines of real third-party code from flask-restful. Baseline scored 33%. Five model calls and 132 seconds later, 100%.</p>
+      </div>
+
+      <div class="turns">
+        <div class="turn">
+          <div class="turn-n">TURN 1</div>
+          <div class="turn-b">
+            <h3>Read the failures it was handed</h3>
+            <p>The differential gives it a behavioural diff, not a traceback. It opened three probes in a single turn.</p>
+            <div class="io"><span class="out">&rarr;</span> get_probe_detail(r00.POST.wrong_method)
+<span class="in">&larr;   legacy:</span>    405 <span class="g">{"message": "The method is not allowed for the requested URL."}</span>
+<span class="in">    candidate:</span> 405 <span class="r">{"detail": "Method Not Allowed"}</span></div>
+          </div>
+        </div>
+        <div class="turn">
+          <div class="turn-n">TURN 2</div>
+          <div class="turn-b">
+            <h3>Formed a hypothesis, then went looking for it</h3>
+            <p>Three searches of the legacy module for the error text. All three came back empty.</p>
+            <div class="io"><span class="out">&rarr;</span> search_legacy("KeyError")                  <span class="in">&larr; no matches</span>
+<span class="out">&rarr;</span> search_legacy("browser")                   <span class="in">&larr; no matches</span>
+<span class="out">&rarr;</span> search_legacy("Method Not Allowed|&hellip;")      <span class="in">&larr; no matches</span></div>
+            <p>This is the interesting moment. Those strings are in the responses and nowhere in the application. A fixed pipeline has no move here &mdash; the agent had to conclude something.</p>
+          </div>
+        </div>
+        <div class="turn">
+          <div class="turn-n">TURN 3</div>
+          <div class="turn-b">
+            <h3>Changed strategy, correctly</h3>
+            <div class="io"><span class="out">&rarr;</span> search_legacy("add_resource|Resource|request\.form")
+<span class="in">&larr;</span>   12: from flask_restful import Resource, Api
+<span class="in"> </span>   15: api = Api(app)
+<span class="in"> </span>   45:     todos[todo_id] = request.form['data']</div>
+            <p>It worked out that the error envelope belongs to <code>Api(app)</code> &mdash; the framework wrapper &mdash; not to the application code. Which is exactly why grepping the module for the message found nothing.</p>
+          </div>
+        </div>
+        <div class="turn">
+          <div class="turn-n">TURN 4</div>
+          <div class="turn-b">
+            <h3>Wrote a candidate and tested it before committing</h3>
+            <div class="io"><span class="out">&rarr;</span> run_differential(&lt;complete module&gt;)
+<span class="in">&larr;</span> {"run": 1, "budget_left": 2, <span class="g">"parity_strict": 1.0</span>, "matched": 9, "probes": 9}</div>
+            <p>Full parity on the first candidate. The loop stopped rather than spending its remaining turns.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:8px">
+        <h3>The line that makes the point</h3>
+        <div class="io" style="max-width:100%">return JSONResponse({"message": "Internal Server Error"}, status_code=<span class="r">500</span>)</div>
+        <p style="color:var(--ink-2)">The legacy app raises an unhandled <code>KeyError</code> and surfaces a 500. The baseline migration tidied it into a 404. <strong>The repair agent put the 500 back</strong> &mdash; not because it was told to preserve 500s, but because the old app answered 500 and the old app is the specification. An agent checked by a model would have been congratulated for the 404.</p>
+      </div>
+
+      <div class="tw" style="margin-top:6px">
+        <table>
+          <thead><tr><th>Lever</th><th>Component</th><th>What it does</th></tr></thead>
+          <tbody>
+            <tr><td>Specialised skills</td><td><strong>Analyst</strong></td><td>Writes a risk brief: which Flask idioms are present, which are observable from outside</td></tr>
+            <tr><td>Better context</td><td><strong>Migrator</strong></td><td>Receives the brief, the AST route inventory and the lesson ledger &mdash; not just raw source</td></tr>
+            <tr><td>Better tools</td><td><strong>4 tools</strong></td><td><code>get_probe_detail</code>, <code>search_legacy</code>, <code>run_differential</code>, <code>submit</code></td></tr>
+            <tr class="hi"><td>Verification</td><td><strong>Differential oracle</strong></td><td>The legacy app's own responses. No model votes on correctness</td></tr>
+            <tr><td>Memory</td><td><strong>Lesson ledger</strong></td><td>Confirmed failures on earlier cases become rules for later ones</td></tr>
+            <tr><td>Orchestration</td><td><strong>Repair agent</strong></td><td>An autonomous tool loop, bounded at 8 turns and 3 differential runs</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">Results</div>
+        <h2>Shippable, not average</h2>
+        <p style="color:var(--ink-2)"><strong>Shippable</strong> means every probe reproduces the legacy status and body. It is the only bar that matters, because nobody deploys 92% of a service. Each variant adds exactly one component to the one above it, over the same cases with the same model.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>Variant</th><th>What it adds</th><th>Shippable</th><th>Mean parity</th><th>Calls</th><th>Cost</th><th>Model time</th></tr></thead>
+          <tbody>
+            <tr><td class="num">v0_baseline</td><td>single prompt</td><td class="num">12/16</td><td class="num">90.7%</td><td class="num">16</td><td class="num">$0.27</td><td class="num">23 min</td></tr>
+            <tr><td class="num">v1_contract</td><td>+ behaviour-preservation prompt</td><td class="num">14/16</td><td class="num">96.5%</td><td class="num">16</td><td class="num">$0.68</td><td class="num">67 min</td></tr>
+            <tr class="hi"><td class="num"><strong>v2_repair</strong></td><td><strong>+ tool-calling repair loop</strong></td><td class="num win">16/16</td><td class="num win">100%</td><td class="num">25</td><td class="num">$0.73</td><td class="num">71 min</td></tr>
+            <tr><td class="num">v3_analyst</td><td>+ analyst brief</td><td class="num">16/16</td><td class="num">100%</td><td class="num">40</td><td class="num">$1.17</td><td class="num">109 min</td></tr>
+            <tr><td class="num">v4_memory</td><td>+ cross-case memory</td><td class="num">16/16</td><td class="num">100%</td><td class="num">40</td><td class="num">$1.17</td><td class="num">109 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <h3>The result that changed the project</h3>
+        <p style="color:var(--ink-2)">Split the same run by where the code came from.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Variant</th><th>14 synthetic cases &mdash; <em>I wrote them</em></th><th>2 third-party cases &mdash; <em>I did not</em></th></tr></thead>
+          <tbody>
+            <tr><td class="num">v0_baseline</td><td class="num">12/14</td><td class="num lose">0/2</td></tr>
+            <tr><td class="num">v1_contract</td><td class="num">14/14</td><td class="num lose">0/2</td></tr>
+            <tr class="hi"><td class="num">v2_repair</td><td class="num">14/14</td><td class="num win">2/2</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="big" style="margin:10px 0 0">I designed fourteen traps and a current model walked through twelve. Then two hundred lines of ordinary open-source code, and it failed both.</p>
+      <p class="note">A benchmark written by the author of the tool measures the author's imagination. <strong>The third-party column is the one worth reading</strong> &mdash; and two cases is a small sample, which the repository says at length, including why real Flask modules are so hard to obtain.</p>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <h3>Five models, two vendors, three generations</h3>
+        <p style="color:var(--ink-2)">The obvious objection is that a better model would not need any of this. So the baseline and the repair loop were run again on four more models, over the same sixteen cases with the same harness. Use the controls at the top of the page to see any of them probe by probe.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Model</th><th>Baseline</th><th>&hellip; that start and lie</th><th>Baseline on real code</th><th>With repair loop</th><th>Real code, with repair</th></tr></thead>
+          <tbody>
+            <tr><td><code>gpt-4o-mini</code> <span style="color:var(--ink-3)">2024</span></td><td class="num">1/16</td><td class="num">12</td><td class="num lose">0/2</td><td class="num">5/16</td><td class="num lose">0/2</td></tr>
+            <tr><td><code>gpt-5.4-mini</code></td><td class="num">3/16</td><td class="num">11</td><td class="num lose">0/2</td><td class="num">11/16</td><td class="num mid">1/2</td></tr>
+            <tr><td><code>gpt-5.5</code></td><td class="num">11/16</td><td class="num">3</td><td class="num lose">0/2</td><td class="num win">16/16</td><td class="num win">2/2</td></tr>
+            <tr class="hi"><td><code>deepseek-v4-flash</code></td><td class="num">12/16</td><td class="num">4</td><td class="num lose">0/2</td><td class="num win">16/16</td><td class="num win">2/2</td></tr>
+            <tr><td><code>deepseek-v4-pro</code> <span style="color:var(--ink-3)">reasoning</span></td><td class="num">10/16</td><td class="num">6</td><td class="num lose">0/2</td><td class="num win">16/16</td><td class="num win">2/2</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="big" style="margin:12px 0 0">Not one model, from either vendor, in any generation, got a single piece of real third-party code right on its own.</p>
+
+      <div class="stack-tight prose" style="margin-top:6px">
+        <p style="color:var(--ink-2)">Three things fall out of that table, and none of them is "use a better model".</p>
+        <p style="color:var(--ink-2)"><strong>Capability does not predict safety.</strong> Model strength moved the baseline between 1 and 12 out of 16 without ever moving the column that matters. The reasoning model did not beat the fast model it costs three times as much as.</p>
+        <p style="color:var(--ink-2)"><em>What that deliberately does not say</em> is that the cheaper model is better &mdash; see the replication below, where the ordering reverses.</p>
+        <p style="color:var(--ink-2)"><strong>Most failures are not crashes.</strong> The third column counts migrations that imported cleanly, served every route, answered every request &mdash; and answered differently. Across the five baselines that is <strong>36 migrations</strong>. On the two DeepSeek models it is <em>every single failure</em>: nothing there would have been caught by checking that the app boots.</p>
+        <p style="color:var(--ink-2)"><strong>Verification amplifies capability; it does not replace it.</strong> The repair loop improved all five, but it only reached 16/16 on models strong enough to act on a diff. <code>gpt-4o-mini</code> writes Pydantic v1 syntax and unterminated f-strings; being told precisely what is wrong does not make it able to fix it. An oracle tells you the truth about your migration. It cannot write the migration for you.</p>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <h3>Running the same model twice</h3>
+        <p style="color:var(--ink-2)">A single run of a non-deterministic system is one sample, so two of the models were run again from scratch on identical input.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Model</th><th>Sample 1</th><th>Sample 2</th><th>Cases that changed verdict</th></tr></thead>
+          <tbody>
+            <tr><td><code>deepseek-v4-flash</code></td><td class="num">10/14</td><td class="num lose">8/14</td><td class="num">case_01, case_02</td></tr>
+            <tr><td><code>deepseek-v4-pro</code></td><td class="num">10/16</td><td class="num win">11/16</td><td class="num">case_02, case_05, case_08</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="stack-tight prose">
+        <p style="color:var(--ink-3);font-size:.88rem">Compared over the cases that completed in both samples. Two <code>flash</code> calls hit an API timeout in sample 2 and are excluded rather than scored as failures.</p>
+        <p style="color:var(--ink-2)">The synthetic score moves by up to three cases between identical runs, and the ordering between the two DeepSeek models <strong>reverses</strong>. The "stronger model did worse" reading from the first sample does not survive the second. Nothing in this project ranks models by baseline, and this table is why.</p>
+      </div>
+
+      <p class="big" style="margin:10px 0 0">Seven baseline runs. Five models. Two vendors. Thirteen scored attempts at real third-party code. Zero passed.</p>
+      <p class="note">Across those same seven runs the synthetic baseline ranged from <strong>1 to 12 out of 16</strong>. The noise is entirely in the column I built myself. The column I did not build never moved.</p>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <h3>Two components were removed</h3>
+        <p style="color:var(--ink-2)">Both were built, measured against the stage before them, and cut.</p>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Step</th><th>Calls</th><th>Cost</th><th>Model time</th><th>Shippable</th><th>Bought you</th></tr></thead>
+          <tbody>
+            <tr class="hi"><td><code>v2_repair</code></td><td class="num">25</td><td class="num">$0.73</td><td class="num">71 min</td><td class="num win">16/16</td><td>&mdash;</td></tr>
+            <tr><td>+ analyst brief</td><td class="num">40 <span class="lose">+60%</span></td><td class="num">$1.17 <span class="lose">+60%</span></td><td class="num">109 min <span class="lose">+54%</span></td><td class="num">16/16</td><td class="lose">nothing</td></tr>
+            <tr><td>+ cross-case memory</td><td class="num">40 <span style="color:var(--ink-3)">+0%</span></td><td class="num">$1.17 <span style="color:var(--ink-3)">+0%</span></td><td class="num">109 min <span style="color:var(--ink-3)">+0%</span></td><td class="num">16/16</td><td class="lose">nothing</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The memory row costs <em>nothing extra</em> for a reason worth knowing: its ledger finished with <strong>zero lessons</strong>, so the prompts were identical to the row above and every call was a cache hit. It only learns from failures that survive repair, and the repair loop had already eliminated them. <strong>A component fed by another component's failures is dead code the moment that component stops failing.</strong></p>
+    </div>
+  </section>
+
+  <section id="verify">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">Verify it</div>
+        <h2>Two paths, depending on how much you want to spend</h2>
+        <p style="color:var(--ink-2)">The point of the project is that a claim should be checkable, so this one is too.</p>
+      </div>
+
+      <div class="paths">
+        <div class="path">
+          <h3>Path A &mdash; no AI at all <span class="cost">&asymp;25 s &middot; $0.00</span></h3>
+          <p>No API key. No network. Everything that decides correctness here is deterministic, so all of it can be checked with the models switched off.</p>
+          <div class="cmd"><pre><span class="c"># 47 tests, no model involved</span>
+docker compose run --rm test
+
+<span class="c"># the full five-variant ablation, from the committed cache</span>
+docker compose run --rm reproduce</pre><button class="copy" data-copy="docker compose run --rm test&#10;docker compose run --rm reproduce">Copy</button></div>
+          <p>These models are not deterministic even at temperature 0, so a live re-run produces <em>different</em> numbers and nobody could check the reported ones. Every request was recorded instead &mdash; turning four dollars and six hours of model time into sixteen seconds.</p>
+          <p><strong>It cannot cheat.</strong> A prompt missing from the cache raises <code>CacheMiss</code> and stops the run with a non-zero exit. Truncate the cache and watch it refuse:</p>
+          <div class="cmd"><pre>head -5 data/llm_cache.jsonl &gt; /tmp/t &amp;&amp; mv /tmp/t data/llm_cache.jsonl
+make reproduce  <span class="c"># CacheMiss, exit 1</span></pre><button class="copy" data-copy="head -5 data/llm_cache.jsonl > /tmp/t && mv /tmp/t data/llm_cache.jsonl&#10;make reproduce">Copy</button></div>
+        </div>
+
+        <div class="path">
+          <h3>Path B &mdash; live, with AI <span class="cost">&asymp;$4 &middot; ~95 min</span></h3>
+          <p>Needs a provider key. The model is one string, so any provider works &mdash; LiteLLM handles the routing.</p>
+          <div class="cmd"><pre>cp .env.example .env   <span class="c"># put a key in it; .env is git-ignored</span>
+make record            <span class="c"># re-runs everything live</span></pre><button class="copy" data-copy="cp .env.example .env&#10;make record">Copy</button></div>
+          <p>The numbers will not match the committed ones exactly &mdash; that is expected, and it is the reason Path A exists. What should hold is the shape: the baseline failing the third-party cases, the repair loop closing them.</p>
+          <p>To watch a single migration happen, with the approval gate on:</p>
+          <div class="cmd"><pre>python src/migrate.py path/to/your_app.py</pre><button class="copy" data-copy="python src/migrate.py path/to/your_app.py">Copy</button></div>
+          <p>It prints the parity result and a diff summary, then asks. Answer <code>n</code> and nothing reaches disk. It also refuses outright to write over the file it read.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="limits">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">Main failure mode</div>
+        <h2>The oracle has to run the legacy app, and most real Flask code cannot run alone</h2>
+        <p style="color:var(--ink-2)">Pointed at <code>app/case/case_misp.py</code> from flowintel &mdash; 1017 lines, 39 routes &mdash; the static half worked perfectly and produced 171 probes. Then it recorded exactly <strong>zero</strong> responses, because the module imports <code>flask_login</code> and five sibling packages and expects a live database session. It is not a program; it is a fragment of one.</p>
+        <p style="color:var(--ink-2)">Stubbing those imports would mean <em>guessing</em> what the dependencies do, and a guessed oracle is the exact failure this project exists to avoid. So the honest statement is that this approach is strongest where migration is already easiest, and weakest on the tangled modules that are the actual reason teams stay on Flask.</p>
+        <p style="color:var(--ink-2)">The version worth building next probes a <em>running</em> service over HTTP rather than an imported module. Same oracle, same metric, no import problem.</p>
+      </div>
+
+      <div class="cols" style="margin-top:6px">
+        <div class="card"><h3>Small sample of real code</h3><p>Two third-party cases out of sixteen. It is the column that matters and it is thin, for the reason above.</p></div>
+        <div class="card"><h3>Probes are derived, not exhaustive</h3><p>They cover the parameters a handler visibly reads. A missed key costs coverage &mdash; it can never turn a failing migration into a passing one.</p></div>
+        <div class="card"><h3>The agent over-inspects</h3><p>On one case it burned four of eight turns and eighteen probe lookups before writing code, and invented a probe id that does not exist.</p></div>
+        <div class="card"><h3>Side effects are not modelled</h3><p>A handler that writes to a database is compared only on its response.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hottake">
+    <div class="stack">
+      <div class="stack-tight prose">
+        <div class="eyebrow">Hot take</div>
+        <p class="big" style="max-width:26ch">LLM-generated tests do not verify an LLM's output. They launder it.</p>
+        <p style="color:var(--ink-2)">The test generator and the code generator share the same misreading of the requirement, so the test encodes the bug as the expectation and reports green. That is strictly worse than no verification: no verification leaves you appropriately nervous, and a passing suite makes you merge.</p>
+        <p style="color:var(--ink-2)">The rule this project is built on: <strong>an agent's verifier must draw its ground truth from something the agent cannot influence.</strong> For a migration that is easy, and almost nobody does it &mdash; the system being replaced is still running, it is authoritative, and it will answer every question you ask it.</p>
+        <p style="color:var(--ink-2)">The corollary is uncomfortable, and it is the thing worth taking to the next agent. This benchmark's baseline was right twelve times out of sixteen. Reliability at that level does not make verification less necessary &mdash; it makes it harder to justify to yourself, right up until the 3 a.m. page.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="cols">
+      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 47 tests &middot; 16 benchmark cases &middot; 88 agent trajectories &middot; a 22-entry improvement changelog</p></div>
+      <div class="card"><h3 style="color:var(--ink)">Provenance</h3><p>Two cases are real flask-restful code, BSD-3-Clause, vendored unmodified. One AGPL case is fetched on demand, never redistributed.</p></div>
+      <div class="card"><h3 style="color:var(--ink)">Agent use</h3><p>Every model call, tool call, decision and approval is recorded as JSONL. The coding-agent session that built this is included, redacted.</p></div>
+      <div class="card"><h3 style="color:var(--ink)">Author</h3><p>Vicente Jr &mdash; built for the micro1 Frontier Engineering Challenge 2026.<br>
+      <a href="https://github.com/vicente-r-junior">GitHub</a> &middot; <a href="https://www.linkedin.com/in/vicente-r-junior/">LinkedIn</a> &middot; <a href="https://github.com/vicente-r-junior/micro1-challenge">Repository</a></p></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+const CASES = [["01 inventory","Inventory CRUD with manual validation",0,15,15,15,15,15,15,15,15,12,15,6,10],["02 blueprint auth","Blueprint with a before_request auth guard",0,14,14,14,14,14,14,-1,14,11,14,4,8],["03 app config","current_app.config read inside handlers",0,11,11,11,11,11,11,11,11,-1,11,6,9],["04 error handlers","Custom exception and HTTPException handlers",0,10,10,10,10,10,10,10,10,6,9,2,5],["05 response shapes","CSV, plain text, 204 and custom headers",0,13,11,13,13,12,13,13,13,13,13,8,10],["06 query params","Typed query parameters with lenient coercion",0,6,6,6,6,6,6,6,6,4,6,4,6],["07 path converters","String, int, uuid and path converters",0,13,13,13,13,13,13,13,13,10,13,6,13],["08 method view","MethodView class-based routing",0,17,17,17,17,15,17,-1,17,7,17,5,17],["09 bulk status","JSON array body and a 207 multi-status response",0,8,8,8,8,8,8,8,8,8,8,-1,8],["10 conditional update","If-Match precondition with 409 and 428",0,11,11,11,11,9,11,11,11,4,10,4,9],["11 trailing slash","Trailing-slash redirects and strict_slashes",0,10,10,10,10,10,10,10,10,10,10,10,10],["12 pagination headers","Link and X-Total-Count pagination headers",0,4,3,4,4,3,4,3,4,3,4,-1,-1],["13 restful todo","Flask-RESTful todo API (real, vendored unmodified)",1,17,10,13,17,8,17,11,17,8,17,-1,8],["14 restful todo simple","Flask-RESTful minimal key-value API (real, vendored unmodified)",1,9,3,6,9,3,9,3,9,-1,3,3,5],["15 inconsistent errors","Six-year-old gateway with three generations of error handling",0,28,28,28,28,28,28,28,28,24,25,17,-1],["16 state machine","Order state machine with idempotency keys",0,26,26,26,26,26,26,26,26,14,24,6,19]];
+// row: [id, title, isThirdParty, probes, then matched-counts per column]
+// -1 in a count means the model produced nothing that would import and serve.
+const P = 3;
+const COL = {
+  flash:  {0:4, 1:5, 2:6},
+  pro:    {0:7,      2:8},
+  "55":   {0:9,      2:10},
+  "54mini":{0:11,    2:12},
+  "4omini":{0:13,    2:14},
+};
+const MODEL_NAME = {
+  flash:"deepseek-v4-flash", pro:"deepseek-v4-pro, a reasoning model",
+  "55":"gpt-5.5", "54mini":"gpt-5.4-mini", "4omini":"gpt-4o-mini, released in 2024",
+};
+let variant = 0, model = "flash";
+
+const grid  = document.getElementById("grid");
+const tally = document.getElementById("tally");
+const note  = document.getElementById("grid-note");
+
+function build(){
+  grid.innerHTML = "";
+  CASES.forEach(row => {
+    const r = document.createElement("div"); r.className = "g-row";
+    const name = document.createElement("div"); name.className = "g-name";
+    name.append(document.createTextNode(row[0]));
+    if(row[2]){ const b = document.createElement("span"); b.className = "g-real"; b.textContent = "real"; name.append(b); }
+    const cells = document.createElement("div"); cells.className = "cells";
+    for(let i = 0; i < row[P]; i++){ const c = document.createElement("i"); c.className = "cell"; cells.append(c); }
+    const score = document.createElement("div"); score.className = "g-score";
+    r.append(name, cells, score);
+    grid.append(r);
+    row.__cells = cells; row.__score = score;
+  });
+}
+
+function paint(){
+  let matched = 0, probes = 0, ship = 0, realShip = 0, realTotal = 0, dead = 0, lied = 0;
+  CASES.forEach(row => {
+    const m = row[COL[model][variant]], total = row[P];
+    const never = m < 0;
+    probes += total;
+    if(!never) matched += m;
+    const ok = !never && m === total;
+    if(ok) ship++;
+    if(never) dead++; else if(!ok) lied++;
+    if(row[2]){ realTotal++; if(ok) realShip++; }
+
+    [...row.__cells.children].forEach((c, i) => {
+      c.classList.toggle("dead", never);
+      c.classList.toggle("bad", !never && i >= m);
+    });
+    row.__score.textContent = never ? "no build" : (ok ? "100%" : `${m}/${total}`);
+    row.__score.classList.toggle("ok", ok);
+  });
+  tally.innerHTML = `<b>${ship}/16</b> shippable &middot; ${matched}/${probes} probes`;
+
+  const what = ["one direct prompt", "the behaviour-preservation prompt, no repair", "the full repair loop"][variant];
+  let extra = "";
+  if(variant === 0 && realShip === 0)
+    extra = " <strong>Both third-party cases fail &mdash; and that is true of every model here.</strong>";
+  else if(realShip === realTotal && realTotal)
+    extra = " <strong>Both third-party cases now reproduce the legacy behaviour exactly.</strong>";
+  const shape = dead
+    ? ` Of the ${16 - ship} that are not shippable, ${dead} never produced a module that starts and ${lied} start fine and answer differently.`
+    : (lied ? ` All ${lied} failures start fine and answer differently &mdash; nothing here would be caught by checking that the app boots.` : "");
+  note.innerHTML = `<strong>${MODEL_NAME[model]}</strong> with ${what}: ${ship} of 16 migrations are shippable, ${realShip} of ${realTotal} on the real third-party code.${extra}${shape}`;
+}
+
+const variantGroup = document.getElementById("seg-variant");
+
+function syncAvailability(){
+  [...variantGroup.children].forEach(b => {
+    const has = COL[model][Number(b.dataset.v)] !== undefined;
+    b.disabled = !has;
+    b.title = has ? "" : "Not run on this model";
+  });
+  if(COL[model][variant] === undefined){
+    variant = 0;
+    [...variantGroup.children].forEach(b => b.setAttribute("aria-pressed", String(b.dataset.v === "0")));
+  }
+}
+
+function wire(id, attr, apply){
+  const group = document.getElementById(id);
+  group.addEventListener("click", e => {
+    const btn = e.target.closest("button");
+    if(!btn || btn.disabled) return;
+    [...group.children].forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+    apply(btn.dataset[attr]);
+    syncAvailability();
+    paint();
+  });
+}
+build();
+wire("seg-variant", "v", v => variant = Number(v));
+wire("seg-model", "m", m => model = m);
+syncAvailability();
+paint();
+
+document.addEventListener("click", e => {
+  const b = e.target.closest(".copy"); if(!b) return;
+  navigator.clipboard.writeText(b.dataset.copy).then(() => {
+    const t = b.textContent; b.textContent = "Copied";
+    setTimeout(() => b.textContent = t, 1400);
+  });
+});
+</script>

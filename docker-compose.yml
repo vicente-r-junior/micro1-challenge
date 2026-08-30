@@ -1,0 +1,43 @@
+services:
+  # What a judge runs first. No API key, no network: the whole benchmark is
+  # replayed from data/llm_cache.jsonl and must print the same table as the
+  # committed results/REPORT.md.
+  reproduce:
+    build: .
+    volumes: [".:/app"]
+    command: >
+      python src/evaluate.py --variants all --replay --checkpoint auto
+
+  # The harness self-tests. Fast, and they do not need a model at all.
+  test:
+    build: .
+    volumes: [".:/app"]
+    command: python -m pytest tests/ -q
+
+  # A single case, end to end, with the human approval gate enabled. This is
+  # the workflow as a real user would run it against their own repository.
+  demo:
+    build: .
+    volumes: [".:/app"]
+    stdin_open: true
+    tty: true
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - MIGRATION_MODEL=${MIGRATION_MODEL:-openai/gpt-4o-mini}
+    command: >
+      python src/migrate.py data/cases/case_01_inventory/legacy_app.py
+
+  # Re-record the cache against a live provider. Costs money; not needed to
+  # reproduce the reported results.
+  record:
+    build: .
+    volumes: [".:/app"]
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY:-}
+      - MIGRATION_MODEL=${MIGRATION_MODEL:-openai/gpt-4o-mini}
+    command: >
+      python src/evaluate.py --variants all --checkpoint auto

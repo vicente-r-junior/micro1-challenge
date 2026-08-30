@@ -1,0 +1,14 @@
+{
+  "id": "case_04_error_handlers",
+  "title": "Custom exception and HTTPException handlers",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Every error response goes through one envelope, including the framework's own 404 and 405. FastAPI has no equivalent of a blanket HTTPException handler unless one is registered explicitly.",
+  "path_values": {
+    "account_id": "a1"
+  },
+  "body_values": {
+    "amount": 25
+  }
+}

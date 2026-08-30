@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+
+# Credentials never enter the repository or the submission (ground rule 8).
+# The glob matters: a stray .env.bak or .env.local holds the same keys as .env,
+# and one of those is exactly how a key reaches a public repository.
+.env
+.env.*
+!.env.example
+
+# Tier-B case is fetched on demand, never redistributed (AGPL upstream).
+data/cases/case_99_flowintel_misp/legacy_app.py
+
+# Working note, not a deliverable.
+HANDOFF.md
+
+# Committed on purpose, listed here so it is clear the omission is deliberate:
+#   trajectories/      agent-use evidence, required deliverable
+#   results/           the measured report and the modules the agent produced
+#   data/llm_cache.jsonl   what makes `make reproduce` work offline
+
+# Build artefact: a zip of this repository, produced by `make package`.
+# Regenerate it rather than tracking a copy of the repo inside the repo.
+submission.zip

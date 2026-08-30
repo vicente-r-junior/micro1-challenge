@@ -1,0 +1,118 @@
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse, Response
+from pydantic import BaseModel, ConfigDict
+import json
+
+app = FastAPI()
+
+_USERS = {'u1': {'id': 'u1', 'name': 'ana', 'tier': 'pro'}}
+_BALANCES = {'u1': 50}
+DEPRECATION = 'version=1; sunset=2027-01-01'
+
+class UserModel(BaseModel):
+    model_config = ConfigDict(extra='allow')
+    id: str
+    name: str
+    tier: str
+
+def _v1_json_response(content, status_code=200):
+    return JSONResponse(
+        content=content,
+        status_code=status_code,
+        headers={'X-API-Deprecation': DEPRECATION},
+    )
+
+async def _get_json(request):
+    try:
+        return await request.json()
+    except json.JSONDecodeError:
+        return None
+
+@app.get('/v1/users/{user_id}')
+async def v1_get_user(user_id: str):
+    user = _USERS.get(user_id)
+    if user is not None:
+        payload = UserModel.model_validate(user).model_dump()
+    else:
+        payload = {}
+    return _v1_json_response(payload, 200)
+
+@app.get('/v2/users/{user_id}')
+async def v2_get_user(user_id: str):
+    user = _USERS.get(user_id)
+    if user is None:
+        return JSONResponse({'message': 'user not found'}, status_code=404)
+    return JSONResponse({'data': UserModel.model_validate(user).model_dump()})
+
+@app.post('/v1/charge')
+async def v1_charge(request: Request):
+    body = await _get_json(request) or {}
+    user_id = body.get('user_id')
+    amount = body.get('amount')
+
+    if not user_id:
+        return _v1_json_response({'ok': False, 'error': 'user_id required'}, 200)
+    if not isinstance(amount, int):
+        return _v1_json_response({'ok': False, 'error': 'amount must be an integer'}, 200)
+    balance = _BALANCES.get(user_id)
+    if balance is None:
+        return _v1_json_response({'ok': False, 'error': 'unknown user'}, 200)
+    if amount > balance:
+        return _v1_json_response({'ok': False, 'error': 'insufficient funds'}, 200)
+    return _v1_json_response({'ok': True, 'remaining': balance - amount}, 200)
+
+@app.post('/v2/charge')
+async def v2_charge(request: Request):
+    body = await _get_json(request) or {}
+    if 'user_id' not in body:
+        return JSONResponse({'message': 'user_id required', 'field': 'user_id'}, status_code=422)
+    amount = body.get('amount')
+    if not isinstance(amount, int):
+        return JSONResponse({'message': 'amount must be an integer', 'field': 'amount'}, status_code=422)
+    balance = _BALANCES.get(body['user_id'])
+    if balance is None:
+        return JSONResponse({'message': 'unknown user'}, status_code=404)
+    if amount > balance:
+        return JSONResponse({'message': 'insufficient funds', 'balance': balance}, status_code=402)
+    return JSONResponse({'remaining': balance - amount}, status_code=200)
+
+@app.get('/v1/ping')
+def v1_ping():
+    return Response(
+        content='pong',
+        status_code=200,
+        media_type='text/html',
+        headers={'X-API-Deprecation': DEPRECATION},
+    )
+
+@app.get('/v2/ping')
+def v2_ping():
+    return JSONResponse(content='pong')
+
+@app.post('/v2/batch')
+async def v2_batch(request: Request):
+    body = await _get_json(request)
+    if not isinstance(body, list):
+        return JSONResponse({'message': 'body must be a JSON array'}, status_code=422)
+
+    outcomes = []
+    for index, entry in enumerate(body):
+        if not isinstance(entry, dict) or 'user_id' not in entry:
+            outcomes.append({'index': index, 'ok': False, 'error': 'malformed entry'})
+        elif entry['user_id'] not in _USERS:
+            outcomes.append({'index': index, 'ok': False, 'error': 'unknown user'})
+        else:
+            outcomes.append({'index': index, 'ok': True})
+
+    failures = sum(1 for o in outcomes if not o['ok'])
+    status = 200 if failures == 0 else 207
+    return JSONResponse({'outcomes': outcomes, 'failures': failures}, status_code=status)
+
+@app.get('/v1/config')
+def v1_config():
+    return _v1_json_response({
+        'deprecation': DEPRECATION,
+        'deprecated': True,
+        'isDeprecated': True,
+        'tiers': ['free', 'pro'],
+    }, 200)

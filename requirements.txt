@@ -1,0 +1,18 @@
+# Runtime for the migration agent and the differential harness.
+litellm>=1.60          # one interface to OpenAI / Anthropic / DeepSeek / local models
+pydantic>=2.6
+
+# Needed to EXECUTE the applications under test, not just to import the harness.
+flask>=3.0             # runs every legacy app to record its contract
+flask-restful>=0.3.10  # two benchmark cases are real Flask-RESTful modules
+fastapi>=0.109         # runs every migrated app
+httpx>=0.26            # fastapi.testclient transport
+
+# A generated migration may legitimately reach for these, and a missing one
+# looks identical to a behavioural failure: the module does not import, every
+# probe fails, and the case scores 0%. They are pinned here so the sandbox
+# matches what a real FastAPI project would have installed.
+uvicorn>=0.27          # the standard ASGI server; migrations often import it
+python-multipart>=0.0.9  # required by FastAPI for Form() and file uploads
+
+pytest>=8.0            # harness self-tests

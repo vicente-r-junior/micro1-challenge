@@ -1,0 +1,11 @@
+{
+  "id": "case_16_state_machine",
+  "title": "Order state machine with idempotency keys",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Behaviour encoded in the handler, not the schema: idempotent create returns 200 with the original resource, a reused key with a different body is 422, an unknown target state is 400 while a legal-but-unreachable one is 409, and a computed 'terminal' field exists only on the response.",
+  "path_values": {"order_id": "o1"},
+  "body_values": {"total": 25, "to": "submitted", "lines": 2},
+  "probe_headers": {"Idempotency-Key": "probe-key-1"}
+}

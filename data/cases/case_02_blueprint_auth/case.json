@@ -1,0 +1,11 @@
+{
+  "id": "case_02_blueprint_auth",
+  "title": "Blueprint with a before_request auth guard",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "The 401 body carries an application error code. Rewriting the guard as a FastAPI dependency that raises HTTPException replaces it with {\"detail\": ...} and drops the code field.",
+  "probe_headers": {
+    "X-Api-Token": "secret-token"
+  }
+}

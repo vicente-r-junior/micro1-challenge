@@ -1,0 +1,9 @@
+{
+  "id": "case_99_flowintel_misp",
+  "title": "flowintel — MISP case blueprint (real, AGPL, not vendored)",
+  "origin": "https://github.com/flowintel/flowintel/blob/6a6e56af53232fc6a119f7b8a8a24ab5d5d0b729/app/case/case_misp.py",
+  "commit": "6a6e56af53232fc6a119f7b8a8a24ab5d5d0b729",
+  "licence": "AGPL-3.0 (upstream) — NOT redistributed in this repository; fetched on demand",
+  "tier": "B",
+  "notes": "1017 lines, 39 routes. Static extraction works and yields 171 probes, but the module cannot be imported in isolation (flask_login plus five intra-package imports), so no behavioural contract can be recorded. This is the honest boundary of the approach and the reason tier B exists. See docs/hard-case.md."
+}

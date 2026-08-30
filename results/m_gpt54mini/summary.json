@@ -1,0 +1,2235 @@
+{
+  "model": "openai/gpt-5.4-mini",
+  "replay": false,
+  "variants": [
+    {
+      "variant": "v0_baseline",
+      "label": "single prompt (baseline)",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 0.6258,
+      "median_parity_strict": 0.7083,
+      "full_parity_cases": 3,
+      "failed_to_run": 0,
+      "llm_calls": 16,
+      "prompt_tokens": 9379,
+      "completion_tokens": 10098,
+      "cost_usd": 0.0525,
+      "model_s": 54.6,
+      "wall_s": 26.9,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.8,
+          "parity_lenient": 0.8,
+          "probes": 15,
+          "matched": 12,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 12,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 0.8,
+            "parity_lenient": 0.8,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.GET.bad_query_type  (bad_query_type on /items)\n  expected: HTTP 200  {'count': 2, 'items': [{'id': 1, 'name': 'bolt', 'qty': 40}, {'id': 2, 'name': 'nut', 'qty': 12}]}\n  actual:   HTTP 422  {'detail': [{'input': 'not-a-number', 'loc': ['query', 'limit'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}]}\n  note: different status class",
+            "probe r03.DELETE.absent_id  (absent_id on /items/{})\n  expected: HTTP 404  {'error': 'item not found'}\n  actual:   HTTP 404  {'detail': {'error': 'item not found'}}\n  note: status matches, response body does not",
+            "probe r04.GET.absent_id  (absent_id on /items/{})\n  expected: HTTP 404  {'error': 'item not found'}\n  actual:   HTTP 404  {'detail': {'error': 'item not found'}}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 558,
+            "completion_tokens": 740,
+            "cost_usd": 0.003749,
+            "model_s": 4.4,
+            "cost_is_complete": true,
+            "wall_s": 8.862
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_01_inventory.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_01_inventory.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.7857142857142857,
+          "parity_lenient": 0.7857142857142857,
+          "probes": 14,
+          "matched": 11,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 11,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 0.7857,
+            "parity_lenient": 0.7857,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.POST.bad_type  (bad_type on /api/v1/notes)\n  expected: HTTP 201  {'id': 2, 'owner': 'ana', 'text': 12345}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'text'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r00.POST.malformed_json  (malformed_json on /api/v1/notes)\n  expected: HTTP 422  {'code': 'VAL_001', 'error': 'text is required'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: status matches, response body does not",
+            "probe r00.POST.missing_field  (missing_field on /api/v1/notes)\n  expected: HTTP 422  {'code': 'VAL_001', 'error': 'text is required'}\n  actual:   HTTP 422  {'detail': [{'input': {}, 'loc': ['body', 'text'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 514,
+            "completion_tokens": 640,
+            "cost_usd": 0.003266,
+            "model_s": 4.0,
+            "cost_is_complete": true,
+            "wall_s": 7.992
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_02_blueprint_auth.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_02_blueprint_auth.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.0,
+          "parity_lenient": 0.0,
+          "probes": 11,
+          "matched": 0,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 0,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.0,
+            "parity_lenient": 0.0,
+            "app_imports": false,
+            "error": "Traceback (most recent call last):\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/_runner.py\", line 143, in main\n    module = _load_module(job[\"app_file\"])\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/_runner.py\", line 26, in _load_module\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/target_app.py\", line 45, in <module>\n    @app.post(\"/report\", status_code=status.HTTP_202_ACCEPTED)\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 1450, in decorator\n    self.add_api_route(\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 1386, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 909, in __init__\n    self.response_field = create_model_field(\n                          ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/utils.py\", line 75, in create_model_field\n    raise fastapi.exceptions.FastAPIError(\nfastapi.exceptions.FastAPIError: Invalid args for response field! Hint: check that starlette.responses.JSONResponse | dict[str, typing.Any] is a valid Pydantic field type. If you are using a return type annotation that is not a valid Pydantic field (e.g. Union[Response, dict, None]) you can disable generating the response model from the type annotation with the path operation decorator parameter response_model=None. Read more: https://fastapi.tiangolo.com/tutorial/response-model/",
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 0
+              },
+              "happy": {
+                "total": 3,
+                "match": 0
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              }
+            }
+          },
+          "failure_details": [
+            "probe global.GET.unknown_path  (absent_id on __global__)\n  expected: HTTP 404  '<!doctype html>\\n<html lang=en>\\n<title>404 Not Found</title>\\n<h1>Not Found</h1>\\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\\n'\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r00.GET.happy  (happy on /config)\n  expected: HTTP 200  {'page_size': 3, 'service': 'reporting', 'verbose': True}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r00.POST.wrong_method  (wrong_method on /config)\n  expected: HTTP 405  '<!doctype html>\\n<html lang=en>\\n<title>405 Method Not Allowed</title>\\n<h1>Method Not Allowed</h1>\\n<p>The method is not allowed for the requested URL.</p>\\n'\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.GET.wrong_method  (wrong_method on /report)\n  expected: HTTP 405  '<!doctype html>\\n<html lang=en>\\n<title>405 Method Not Allowed</title>\\n<h1>Method Not Allowed</h1>\\n<p>The method is not allowed for the requested URL.</p>\\n'\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.POST.bad_type  (bad_type on /report)\n  expected: HTTP 400  {'error': 'range too large', 'max': 30}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.POST.happy  (happy on /report)\n  expected: HTTP 400  {'error': 'days must be an integer'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.POST.malformed_json  (malformed_json on /report)\n  expected: HTTP 202  {'days': 7, 'service': 'reporting'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.POST.missing_field  (missing_field on /report)\n  expected: HTTP 202  {'days': 7, 'service': 'reporting'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r02.GET.bad_query_type  (bad_query_type on /rows)\n  expected: HTTP 200  {'meta': {'returned': 3, 'total': 10}, 'rows': [{'id': 1, 'value': 10}, {'id': 2, 'value': 20}, {'id': 3, 'value': 30}]}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r02.GET.happy  (happy on /rows)\n  expected: HTTP 200  {'meta': {'returned': 7, 'total': 10}, 'rows': [{'id': 1, 'value': 10}, {'id': 2, 'value': 20}, {'id': 3, 'value': 30}, {'id': 4, 'value': 40}, {'id': 5, 'value': 50}, {'id': 6, 'value': 60}, {'id': 7, 'value': 70}]}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r02.POST.wrong_method  (wrong_method on /rows)\n  expected: HTTP 405  '<!doctype html>\\n<html lang=en>\\n<title>405 Method Not Allowed</title>\\n<h1>Method Not Allowed</h1>\\n<p>The method is not allowed for the requested URL.</p>\\n'\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe"
+          ],
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/_runner.py\", line 143, in main\n    module = _load_module(job[\"app_file\"])\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/_runner.py\", line 26, in _load_module\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_5d66n4kp/target_app.py\", line 45, in <module>\n    @app.post(\"/report\", status_code=status.HTTP_202_ACCEPTED)\n     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 1450, in decorator\n    self.add_api_route(\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 1386, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/routing.py\", line 909, in __init__\n    self.response_field = create_model_field(\n                          ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/fastapi/utils.py\", line 75, in create_model_field\n    raise fastapi.exceptions.FastAPIError(\nfastapi.exceptions.FastAPIError: Invalid args for response field! Hint: check that starlette.responses.JSONResponse | dict[str, typing.Any] is a valid Pydantic field type. If you are using a return type annotation that is not a valid Pydantic field (e.g. Union[Response, dict, None]) you can disable generating the response model from the type annotation with the path operation decorator parameter response_model=None. Read more: https://fastapi.tiangolo.com/tutorial/response-model/",
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 463,
+            "completion_tokens": 504,
+            "cost_usd": 0.002615,
+            "model_s": 3.4,
+            "cost_is_complete": true,
+            "wall_s": 6.964
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_03_app_config.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_03_app_config.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.6,
+          "parity_lenient": 0.8,
+          "probes": 10,
+          "matched": 6,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 6,
+            "matched_status_only": 0,
+            "accepted_divergences": 2,
+            "parity_strict": 0.6,
+            "parity_lenient": 0.8,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.absent_id  (absent_id on /accounts/{})\n  expected: HTTP 404  {'error': 'not_found', 'resource': 'account'}\n  actual:   HTTP 404  {'error': 'http_error', 'message': 'Not Found', 'status': 404}\n  note: status matches, response body does not",
+            "probe r01.POST.absent_id  (absent_id on /accounts/{}/withdraw)\n  expected: HTTP 404  {'error': 'not_found', 'resource': 'account'}\n  actual:   HTTP 404  {'error': 'http_error', 'message': 'Not Found', 'status': 404}\n  note: status matches, response body does not",
+            "probe r01.POST.malformed_json  (malformed_json on /accounts/{}/withdraw)\n  expected: HTTP 400  {'error': 'bad_amount'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r01.POST.missing_field  (missing_field on /accounts/{}/withdraw)\n  expected: HTTP 400  {'error': 'bad_amount'}\n  actual:   HTTP 422  {'detail': [{'input': {}, 'loc': ['body', 'amount'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 493,
+            "completion_tokens": 621,
+            "cost_usd": 0.003164,
+            "model_s": 3.8,
+            "cost_is_complete": true,
+            "wall_s": 7.552
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_04_error_handlers.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_04_error_handlers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 454,
+            "completion_tokens": 437,
+            "cost_usd": 0.002307,
+            "model_s": 2.5,
+            "cost_is_complete": true,
+            "wall_s": 3.729
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_05_response_shapes.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_05_response_shapes.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.6666666666666666,
+          "parity_lenient": 0.6666666666666666,
+          "probes": 6,
+          "matched": 4,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 4,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 0.6667,
+            "parity_lenient": 0.6667,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              },
+              "happy": {
+                "total": 2,
+                "match": 1
+              },
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.GET.bad_query_type  (bad_query_type on /search)\n  expected: HTTP 200  {'count': 0, 'echo': {'limit': None, 'q': 'probe'}, 'results': []}\n  actual:   HTTP 422  {'detail': [{'input': 'not-a-number', 'loc': ['query', 'limit'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}, {'input': 'not-a-number', 'loc': ['query', 'max_price'], 'msg': 'Input should be a valid number, unable to parse string as a number', 'type': 'float_parsing'}, {'input': 'probe', 'loc': ['query', 'include_free'], 'msg': 'Input should be a valid boolean, unable to interpret input', 'type': 'bool_parsing'}]}\n  note: different status class",
+            "probe r01.GET.happy  (happy on /search)\n  expected: HTTP 200  {'count': 0, 'echo': {'limit': 7, 'q': 'probe'}, 'results': []}\n  actual:   HTTP 422  {'detail': [{'input': 'probe', 'loc': ['query', 'include_free'], 'msg': 'Input should be a valid boolean, unable to interpret input', 'type': 'bool_parsing'}]}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 478,
+            "completion_tokens": 532,
+            "cost_usd": 0.002752,
+            "model_s": 2.8,
+            "cost_is_complete": true,
+            "wall_s": 4.243
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_06_query_params.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_06_query_params.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.7692307692307693,
+          "parity_lenient": 0.7692307692307693,
+          "probes": 13,
+          "matched": 10,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 0.7692,
+            "parity_lenient": 0.7692,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.absent_id  (absent_id on /files/{})\n  expected: HTTP 404  {'error': 'file not found', 'path': 'absent/absent'}\n  actual:   HTTP 404  {'detail': {'error': 'file not found', 'path': 'absent/absent'}}\n  note: status matches, response body does not",
+            "probe r01.GET.absent_id  (absent_id on /orgs/{})\n  expected: HTTP 404  {'error': 'org not found', 'slug': 'absent'}\n  actual:   HTTP 404  {'detail': {'error': 'org not found', 'slug': 'absent'}}\n  note: status matches, response body does not",
+            "probe r02.GET.absent_id  (absent_id on /orgs/{}/repos/{})\n  expected: HTTP 404  {'error': 'org not found', 'slug': 'absent'}\n  actual:   HTTP 404  {'detail': {'error': 'org not found', 'slug': 'absent'}}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 474,
+            "completion_tokens": 446,
+            "cost_usd": 0.002363,
+            "model_s": 2.6,
+            "cost_is_complete": true,
+            "wall_s": 4.994
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_07_path_converters.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_07_path_converters.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.4117647058823529,
+          "parity_lenient": 0.5294117647058824,
+          "probes": 17,
+          "matched": 7,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 7,
+            "matched_status_only": 3,
+            "accepted_divergences": 2,
+            "parity_strict": 0.4118,
+            "parity_lenient": 0.5294,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 2,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 1
+              },
+              "happy": {
+                "total": 5,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.POST.bad_type  (bad_type on /tasks)\n  expected: HTTP 201  {'done': False, 'id': 2, 'title': 12345}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'title'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r01.POST.malformed_json  (malformed_json on /tasks)\n  expected: HTTP 400  {'error': 'title is required'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r01.POST.missing_field  (missing_field on /tasks)\n  expected: HTTP 400  {'error': 'title is required'}\n  actual:   HTTP 422  {'detail': [{'input': {}, 'loc': ['body', 'title'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r02.DELETE.absent_id  (absent_id on /tasks/{})\n  expected: HTTP 404  {'error': 'task not found'}\n  actual:   HTTP 404  {'detail': 'task not found'}\n  note: status matches, response body does not",
+            "probe r03.GET.absent_id  (absent_id on /tasks/{})\n  expected: HTTP 404  {'error': 'task not found'}\n  actual:   HTTP 404  {'detail': 'task not found'}\n  note: status matches, response body does not",
+            "probe r04.PUT.absent_id  (absent_id on /tasks/{})\n  expected: HTTP 404  {'error': 'task not found'}\n  actual:   HTTP 404  {'detail': 'task not found'}\n  note: status matches, response body does not",
+            "probe r04.PUT.bad_type  (bad_type on /tasks/{})\n  expected: HTTP 200  {'done': False, 'id': 1, 'title': 12345}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.PUT.happy  (happy on /tasks/{})\n  expected: HTTP 200  {'done': False, 'id': 1, 'title': 'probe'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.PUT.malformed_json  (malformed_json on /tasks/{})\n  expected: HTTP 400  {'error': 'title is required'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.PUT.missing_field  (missing_field on /tasks/{})\n  expected: HTTP 400  {'error': 'title is required'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 476,
+            "completion_tokens": 448,
+            "cost_usd": 0.002373,
+            "model_s": 2.4,
+            "cost_is_complete": true,
+            "wall_s": 4.374
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_08_method_view.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_08_method_view.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 409,
+            "completion_tokens": 607,
+            "cost_usd": 0.003038,
+            "model_s": 3.2,
+            "cost_is_complete": true,
+            "wall_s": 3.931
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_09_bulk_status.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_09_bulk_status.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.36363636363636365,
+          "parity_lenient": 0.36363636363636365,
+          "probes": 11,
+          "matched": 4,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.3636,
+            "parity_lenient": 0.3636,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "happy": {
+                "total": 2,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.absent_id  (absent_id on /docs/{})\n  expected: HTTP 404  {'error': 'doc not found'}\n  actual:   HTTP 404  {'detail': {'error': 'doc not found'}}\n  note: status matches, response body does not",
+            "probe r01.PATCH.absent_id  (absent_id on /docs/{})\n  expected: HTTP 404  {'error': 'doc not found'}\n  actual:   HTTP 404  {'detail': {'error': 'doc not found'}}\n  note: status matches, response body does not",
+            "probe r01.PATCH.bad_type  (bad_type on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 500  {'detail': 'unreachable'}\n  note: different status class",
+            "probe r01.PATCH.happy  (happy on /docs/{})\n  expected: HTTP 200  {'id': 'd1', 'title': 'probe', 'version': 4}\n  actual:   HTTP 500  {'detail': 'unreachable'}\n  note: different status class",
+            "probe r01.PATCH.malformed_json  (malformed_json on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 500  {'detail': 'unreachable'}\n  note: different status class",
+            "probe r01.PATCH.missing_field  (missing_field on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 500  {'detail': 'unreachable'}\n  note: different status class",
+            "probe r01.PATCH.unauthenticated  (unauthenticated on /docs/{})\n  expected: HTTP 428  {'code': 'PRECONDITION_REQUIRED', 'error': 'If-Match header is required'}\n  actual:   HTTP 428  {'detail': {'code': 'PRECONDITION_REQUIRED', 'error': 'If-Match header is required'}}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 494,
+            "completion_tokens": 801,
+            "cost_usd": 0.003975,
+            "model_s": 3.7,
+            "cost_is_complete": true,
+            "wall_s": 6.426
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_10_conditional_update.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_10_conditional_update.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 274,
+            "completion_tokens": 269,
+            "cost_usd": 0.001416,
+            "model_s": 1.6,
+            "cost_is_complete": true,
+            "wall_s": 2.536
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_11_trailing_slash.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_11_trailing_slash.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.75,
+          "parity_lenient": 0.75,
+          "probes": 4,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 3,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.75,
+            "parity_lenient": 0.75,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.bad_query_type  (bad_query_type on /events)\n  expected: HTTP 200  {'events': [{'id': 1, 'kind': 'click'}, {'id': 2, 'kind': 'click'}, {'id': 3, 'kind': 'click'}, {'id': 4, 'kind': 'click'}, {'id': 5, 'kind': 'click'}], 'page': 1, 'per_page': 5}\n  actual:   HTTP 422  {'detail': [{'input': 'not-a-number', 'loc': ['query', 'page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}, {'input': 'not-a-number', 'loc': ['query', 'per_page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}]}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 444,
+            "completion_tokens": 413,
+            "cost_usd": 0.002192,
+            "model_s": 2.2,
+            "cost_is_complete": true,
+            "wall_s": 3.406
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_12_pagination_headers.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_12_pagination_headers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.47058823529411764,
+          "parity_lenient": 0.5882352941176471,
+          "probes": 17,
+          "matched": 8,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 8,
+            "matched_status_only": 1,
+            "accepted_divergences": 2,
+            "parity_strict": 0.4706,
+            "parity_lenient": 0.5882,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "wrong_method": {
+                "total": 2,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 4
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.DELETE.wrong_method  (wrong_method on /todos)\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.POST.bad_type  (bad_type on /todos)\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'task'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r01.POST.malformed_json  (malformed_json on /todos)\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r02.DELETE.absent_id  (absent_id on /todos/{})\n  expected: HTTP 404  {'message': \"Todo absent doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo absent doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r02.POST.wrong_method  (wrong_method on /todos/{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r03.GET.absent_id  (absent_id on /todos/{})\n  expected: HTTP 404  {'message': \"Todo absent doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo absent doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r03.GET.happy  (happy on /todos/{})\n  expected: HTTP 404  {'message': \"Todo todo1 doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo todo1 doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r04.PUT.bad_type  (bad_type on /todos/{})\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'task'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r04.PUT.malformed_json  (malformed_json on /todos/{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 615,
+            "completion_tokens": 506,
+            "cost_usd": 0.002738,
+            "model_s": 3.0,
+            "cost_is_complete": true,
+            "wall_s": 4.799
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_13_restful_todo.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_13_restful_todo.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.0,
+          "parity_lenient": 0.0,
+          "probes": 9,
+          "matched": 0,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 0,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.0,
+            "parity_lenient": 0.0,
+            "app_imports": false,
+            "error": "Traceback (most recent call last):\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/_runner.py\", line 143, in main\n    module = _load_module(job[\"app_file\"])\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/_runner.py\", line 26, in _load_module\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/target_app.py\", line 10, in <module>\n    class TodoResponse(BaseModel):\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py\", line 132, in __new__\n    private_attributes = inspect_namespace(\n                         ^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py\", line 424, in inspect_namespace\n    raise TypeError(\"To define root models, use `pydantic.RootModel` rather than a field called '__root__'\")\nTypeError: To define root models, use `pydantic.RootModel` rather than a field called '__root__'",
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 0
+              },
+              "happy": {
+                "total": 2,
+                "match": 0
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              }
+            }
+          },
+          "failure_details": [
+            "probe global.GET.unknown_path  (absent_id on __global__)\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r00.GET.absent_id  (absent_id on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r00.GET.happy  (happy on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r00.POST.wrong_method  (wrong_method on /{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.PUT.absent_id  (absent_id on /{})\n  expected: HTTP 200  {'absent': 'probe'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.PUT.bad_type  (bad_type on /{})\n  expected: HTTP 200  {'todo1': '12345'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.PUT.happy  (happy on /{})\n  expected: HTTP 200  {'todo1': 'probe'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.PUT.malformed_json  (malformed_json on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe",
+            "probe r01.PUT.missing_field  (missing_field on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP None  None\n  note: the migrated app never answered this probe"
+          ],
+          "error": "Traceback (most recent call last):\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/_runner.py\", line 143, in main\n    module = _load_module(job[\"app_file\"])\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/_runner.py\", line 26, in _load_module\n    spec.loader.exec_module(module)\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/var/folders/xl/m1c5tz156j1601twnnqjhf240000gn/T/migration_sandbox_v0ghakfv/target_app.py\", line 10, in <module>\n    class TodoResponse(BaseModel):\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py\", line 132, in __new__\n    private_attributes = inspect_namespace(\n                         ^^^^^^^^^^^^^^^^^^\n  File \"/Users/vicentejr/.pyenv/versions/3.12.2/lib/python3.12/site-packages/pydantic/_internal/_model_construction.py\", line 424, in inspect_namespace\n    raise TypeError(\"To define root models, use `pydantic.RootModel` rather than a field called '__root__'\")\nTypeError: To define root models, use `pydantic.RootModel` rather than a field called '__root__'",
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 617,
+            "completion_tokens": 232,
+            "cost_usd": 0.001507,
+            "model_s": 1.5,
+            "cost_is_complete": true,
+            "wall_s": 3.043
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_14_restful_todo_simple.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.8571428571428571,
+          "parity_lenient": 0.8571428571428571,
+          "probes": 28,
+          "matched": 24,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 24,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 0.8571,
+            "parity_lenient": 0.8571,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 3,
+                "match": 1
+              },
+              "happy": {
+                "total": 8,
+                "match": 6
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.POST.bad_type  (bad_type on /v1/charge)\n  expected: HTTP 200  {'error': 'unknown user', 'ok': False}\n  actual:   HTTP 200  {'error': 'user_id required', 'ok': False}\n  note: status matches, response body does not",
+            "probe r00.POST.happy  (happy on /v1/charge)\n  expected: HTTP 200  {'ok': True, 'remaining': 40}\n  actual:   HTTP 200  {'error': 'user_id required', 'ok': False}\n  note: status matches, response body does not",
+            "probe r05.POST.bad_type  (bad_type on /v2/charge)\n  expected: HTTP 404  {'message': 'unknown user'}\n  actual:   HTTP 422  {'field': 'user_id', 'message': 'user_id required'}\n  note: different status code within the same class",
+            "probe r05.POST.happy  (happy on /v2/charge)\n  expected: HTTP 200  {'remaining': 40}\n  actual:   HTTP 422  {'field': 'user_id', 'message': 'user_id required'}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1361,
+            "completion_tokens": 1403,
+            "cost_usd": 0.007334,
+            "model_s": 6.4,
+            "cost_is_complete": true,
+            "wall_s": 8.088
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_15_inconsistent_errors.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.5384615384615384,
+          "parity_lenient": 0.6923076923076923,
+          "probes": 26,
+          "matched": 14,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 14,
+            "matched_status_only": 4,
+            "accepted_divergences": 4,
+            "parity_strict": 0.5385,
+            "parity_lenient": 0.6923,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "happy": {
+                "total": 5,
+                "match": 4
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 1
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.happy  (happy on /orders)\n  expected: HTTP 400  {'error': 'unknown state', 'state': 'probe'}\n  actual:   HTTP 400  {'detail': {'error': 'unknown state', 'state': 'probe'}}\n  note: status matches, response body does not",
+            "probe r00.GET.unauthenticated  (unauthenticated on /orders)\n  expected: HTTP 400  {'error': 'unknown state', 'state': 'probe'}\n  actual:   HTTP 400  {'detail': {'error': 'unknown state', 'state': 'probe'}}\n  note: status matches, response body does not",
+            "probe r01.POST.bad_type  (bad_type on /orders)\n  expected: HTTP 422  {'code': 'IDEMPOTENCY_MISMATCH', 'error': 'idempotency key reused with a different body'}\n  actual:   HTTP 422  {'detail': {'code': 'IDEMPOTENCY_MISMATCH', 'error': 'idempotency key reused with a different body'}}\n  note: status matches, response body does not",
+            "probe r01.POST.malformed_json  (malformed_json on /orders)\n  expected: HTTP 400  {'error': 'total must be a positive integer'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r01.POST.missing_field  (missing_field on /orders)\n  expected: HTTP 400  {'error': 'total must be a positive integer'}\n  actual:   HTTP 422  {'detail': [{'input': {}, 'loc': ['body', 'total'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r02.DELETE.absent_id  (absent_id on /orders/{})\n  expected: HTTP 404  {'error': 'order not found', 'id': 'absent'}\n  actual:   HTTP 404  {'detail': {'error': 'order not found', 'id': 'absent'}}\n  note: status matches, response body does not",
+            "probe r03.GET.absent_id  (absent_id on /orders/{})\n  expected: HTTP 404  {'error': 'order not found', 'id': 'absent'}\n  actual:   HTTP 404  {'detail': {'error': 'order not found', 'id': 'absent'}}\n  note: status matches, response body does not",
+            "probe r04.POST.absent_id  (absent_id on /orders/{}/transition)\n  expected: HTTP 404  {'error': 'order not found', 'id': 'absent'}\n  actual:   HTTP 404  {'detail': {'error': 'order not found', 'id': 'absent'}}\n  note: status matches, response body does not",
+            "probe r04.POST.bad_type  (bad_type on /orders/{}/transition)\n  expected: HTTP 400  {'error': 'unknown state', 'state': 12345}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'to'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r04.POST.malformed_json  (malformed_json on /orders/{}/transition)\n  expected: HTTP 400  {'error': 'to is required'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r04.POST.missing_field  (missing_field on /orders/{}/transition)\n  expected: HTTP 400  {'error': 'to is required'}\n  actual:   HTTP 400  {'detail': {'error': 'to is required'}}\n  note: status matches, response body does not",
+            "probe r04.POST.unauthenticated  (unauthenticated on /orders/{}/transition)\n  expected: HTTP 409  {'allowed': ['approved', 'rejected', 'cancelled'], 'error': 'illegal transition', 'from': 'submitted', 'to': 'submitted'}\n  actual:   HTTP 409  {'detail': {'allowed': ['approved', 'rejected', 'cancelled'], 'error': 'illegal transition', 'from': 'submitted', 'to': 'submitted'}}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1255,
+            "completion_tokens": 1499,
+            "cost_usd": 0.007687,
+            "model_s": 7.1,
+            "cost_is_complete": true,
+            "wall_s": 8.715
+          },
+          "trace": "trajectories/m_gpt54mini/v0_baseline/case_16_state_machine.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v0_baseline/case_16_state_machine.py",
+          "stop_reason": ""
+        }
+      ]
+    },
+    {
+      "variant": "v2_repair",
+      "label": "+ tool-calling repair loop",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 0.9349,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 11,
+      "failed_to_run": 0,
+      "llm_calls": 56,
+      "prompt_tokens": 129285,
+      "completion_tokens": 20478,
+      "cost_usd": 0.1353,
+      "model_s": 118.7,
+      "wall_s": 43.8,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 3,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 4,
+            "prompt_tokens": 5881,
+            "completion_tokens": 1362,
+            "cost_usd": 0.008639,
+            "model_s": 8.3,
+            "cost_is_complete": true,
+            "wall_s": 9.93
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_01_inventory.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_01_inventory.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 7,
+          "differential_runs": 2,
+          "tool_calls": [
+            "search_legacy",
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 8,
+            "prompt_tokens": 18982,
+            "completion_tokens": 2523,
+            "cost_usd": 0.016777,
+            "model_s": 16.0,
+            "cost_is_complete": true,
+            "wall_s": 18.316
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_02_blueprint_auth.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_02_blueprint_auth.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 722,
+            "completion_tokens": 571,
+            "cost_usd": 0.003111,
+            "model_s": 3.0,
+            "cost_is_complete": true,
+            "wall_s": 4.079
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_03_app_config.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_03_app_config.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.9,
+          "parity_lenient": 0.9,
+          "probes": 10,
+          "matched": 9,
+          "passed": false,
+          "repair_turns": 4,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential",
+            "submit"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 9,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.9,
+            "parity_lenient": 0.9,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.POST.malformed_json  (malformed_json on /accounts/{}/withdraw)\n  expected: HTTP 400  {'error': 'bad_amount'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 5,
+            "prompt_tokens": 7957,
+            "completion_tokens": 1728,
+            "cost_usd": 0.01072,
+            "model_s": 10.6,
+            "cost_is_complete": true,
+            "wall_s": 12.259
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_04_error_handlers.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_04_error_handlers.py",
+          "stop_reason": "agent submitted"
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 724,
+            "completion_tokens": 428,
+            "cost_usd": 0.002469,
+            "model_s": 2.3,
+            "cost_is_complete": true,
+            "wall_s": 3.302
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_05_response_shapes.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_05_response_shapes.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 732,
+            "completion_tokens": 528,
+            "cost_usd": 0.002925,
+            "model_s": 2.7,
+            "cost_is_complete": true,
+            "wall_s": 3.439
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_06_query_params.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_06_query_params.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 764,
+            "completion_tokens": 438,
+            "cost_usd": 0.002544,
+            "model_s": 2.4,
+            "cost_is_complete": true,
+            "wall_s": 3.227
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_07_path_converters.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_07_path_converters.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 762,
+            "completion_tokens": 507,
+            "cost_usd": 0.002853,
+            "model_s": 2.8,
+            "cost_is_complete": true,
+            "wall_s": 4.447
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_08_method_view.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_08_method_view.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 666,
+            "completion_tokens": 372,
+            "cost_usd": 0.002174,
+            "model_s": 2.1,
+            "cost_is_complete": true,
+            "wall_s": 4.343
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_09_bulk_status.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_09_bulk_status.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.9090909090909091,
+          "parity_lenient": 0.9090909090909091,
+          "probes": 11,
+          "matched": 10,
+          "passed": false,
+          "repair_turns": 4,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential",
+            "submit"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 10,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.9091,
+            "parity_lenient": 0.9091,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.PATCH.malformed_json  (malformed_json on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 5,
+            "prompt_tokens": 7564,
+            "completion_tokens": 1494,
+            "cost_usd": 0.009718,
+            "model_s": 9.5,
+            "cost_is_complete": true,
+            "wall_s": 13.474
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_10_conditional_update.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_10_conditional_update.py",
+          "stop_reason": "agent submitted"
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 541,
+            "completion_tokens": 399,
+            "cost_usd": 0.002201,
+            "model_s": 2.3,
+            "cost_is_complete": true,
+            "wall_s": 4.403
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_11_trailing_slash.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_11_trailing_slash.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 4,
+          "matched": 4,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 691,
+            "completion_tokens": 445,
+            "cost_usd": 0.002521,
+            "model_s": 2.5,
+            "cost_is_complete": true,
+            "wall_s": 4.307
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_12_pagination_headers.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_12_pagination_headers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 7,
+          "differential_runs": 3,
+          "tool_calls": [
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential",
+            "run_differential",
+            "get_probe_detail",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 8,
+            "prompt_tokens": 29475,
+            "completion_tokens": 3667,
+            "cost_usd": 0.023229,
+            "model_s": 19.6,
+            "cost_is_complete": true,
+            "wall_s": 24.669
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_13_restful_todo.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_13_restful_todo.py",
+          "stop_reason": "code returned without a tool call"
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.3333333333333333,
+          "parity_lenient": 0.3333333333333333,
+          "probes": 9,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 5,
+          "differential_runs": 2,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "run_differential",
+            "run_differential",
+            "submit"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 3,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.3333,
+            "parity_lenient": 0.3333,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe global.GET.unknown_path  (absent_id on __global__)\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'error': 'not found'}\n  note: different status class",
+            "probe r00.GET.absent_id  (absent_id on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'error': 'not found'}\n  note: different status class",
+            "probe r00.GET.happy  (happy on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'error': 'not found'}\n  note: different status class",
+            "probe r00.POST.wrong_method  (wrong_method on /{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.PUT.malformed_json  (malformed_json on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r01.PUT.missing_field  (missing_field on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 6,
+            "prompt_tokens": 13760,
+            "completion_tokens": 841,
+            "cost_usd": 0.008575,
+            "model_s": 7.0,
+            "cost_is_complete": true,
+            "wall_s": 11.819
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_14_restful_todo_simple.py",
+          "stop_reason": "agent submitted"
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.8928571428571429,
+          "parity_lenient": 0.8928571428571429,
+          "probes": 28,
+          "matched": 25,
+          "passed": false,
+          "repair_turns": 3,
+          "differential_runs": 0,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "submit"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 25,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 0.8929,
+            "parity_lenient": 0.8929,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "malformed_json": {
+                "total": 3,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.POST.malformed_json  (malformed_json on /v1/charge)\n  expected: HTTP 200  {'error': 'user_id required', 'ok': False}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.POST.malformed_json  (malformed_json on /v2/batch)\n  expected: HTTP 422  {'message': 'body must be a JSON array'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r05.POST.malformed_json  (malformed_json on /v2/charge)\n  expected: HTTP 422  {'field': 'user_id', 'message': 'user_id required'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 4,
+            "prompt_tokens": 11469,
+            "completion_tokens": 2496,
+            "cost_usd": 0.017674,
+            "model_s": 12.1,
+            "cost_is_complete": true,
+            "wall_s": 14.068
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_15_inconsistent_errors.py",
+          "stop_reason": "agent submitted"
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.9230769230769231,
+          "parity_lenient": 0.9230769230769231,
+          "probes": 26,
+          "matched": 24,
+          "passed": false,
+          "repair_turns": 7,
+          "differential_runs": 0,
+          "tool_calls": [
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "submit"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 24,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 0.9231,
+            "parity_lenient": 0.9231,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "malformed_json": {
+                "total": 3,
+                "match": 1
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.POST.malformed_json  (malformed_json on /orders)\n  expected: HTTP 400  {'error': 'total must be a positive integer'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.POST.malformed_json  (malformed_json on /orders/{}/transition)\n  expected: HTTP 400  {'error': 'to is required'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 8,
+            "prompt_tokens": 28595,
+            "completion_tokens": 2679,
+            "cost_usd": 0.019159,
+            "model_s": 15.5,
+            "cost_is_complete": true,
+            "wall_s": 17.213
+          },
+          "trace": "trajectories/m_gpt54mini/v2_repair/case_16_state_machine.jsonl",
+          "output_file": "results/m_gpt54mini/migrated/v2_repair/case_16_state_machine.py",
+          "stop_reason": "agent submitted"
+        }
+      ]
+    }
+  ]
+}

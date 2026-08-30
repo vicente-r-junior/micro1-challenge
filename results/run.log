@@ -1,0 +1,155 @@
+model=deepseek/deepseek-v4-flash  cases=16  variants=v0_baseline,v1_contract,v2_repair,v3_analyst,v4_memory  live  cache_entries=35  workers=4  providers=deepseek
+  [v0_baseline] case_03_app_config            PASS  (11/11 probes)
+  [v0_baseline] case_04_error_handlers        PASS  (10/10 probes)
+  [v0_baseline] case_02_blueprint_auth        PASS  (14/14 probes)
+  [v0_baseline] case_01_inventory             PASS  (15/15 probes)
+  [v0_baseline] case_05_response_shapes        85%  (11/13 probes)
+  [v0_baseline] case_08_method_view           PASS  (17/17 probes)
+  [v0_baseline] case_07_path_converters       PASS  (13/13 probes)
+  [v0_baseline] case_06_query_params          PASS  (6/6 probes)
+  [v0_baseline] case_09_bulk_status           PASS  (8/8 probes)
+  [v0_baseline] case_10_conditional_update    PASS  (11/11 probes)
+  [v0_baseline] case_12_pagination_headers     75%  (3/4 probes)
+  [v0_baseline] case_11_trailing_slash        PASS  (10/10 probes)
+  [v0_baseline] case_13_restful_todo           59%  (10/17 probes)
+  [v0_baseline] case_14_restful_todo_simple    33%  (3/9 probes)
+  [v0_baseline] case_16_state_machine         PASS  (26/26 probes)
+  [v0_baseline] case_15_inconsistent_errors   PASS  (28/28 probes)
+  [v1_contract] case_03_app_config            PASS  (11/11 probes)
+  [v1_contract] case_01_inventory             PASS  (15/15 probes)
+  [v1_contract] case_04_error_handlers        PASS  (10/10 probes)
+  [v1_contract] case_02_blueprint_auth        PASS  (14/14 probes)
+  [v1_contract] case_06_query_params          PASS  (6/6 probes)
+  [v1_contract] case_05_response_shapes       PASS  (13/13 probes)
+  [v1_contract] case_07_path_converters       PASS  (13/13 probes)
+  [v1_contract] case_08_method_view           PASS  (17/17 probes)
+  [v1_contract] case_09_bulk_status           PASS  (8/8 probes)
+  [v1_contract] case_11_trailing_slash        PASS  (10/10 probes)
+  [v1_contract] case_12_pagination_headers    PASS  (4/4 probes)
+  [v1_contract] case_10_conditional_update    PASS  (11/11 probes)
+  [v1_contract] case_13_restful_todo           76%  (13/17 probes)
+  [v1_contract] case_14_restful_todo_simple    67%  (6/9 probes)
+  [v1_contract] case_15_inconsistent_errors   PASS  (28/28 probes)
+  [v1_contract] case_16_state_machine         PASS  (26/26 probes)
+  [v2_repair] case_03_app_config            PASS  (11/11 probes)
+  [v2_repair] case_04_error_handlers        PASS  (10/10 probes)
+  [v2_repair] case_01_inventory             PASS  (15/15 probes)
+  [v2_repair] case_02_blueprint_auth        PASS  (14/14 probes)
+  [v2_repair] case_05_response_shapes       PASS  (13/13 probes)
+  [v2_repair] case_06_query_params          PASS  (6/6 probes)
+  [v2_repair] case_07_path_converters       PASS  (13/13 probes)
+  [v2_repair] case_08_method_view           PASS  (17/17 probes)
+  [v2_repair] case_09_bulk_status           PASS  (8/8 probes)
+  [v2_repair] case_10_conditional_update    PASS  (11/11 probes)
+  [v2_repair] case_12_pagination_headers    PASS  (4/4 probes)
+  [v2_repair] case_11_trailing_slash        PASS  (10/10 probes)
+  [v2_repair] case_15_inconsistent_errors   PASS  (28/28 probes)
+  [v2_repair] case_16_state_machine         PASS  (26/26 probes)
+  [v2_repair] case_14_restful_todo_simple   PASS  (9/9 probes) repair=4t/1d
+  [v2_repair] case_13_restful_todo          PASS  (17/17 probes) repair=5t/1d
+  [v3_analyst] case_04_error_handlers        PASS  (10/10 probes)
+  [v3_analyst] case_02_blueprint_auth        PASS  (14/14 probes)
+  [v3_analyst] case_01_inventory             PASS  (15/15 probes)
+  [v3_analyst] case_03_app_config            PASS  (11/11 probes)
+  [v3_analyst] case_06_query_params          PASS  (6/6 probes)
+  [v3_analyst] case_05_response_shapes       PASS  (13/13 probes)
+  [v3_analyst] case_07_path_converters       PASS  (13/13 probes)
+  [v3_analyst] case_09_bulk_status           PASS  (8/8 probes)
+  [v3_analyst] case_08_method_view           PASS  (17/17 probes)
+  [v3_analyst] case_12_pagination_headers    PASS  (4/4 probes)
+  [v3_analyst] case_11_trailing_slash        PASS  (10/10 probes)
+  [v3_analyst] case_10_conditional_update    PASS  (11/11 probes)
+  [v3_analyst] case_15_inconsistent_errors   PASS  (28/28 probes)
+  [v3_analyst] case_14_restful_todo_simple   PASS  (9/9 probes)
+  [v3_analyst] case_16_state_machine         PASS  (26/26 probes)
+  [v3_analyst] case_13_restful_todo          PASS  (17/17 probes) repair=5t/1d
+  [v4_memory] case_03_app_config            PASS  (11/11 probes)
+  [v4_memory] case_04_error_handlers        PASS  (10/10 probes)
+  [v4_memory] case_01_inventory             PASS  (15/15 probes)
+  [v4_memory] case_02_blueprint_auth        PASS  (14/14 probes)
+  [v4_memory] case_08_method_view           PASS  (17/17 probes)
+  [v4_memory] case_06_query_params          PASS  (6/6 probes)
+  [v4_memory] case_05_response_shapes       PASS  (13/13 probes)
+  [v4_memory] case_07_path_converters       PASS  (13/13 probes)
+  [v4_memory] case_09_bulk_status           PASS  (8/8 probes)
+  [v4_memory] case_12_pagination_headers    PASS  (4/4 probes)
+  [v4_memory] case_10_conditional_update    PASS  (11/11 probes)
+  [v4_memory] case_11_trailing_slash        PASS  (10/10 probes)
+  [v4_memory] case_14_restful_todo_simple   PASS  (9/9 probes)
+  [v4_memory] case_16_state_machine         PASS  (26/26 probes)
+  [v4_memory] case_15_inconsistent_errors   PASS  (28/28 probes)
+  [v4_memory] case_13_restful_todo          PASS  (17/17 probes) repair=5t/1d
+
+# Results: behavioural parity, baseline vs agent
+
+Model `deepseek/deepseek-v4-flash` · 16 cases · live run
+
+## What is measured
+
+The routes of each legacy Flask module are read statically, a fixed set of HTTP requests is derived from them, and those exact requests are replayed against the Flask app and against the migrated FastAPI app. **The Flask responses are the specification.** No language model judges anything.
+
+**Primary metric — migrations that are shippable.** The share of cases where *every* probe reproduces the legacy status and body. This is the number that decides whether a migration can be merged: nobody deploys 92% of a service. A single unmatched probe is a live client breaking.
+
+**Secondary metric — mean behavioural parity.** How close the non-shippable migrations are. Useful for seeing progress; not a release criterion.
+
+**What is not compared.** One class of probe is scored on its status code alone: those where the legacy app answered with the framework's own HTML error page, which no migration can reproduce. The count appears below so the relaxation is visible rather than assumed. Every other body — JSON, CSV, plain text — is compared in full.
+
+| Variant | What it adds | **Shippable** | Mean parity | LLM calls | Cost (USD) | Wall (s) |
+|---|---|---|---|---|---|---|
+| `v0_baseline` | single prompt (baseline) | **12/16** (75%) | 90.7% | 16 | 0.2659 | 6 |
+| `v1_contract` | contract-first migrator | **14/16** (88%) | 96.5% | 16 | 0.6819 | 156 |
+| `v2_repair` | + tool-calling repair loop | **16/16** (100%) | 100.0% | 25 | 0.7311 | 141 |
+| `v3_analyst` | + analyst brief | **16/16** (100%) | 100.0% | 40 | 1.1683 | 1893 |
+| `v4_memory` | + cross-case memory (full agent) | **16/16** (100%) | 100.0% | 40 | 1.1683 | 4 |
+
+## Headline
+
+Shippable migrations go from **12/16** with a single prompt to **16/16** with the full agent — +4 cases, +25% of the benchmark.
+
+Mean parity moves 90.7% → 100.0%. The mean moves less than the shippable count, and that is the point: the baseline is already *nearly* right almost everywhere. The value is not in the average, it is in closing the last few probes — which are the ones that break production and which no code review catches.
+
+## Per case
+
+`100%` means every probe matched — the migration is shippable. Anything else is an observable behaviour change.
+
+| Case | `v0_baseline` | `v1_contract` | `v2_repair` | `v3_analyst` | `v4_memory` |
+|---|---|---|---|---|---|
+| case_01_inventory | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_02_blueprint_auth | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_03_app_config | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_04_error_handlers | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_05_response_shapes | 85% | **100%** | **100%** | **100%** | **100%** |
+| case_06_query_params | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_07_path_converters | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_08_method_view | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_09_bulk_status | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_10_conditional_update | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_11_trailing_slash | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_12_pagination_headers | 75% | **100%** | **100%** | **100%** | **100%** |
+| case_13_restful_todo | 59% | 76% | **100%** | **100%** | **100%** |
+| case_14_restful_todo_simple | 33% | 67% | **100%** | **100%** | **100%** |
+| case_15_inconsistent_errors | **100%** | **100%** | **100%** | **100%** | **100%** |
+| case_16_state_machine | **100%** | **100%** | **100%** | **100%** | **100%** |
+
+## By provenance
+
+The synthetic cases were written for this benchmark by the author of the tool. The third-party cases are real code, vendored unmodified. They are scored identically and reported separately because a benchmark you designed yourself is the one you should trust least.
+
+| Variant | Synthetic (shippable) | Third-party (shippable) |
+|---|---|---|
+| `v0_baseline` | 12/14 | 0/2 |
+| `v1_contract` | 14/14 | 0/2 |
+| `v2_repair` | 14/14 | 2/2 |
+| `v3_analyst` | 14/14 | 2/2 |
+| `v4_memory` | 14/14 | 2/2 |
+
+## Agent behaviour (`v4_memory`)
+
+- Cases needing repair: 1/16
+- Repair turns when used: 5–5 (budget 8)
+- Tool calls: `get_probe_detail` ×18, `run_differential` ×1, `search_legacy` ×1
+- Lessons in the ledger at the end: 0
+- Probes scored on status alone (framework error pages): 55/212
+- Concurrency: 4 workers, wave size 4
+
+wrote results/REPORT.md and results/summary.json

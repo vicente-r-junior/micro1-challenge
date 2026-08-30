@@ -1,0 +1,9 @@
+{
+  "id": "case_11_trailing_slash",
+  "title": "Trailing-slash redirects and strict_slashes",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Flask issues a 308 for a missing trailing slash on a route declared with one. Starlette's redirect_slashes uses 307. Clients that do not follow redirects break on the difference.",
+  "path_values": {"name": "default"}
+}

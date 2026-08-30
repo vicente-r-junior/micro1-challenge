@@ -1,0 +1,103 @@
+model=openai/gpt-5.4-mini  cases=16  variants=v0_baseline,v2_repair  live  cache_entries=0  workers=4  providers=openai
+  [v0_baseline] case_03_app_config              0%  (0/11 probes)
+  [v0_baseline] case_04_error_handlers         60%  (6/10 probes)
+  [v0_baseline] case_02_blueprint_auth         79%  (11/14 probes)
+  [v0_baseline] case_01_inventory              80%  (12/15 probes)
+  [v0_baseline] case_05_response_shapes       PASS  (13/13 probes)
+  [v0_baseline] case_06_query_params           67%  (4/6 probes)
+  [v0_baseline] case_07_path_converters        77%  (10/13 probes)
+  [v0_baseline] case_08_method_view            41%  (7/17 probes)
+  [v0_baseline] case_09_bulk_status           PASS  (8/8 probes)
+  [v0_baseline] case_11_trailing_slash        PASS  (10/10 probes)
+  [v0_baseline] case_12_pagination_headers     75%  (3/4 probes)
+  [v0_baseline] case_10_conditional_update     36%  (4/11 probes)
+  [v0_baseline] case_14_restful_todo_simple     0%  (0/9 probes)
+  [v0_baseline] case_13_restful_todo           47%  (8/17 probes)
+  [v0_baseline] case_15_inconsistent_errors    86%  (24/28 probes)
+  [v0_baseline] case_16_state_machine          54%  (14/26 probes)
+  [v2_repair] case_03_app_config            PASS  (11/11 probes)
+  [v2_repair] case_05_response_shapes       PASS  (13/13 probes)
+  [v2_repair] case_01_inventory             PASS  (15/15 probes) repair=3t/1d
+  [v2_repair] case_06_query_params          PASS  (6/6 probes)
+  [v2_repair] case_04_error_handlers         90%  (9/10 probes) repair=4t/1d
+  [v2_repair] case_07_path_converters       PASS  (13/13 probes)
+  [v2_repair] case_08_method_view           PASS  (17/17 probes)
+  [v2_repair] case_09_bulk_status           PASS  (8/8 probes)
+  [v2_repair] case_02_blueprint_auth        PASS  (14/14 probes) repair=7t/2d
+  [v2_repair] case_11_trailing_slash        PASS  (10/10 probes)
+  [v2_repair] case_12_pagination_headers    PASS  (4/4 probes)
+  [v2_repair] case_10_conditional_update     91%  (10/11 probes) repair=4t/1d
+  [v2_repair] case_14_restful_todo_simple    33%  (3/9 probes) repair=5t/2d
+  [v2_repair] case_15_inconsistent_errors    89%  (25/28 probes) repair=3t/0d
+  [v2_repair] case_13_restful_todo          PASS  (17/17 probes) repair=7t/3d
+  [v2_repair] case_16_state_machine          92%  (24/26 probes) repair=7t/0d
+
+# Results: behavioural parity, baseline vs agent
+
+Model `openai/gpt-5.4-mini` · 16 cases · live run
+
+## What is measured
+
+The routes of each legacy Flask module are read statically, a fixed set of HTTP requests is derived from them, and those exact requests are replayed against the Flask app and against the migrated FastAPI app. **The Flask responses are the specification.** No language model judges anything.
+
+**Primary metric — migrations that are shippable.** The share of cases where *every* probe reproduces the legacy status and body. This is the number that decides whether a migration can be merged: nobody deploys 92% of a service. A single unmatched probe is a live client breaking.
+
+**Cost and model time** are what the recorded run actually spent. Replaying is free and finishes in seconds; the columns describe the work, not the cache. Model time is the summed latency of every call, so it is comparable across variants even when some of them were served from the cache.
+
+**Secondary metric — mean behavioural parity.** How close the non-shippable migrations are. Useful for seeing progress; not a release criterion.
+
+**What is not compared.** One class of probe is scored on its status code alone: those where the legacy app answered with the framework's own HTML error page, which no migration can reproduce. The count appears below so the relaxation is visible rather than assumed. Every other body — JSON, CSV, plain text — is compared in full.
+
+| Variant | What it adds | **Shippable** | Mean parity | LLM calls | Cost (USD) | Model time |
+|---|---|---|---|---|---|---|
+| `v0_baseline` | single prompt (baseline) | **3/16** (19%) | 62.6% | 16 | 0.0525 | 1 min |
+| `v2_repair` | + tool-calling repair loop | **11/16** (69%) | 93.5% | 56 | 0.1353 | 2 min |
+
+## Headline
+
+Shippable migrations go from **3/16** with a single prompt to **11/16** with the full agent — +8 cases, +50% of the benchmark.
+
+Mean parity moves 62.6% → 93.5%. The mean moves less than the shippable count, and that is the point: the baseline is already *nearly* right almost everywhere. The value is not in the average, it is in closing the last few probes — which are the ones that break production and which no code review catches.
+
+## Per case
+
+`100%` means every probe matched — the migration is shippable. Anything else is an observable behaviour change.
+
+| Case | `v0_baseline` | `v2_repair` |
+|---|---|---|
+| case_01_inventory | 80% | **100%** |
+| case_02_blueprint_auth | 79% | **100%** |
+| case_03_app_config | 0% | **100%** |
+| case_04_error_handlers | 60% | 90% |
+| case_05_response_shapes | **100%** | **100%** |
+| case_06_query_params | 67% | **100%** |
+| case_07_path_converters | 77% | **100%** |
+| case_08_method_view | 41% | **100%** |
+| case_09_bulk_status | **100%** | **100%** |
+| case_10_conditional_update | 36% | 91% |
+| case_11_trailing_slash | **100%** | **100%** |
+| case_12_pagination_headers | 75% | **100%** |
+| case_13_restful_todo | 47% | **100%** |
+| case_14_restful_todo_simple | 0% | 33% |
+| case_15_inconsistent_errors | 86% | 89% |
+| case_16_state_machine | 54% | 92% |
+
+## By provenance
+
+The synthetic cases were written for this benchmark by the author of the tool. The third-party cases are real code, vendored unmodified. They are scored identically and reported separately because a benchmark you designed yourself is the one you should trust least.
+
+| Variant | Synthetic (shippable) | Third-party (shippable) |
+|---|---|---|
+| `v0_baseline` | 3/14 | 0/2 |
+| `v2_repair` | 10/14 | 1/2 |
+
+## Agent behaviour (`v2_repair`)
+
+- Cases needing repair: 8/16
+- Repair turns when used: 3–7 (budget 8)
+- Tool calls: `get_probe_detail` ×26, `run_differential` ×10, `search_legacy` ×13, `submit` ×5
+- Lessons in the ledger at the end: 0
+- Probes scored on status alone (framework error pages): 55/212
+- Concurrency: 4 workers, wave size 16
+
+wrote results/m_gpt54mini/REPORT.md and results/m_gpt54mini/summary.json

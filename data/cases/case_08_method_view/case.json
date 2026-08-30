@@ -1,0 +1,9 @@
+{
+  "id": "case_08_method_view",
+  "title": "MethodView class-based routing",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Routes are registered with add_url_rule, not decorators, so a decorator-only reader finds nothing. This case exists to test the route extractor as much as the migration.",
+  "path_values": {"task_id": "1"}
+}

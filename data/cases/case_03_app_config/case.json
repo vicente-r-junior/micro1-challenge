@@ -1,0 +1,8 @@
+{
+  "id": "case_03_app_config",
+  "title": "current_app.config read inside handlers",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "A feature flag changes the response shape and the 202 status is not a framework default. Both are easy to lose."
+}

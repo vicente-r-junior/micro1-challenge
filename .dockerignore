@@ -1,0 +1,13 @@
+# Credentials must never enter an image layer, even transiently.
+.env
+.env.*
+!.env.example
+
+.git
+.venv
+__pycache__
+**/__pycache__
+*.pyc
+.pytest_cache
+submission.zip
+HANDOFF.md

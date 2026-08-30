@@ -1,0 +1,9 @@
+{
+  "id": "case_01_inventory",
+  "title": "Inventory CRUD with manual validation",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "request.args.get(..., type=int) returns None on unparseable input instead of rejecting it. A typed FastAPI query parameter answers 422 where Flask answered 200.",
+  "path_values": {"item_id": "1"}
+}

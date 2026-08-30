@@ -1,0 +1,5255 @@
+{
+  "model": "deepseek/deepseek-v4-flash",
+  "replay": true,
+  "variants": [
+    {
+      "variant": "v0_baseline",
+      "label": "single prompt (baseline)",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 0.9074,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 12,
+      "failed_to_run": 0,
+      "llm_calls": 16,
+      "prompt_tokens": 11024,
+      "completion_tokens": 197958,
+      "cost_usd": 0.2659,
+      "model_s": 1384.4,
+      "wall_s": 3.9,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 661,
+            "completion_tokens": 24218,
+            "cost_usd": 0.031986,
+            "model_s": 151.7,
+            "cost_is_complete": true,
+            "wall_s": 0.794
+          },
+          "trace": "trajectories/v0_baseline/case_01_inventory.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_01_inventory.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 620,
+            "completion_tokens": 13468,
+            "cost_usd": 0.018051,
+            "model_s": 97.5,
+            "cost_is_complete": true,
+            "wall_s": 0.789
+          },
+          "trace": "trajectories/v0_baseline/case_02_blueprint_auth.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_02_blueprint_auth.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 577,
+            "completion_tokens": 13283,
+            "cost_usd": 0.017787,
+            "model_s": 93.9,
+            "cost_is_complete": true,
+            "wall_s": 0.742
+          },
+          "trace": "trajectories/v0_baseline/case_03_app_config.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_03_app_config.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 607,
+            "completion_tokens": 22864,
+            "cost_usd": 0.030448,
+            "model_s": 149.5,
+            "cost_is_complete": true,
+            "wall_s": 0.764
+          },
+          "trace": "trajectories/v0_baseline/case_04_error_handlers.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_04_error_handlers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.8461538461538461,
+          "parity_lenient": 0.9230769230769231,
+          "probes": 13,
+          "matched": 11,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 11,
+            "matched_status_only": 5,
+            "accepted_divergences": 1,
+            "parity_strict": 0.8462,
+            "parity_lenient": 0.9231,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.POST.bad_type  (bad_type on /items)\n  expected: HTTP 201  {'id': 9, 'name': 12345}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'name'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r01.POST.malformed_json  (malformed_json on /items)\n  expected: HTTP 400  {'error': 'name is required'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 546,
+            "completion_tokens": 8897,
+            "cost_usd": 0.011984,
+            "model_s": 59.5,
+            "cost_is_complete": true,
+            "wall_s": 0.914
+          },
+          "trace": "trajectories/v0_baseline/case_05_response_shapes.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_05_response_shapes.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 564,
+            "completion_tokens": 7211,
+            "cost_usd": 0.009767,
+            "model_s": 48.8,
+            "cost_is_complete": true,
+            "wall_s": 0.94
+          },
+          "trace": "trajectories/v0_baseline/case_06_query_params.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_06_query_params.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 588,
+            "completion_tokens": 3123,
+            "cost_usd": 0.004381,
+            "model_s": 21.6,
+            "cost_is_complete": true,
+            "wall_s": 0.929
+          },
+          "trace": "trajectories/v0_baseline/case_07_path_converters.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_07_path_converters.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 579,
+            "completion_tokens": 5763,
+            "cost_usd": 0.007862,
+            "model_s": 42.3,
+            "cost_is_complete": true,
+            "wall_s": 0.922
+          },
+          "trace": "trajectories/v0_baseline/case_08_method_view.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_08_method_view.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 498,
+            "completion_tokens": 3658,
+            "cost_usd": 0.005048,
+            "model_s": 25.7,
+            "cost_is_complete": true,
+            "wall_s": 1.05
+          },
+          "trace": "trajectories/v0_baseline/case_09_bulk_status.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_09_bulk_status.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 588,
+            "completion_tokens": 11992,
+            "cost_usd": 0.016088,
+            "model_s": 82.8,
+            "cost_is_complete": true,
+            "wall_s": 1.123
+          },
+          "trace": "trajectories/v0_baseline/case_10_conditional_update.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_10_conditional_update.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 366,
+            "completion_tokens": 11945,
+            "cost_usd": 0.015928,
+            "model_s": 90.5,
+            "cost_is_complete": true,
+            "wall_s": 1.127
+          },
+          "trace": "trajectories/v0_baseline/case_11_trailing_slash.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_11_trailing_slash.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.75,
+          "parity_lenient": 0.75,
+          "probes": 4,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 3,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.75,
+            "parity_lenient": 0.75,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.bad_query_type  (bad_query_type on /events)\n  expected: HTTP 200  {'events': [{'id': 1, 'kind': 'click'}, {'id': 2, 'kind': 'click'}, {'id': 3, 'kind': 'click'}, {'id': 4, 'kind': 'click'}, {'id': 5, 'kind': 'click'}], 'page': 1, 'per_page': 5}\n  actual:   HTTP 422  {'detail': [{'input': 'not-a-number', 'loc': ['query', 'page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}, {'input': 'not-a-number', 'loc': ['query', 'per_page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}]}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 535,
+            "completion_tokens": 6767,
+            "cost_usd": 0.009168,
+            "model_s": 48.8,
+            "cost_is_complete": true,
+            "wall_s": 1.11
+          },
+          "trace": "trajectories/v0_baseline/case_12_pagination_headers.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_12_pagination_headers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.5882352941176471,
+          "parity_lenient": 0.7058823529411765,
+          "probes": 17,
+          "matched": 10,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 10,
+            "matched_status_only": 1,
+            "accepted_divergences": 2,
+            "parity_strict": 0.5882,
+            "parity_lenient": 0.7059,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "wrong_method": {
+                "total": 2,
+                "match": 0
+              },
+              "happy": {
+                "total": 5,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.DELETE.wrong_method  (wrong_method on /todos)\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r00.GET.happy  (happy on /todos)\n  expected: HTTP 200  {'todo1': {'task': 'build an API'}, 'todo2': {'task': '?????'}, 'todo3': {'task': 'profit!'}}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: different status class",
+            "probe r01.POST.bad_type  (bad_type on /todos)\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'task'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r01.POST.malformed_json  (malformed_json on /todos)\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r02.POST.wrong_method  (wrong_method on /todos/{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r04.PUT.bad_type  (bad_type on /todos/{})\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 422  {'detail': [{'input': 12345, 'loc': ['body', 'task'], 'msg': 'Input should be a valid string', 'type': 'string_type'}]}\n  note: different status class",
+            "probe r04.PUT.malformed_json  (malformed_json on /todos/{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'ctx': {'error': 'Expecting property name enclosed in double quotes'}, 'input': {}, 'loc': ['body', 1], 'msg': 'JSON decode error', 'type': 'json_invalid'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 715,
+            "completion_tokens": 14099,
+            "cost_usd": 0.018925,
+            "model_s": 106.5,
+            "cost_is_complete": true,
+            "wall_s": 1.042
+          },
+          "trace": "trajectories/v0_baseline/case_13_restful_todo.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_13_restful_todo.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.3333333333333333,
+          "parity_lenient": 0.5555555555555556,
+          "probes": 9,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 3,
+            "matched_status_only": 0,
+            "accepted_divergences": 2,
+            "parity_strict": 0.3333,
+            "parity_lenient": 0.5556,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe global.GET.unknown_path  (absent_id on __global__)\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.GET.absent_id  (absent_id on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.GET.happy  (happy on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.POST.wrong_method  (wrong_method on /{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.PUT.malformed_json  (malformed_json on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'input': None, 'loc': ['body', 'data'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)",
+            "probe r01.PUT.missing_field  (missing_field on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 422  {'detail': [{'input': None, 'loc': ['body', 'data'], 'msg': 'Field required', 'type': 'missing'}]}\n  note: validation status reclassified (Flask 400 vs FastAPI 422)"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 705,
+            "completion_tokens": 13501,
+            "cost_usd": 0.018132,
+            "model_s": 108.0,
+            "cost_is_complete": true,
+            "wall_s": 1.041
+          },
+          "trace": "trajectories/v0_baseline/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_14_restful_todo_simple.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1488,
+            "completion_tokens": 11979,
+            "cost_usd": 0.016467,
+            "model_s": 76.4,
+            "cost_is_complete": true,
+            "wall_s": 1.054
+          },
+          "trace": "trajectories/v0_baseline/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_15_inconsistent_errors.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1387,
+            "completion_tokens": 25190,
+            "cost_usd": 0.033861,
+            "model_s": 180.9,
+            "cost_is_complete": true,
+            "wall_s": 1.055
+          },
+          "trace": "trajectories/v0_baseline/case_16_state_machine.jsonl",
+          "output_file": "results/migrated/v0_baseline/case_16_state_machine.py",
+          "stop_reason": ""
+        }
+      ]
+    },
+    {
+      "variant": "v1_contract",
+      "label": "contract-first migrator",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 0.9645,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 14,
+      "failed_to_run": 0,
+      "llm_calls": 16,
+      "prompt_tokens": 15440,
+      "completion_tokens": 514577,
+      "cost_usd": 0.6819,
+      "model_s": 4017.2,
+      "wall_s": 3.6,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 945,
+            "completion_tokens": 38153,
+            "cost_usd": 0.050396,
+            "model_s": 222.5,
+            "cost_is_complete": true,
+            "wall_s": 0.911
+          },
+          "trace": "trajectories/v1_contract/case_01_inventory.jsonl",
+          "output_file": "results/migrated/v1_contract/case_01_inventory.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 900,
+            "completion_tokens": 46106,
+            "cost_usd": 0.060874,
+            "model_s": 345.2,
+            "cost_is_complete": true,
+            "wall_s": 0.92
+          },
+          "trace": "trajectories/v1_contract/case_02_blueprint_auth.jsonl",
+          "output_file": "results/migrated/v1_contract/case_02_blueprint_auth.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 839,
+            "completion_tokens": 11523,
+            "cost_usd": 0.015252,
+            "model_s": 82.1,
+            "cost_is_complete": true,
+            "wall_s": 0.863
+          },
+          "trace": "trajectories/v1_contract/case_03_app_config.jsonl",
+          "output_file": "results/migrated/v1_contract/case_03_app_config.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 872,
+            "completion_tokens": 53926,
+            "cost_usd": 0.071239,
+            "model_s": 459.2,
+            "cost_is_complete": true,
+            "wall_s": 0.887
+          },
+          "trace": "trajectories/v1_contract/case_04_error_handlers.jsonl",
+          "output_file": "results/migrated/v1_contract/case_04_error_handlers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 820,
+            "completion_tokens": 35272,
+            "cost_usd": 0.046593,
+            "model_s": 274.7,
+            "cost_is_complete": true,
+            "wall_s": 0.932
+          },
+          "trace": "trajectories/v1_contract/case_05_response_shapes.jsonl",
+          "output_file": "results/migrated/v1_contract/case_05_response_shapes.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 821,
+            "completion_tokens": 21150,
+            "cost_usd": 0.027952,
+            "model_s": 155.8,
+            "cost_is_complete": true,
+            "wall_s": 0.885
+          },
+          "trace": "trajectories/v1_contract/case_06_query_params.jsonl",
+          "output_file": "results/migrated/v1_contract/case_06_query_params.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 885,
+            "completion_tokens": 43547,
+            "cost_usd": 0.057708,
+            "model_s": 368.8,
+            "cost_is_complete": true,
+            "wall_s": 0.922
+          },
+          "trace": "trajectories/v1_contract/case_07_path_converters.jsonl",
+          "output_file": "results/migrated/v1_contract/case_07_path_converters.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 868,
+            "completion_tokens": 34257,
+            "cost_usd": 0.045438,
+            "model_s": 327.5,
+            "cost_is_complete": true,
+            "wall_s": 0.917
+          },
+          "trace": "trajectories/v1_contract/case_08_method_view.jsonl",
+          "output_file": "results/migrated/v1_contract/case_08_method_view.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 760,
+            "completion_tokens": 8465,
+            "cost_usd": 0.011345,
+            "model_s": 70.2,
+            "cost_is_complete": true,
+            "wall_s": 0.798
+          },
+          "trace": "trajectories/v1_contract/case_09_bulk_status.jsonl",
+          "output_file": "results/migrated/v1_contract/case_09_bulk_status.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 851,
+            "completion_tokens": 27101,
+            "cost_usd": 0.035984,
+            "model_s": 217.7,
+            "cost_is_complete": true,
+            "wall_s": 0.854
+          },
+          "trace": "trajectories/v1_contract/case_10_conditional_update.jsonl",
+          "output_file": "results/migrated/v1_contract/case_10_conditional_update.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 637,
+            "completion_tokens": 48386,
+            "cost_usd": 0.063986,
+            "model_s": 386.8,
+            "cost_is_complete": true,
+            "wall_s": 0.868
+          },
+          "trace": "trajectories/v1_contract/case_11_trailing_slash.jsonl",
+          "output_file": "results/migrated/v1_contract/case_11_trailing_slash.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 4,
+          "matched": 4,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 785,
+            "completion_tokens": 19237,
+            "cost_usd": 0.025575,
+            "model_s": 140.4,
+            "cost_is_complete": true,
+            "wall_s": 0.806
+          },
+          "trace": "trajectories/v1_contract/case_12_pagination_headers.jsonl",
+          "output_file": "results/migrated/v1_contract/case_12_pagination_headers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.7647058823529411,
+          "parity_lenient": 0.7647058823529411,
+          "probes": 17,
+          "matched": 13,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 13,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 0.7647,
+            "parity_lenient": 0.7647,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 2,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.POST.bad_type  (bad_type on /todos)\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 201  {'task': 12345}\n  note: status matches, response body does not",
+            "probe r01.POST.malformed_json  (malformed_json on /todos)\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 201  {'task': None}\n  note: different status class",
+            "probe r04.PUT.bad_type  (bad_type on /todos/{})\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 201  {'task': 12345}\n  note: status matches, response body does not",
+            "probe r04.PUT.malformed_json  (malformed_json on /todos/{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 201  {'task': None}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1009,
+            "completion_tokens": 42448,
+            "cost_usd": 0.056312,
+            "model_s": 352.8,
+            "cost_is_complete": true,
+            "wall_s": 0.909
+          },
+          "trace": "trajectories/v1_contract/case_13_restful_todo.jsonl",
+          "output_file": "results/migrated/v1_contract/case_13_restful_todo.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 0.6666666666666666,
+          "parity_lenient": 0.6666666666666666,
+          "probes": 9,
+          "matched": 6,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 6,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.6667,
+            "parity_lenient": 0.6667,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "wrong_method": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.POST.wrong_method  (wrong_method on /{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.PUT.malformed_json  (malformed_json on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 400  {'message': \"KeyError: 'data'\"}\n  note: status matches, response body does not",
+            "probe r01.PUT.missing_field  (missing_field on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 400  {'message': \"KeyError: 'data'\"}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 969,
+            "completion_tokens": 31097,
+            "cost_usd": 0.041311,
+            "model_s": 256.5,
+            "cost_is_complete": true,
+            "wall_s": 0.915
+          },
+          "trace": "trajectories/v1_contract/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/migrated/v1_contract/case_14_restful_todo_simple.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1807,
+            "completion_tokens": 31572,
+            "cost_usd": 0.04247,
+            "model_s": 205.5,
+            "cost_is_complete": true,
+            "wall_s": 0.938
+          },
+          "trace": "trajectories/v1_contract/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/migrated/v1_contract/case_15_inconsistent_errors.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1672,
+            "completion_tokens": 22337,
+            "cost_usd": 0.029512,
+            "model_s": 151.5,
+            "cost_is_complete": true,
+            "wall_s": 0.926
+          },
+          "trace": "trajectories/v1_contract/case_16_state_machine.jsonl",
+          "output_file": "results/migrated/v1_contract/case_16_state_machine.py",
+          "stop_reason": "parity reached on first attempt"
+        }
+      ]
+    },
+    {
+      "variant": "v2_repair",
+      "label": "+ tool-calling repair loop",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 1.0,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 16,
+      "failed_to_run": 0,
+      "llm_calls": 25,
+      "prompt_tokens": 67614,
+      "completion_tokens": 549299,
+      "cost_usd": 0.7311,
+      "model_s": 4284.6,
+      "wall_s": 4.1,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 945,
+            "completion_tokens": 38153,
+            "cost_usd": 0.050396,
+            "model_s": 222.5,
+            "cost_is_complete": true,
+            "wall_s": 0.882
+          },
+          "trace": "trajectories/v2_repair/case_01_inventory.jsonl",
+          "output_file": "results/migrated/v2_repair/case_01_inventory.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 900,
+            "completion_tokens": 46106,
+            "cost_usd": 0.060874,
+            "model_s": 345.2,
+            "cost_is_complete": true,
+            "wall_s": 0.891
+          },
+          "trace": "trajectories/v2_repair/case_02_blueprint_auth.jsonl",
+          "output_file": "results/migrated/v2_repair/case_02_blueprint_auth.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 839,
+            "completion_tokens": 11523,
+            "cost_usd": 0.015252,
+            "model_s": 82.1,
+            "cost_is_complete": true,
+            "wall_s": 0.83
+          },
+          "trace": "trajectories/v2_repair/case_03_app_config.jsonl",
+          "output_file": "results/migrated/v2_repair/case_03_app_config.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 872,
+            "completion_tokens": 53926,
+            "cost_usd": 0.071239,
+            "model_s": 459.2,
+            "cost_is_complete": true,
+            "wall_s": 0.858
+          },
+          "trace": "trajectories/v2_repair/case_04_error_handlers.jsonl",
+          "output_file": "results/migrated/v2_repair/case_04_error_handlers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 820,
+            "completion_tokens": 35272,
+            "cost_usd": 0.046593,
+            "model_s": 274.7,
+            "cost_is_complete": true,
+            "wall_s": 0.901
+          },
+          "trace": "trajectories/v2_repair/case_05_response_shapes.jsonl",
+          "output_file": "results/migrated/v2_repair/case_05_response_shapes.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 821,
+            "completion_tokens": 21150,
+            "cost_usd": 0.027952,
+            "model_s": 155.8,
+            "cost_is_complete": true,
+            "wall_s": 0.858
+          },
+          "trace": "trajectories/v2_repair/case_06_query_params.jsonl",
+          "output_file": "results/migrated/v2_repair/case_06_query_params.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 885,
+            "completion_tokens": 43547,
+            "cost_usd": 0.057708,
+            "model_s": 368.8,
+            "cost_is_complete": true,
+            "wall_s": 0.905
+          },
+          "trace": "trajectories/v2_repair/case_07_path_converters.jsonl",
+          "output_file": "results/migrated/v2_repair/case_07_path_converters.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 868,
+            "completion_tokens": 34257,
+            "cost_usd": 0.045438,
+            "model_s": 327.5,
+            "cost_is_complete": true,
+            "wall_s": 0.893
+          },
+          "trace": "trajectories/v2_repair/case_08_method_view.jsonl",
+          "output_file": "results/migrated/v2_repair/case_08_method_view.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 760,
+            "completion_tokens": 8465,
+            "cost_usd": 0.011345,
+            "model_s": 70.2,
+            "cost_is_complete": true,
+            "wall_s": 0.918
+          },
+          "trace": "trajectories/v2_repair/case_09_bulk_status.jsonl",
+          "output_file": "results/migrated/v2_repair/case_09_bulk_status.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 851,
+            "completion_tokens": 27101,
+            "cost_usd": 0.035984,
+            "model_s": 217.7,
+            "cost_is_complete": true,
+            "wall_s": 0.956
+          },
+          "trace": "trajectories/v2_repair/case_10_conditional_update.jsonl",
+          "output_file": "results/migrated/v2_repair/case_10_conditional_update.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 637,
+            "completion_tokens": 48386,
+            "cost_usd": 0.063986,
+            "model_s": 386.8,
+            "cost_is_complete": true,
+            "wall_s": 0.938
+          },
+          "trace": "trajectories/v2_repair/case_11_trailing_slash.jsonl",
+          "output_file": "results/migrated/v2_repair/case_11_trailing_slash.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 4,
+          "matched": 4,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 785,
+            "completion_tokens": 19237,
+            "cost_usd": 0.025575,
+            "model_s": 140.4,
+            "cost_is_complete": true,
+            "wall_s": 0.893
+          },
+          "trace": "trajectories/v2_repair/case_12_pagination_headers.jsonl",
+          "output_file": "results/migrated/v2_repair/case_12_pagination_headers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 5,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "search_legacy",
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 6,
+            "prompt_tokens": 40548,
+            "completion_tokens": 60420,
+            "cost_usd": 0.082055,
+            "model_s": 489.7,
+            "cost_is_complete": true,
+            "wall_s": 1.423
+          },
+          "trace": "trajectories/v2_repair/case_13_restful_todo.jsonl",
+          "output_file": "results/migrated/v2_repair/case_13_restful_todo.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 9,
+          "matched": 9,
+          "passed": true,
+          "repair_turns": 4,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "search_legacy",
+            "search_legacy",
+            "search_legacy",
+            "search_legacy",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 9,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 5,
+            "prompt_tokens": 13604,
+            "completion_tokens": 47847,
+            "cost_usd": 0.064727,
+            "model_s": 387.0,
+            "cost_is_complete": true,
+            "wall_s": 1.369
+          },
+          "trace": "trajectories/v2_repair/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/migrated/v2_repair/case_14_restful_todo_simple.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1807,
+            "completion_tokens": 31572,
+            "cost_usd": 0.04247,
+            "model_s": 205.5,
+            "cost_is_complete": true,
+            "wall_s": 0.965
+          },
+          "trace": "trajectories/v2_repair/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/migrated/v2_repair/case_15_inconsistent_errors.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1672,
+            "completion_tokens": 22337,
+            "cost_usd": 0.029512,
+            "model_s": 151.5,
+            "cost_is_complete": true,
+            "wall_s": 0.951
+          },
+          "trace": "trajectories/v2_repair/case_16_state_machine.jsonl",
+          "output_file": "results/migrated/v2_repair/case_16_state_machine.py",
+          "stop_reason": "parity reached on first attempt"
+        }
+      ]
+    },
+    {
+      "variant": "v3_analyst",
+      "label": "+ analyst brief",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 1.0,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 16,
+      "failed_to_run": 0,
+      "llm_calls": 40,
+      "prompt_tokens": 88159,
+      "completion_tokens": 872148,
+      "cost_usd": 1.1683,
+      "model_s": 6540.6,
+      "wall_s": 4.0,
+      "workers": 4,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2724,
+            "completion_tokens": 51623,
+            "cost_usd": 0.069177,
+            "model_s": 371.1,
+            "cost_is_complete": true,
+            "wall_s": 0.857
+          },
+          "trace": "trajectories/v3_analyst/case_01_inventory.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_01_inventory.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2308,
+            "completion_tokens": 46186,
+            "cost_usd": 0.061817,
+            "model_s": 341.4,
+            "cost_is_complete": true,
+            "wall_s": 0.852
+          },
+          "trace": "trajectories/v3_analyst/case_02_blueprint_auth.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_02_blueprint_auth.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2290,
+            "completion_tokens": 49557,
+            "cost_usd": 0.066259,
+            "model_s": 384.3,
+            "cost_is_complete": true,
+            "wall_s": 0.807
+          },
+          "trace": "trajectories/v3_analyst/case_03_app_config.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_03_app_config.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2574,
+            "completion_tokens": 44628,
+            "cost_usd": 0.059333,
+            "model_s": 292.7,
+            "cost_is_complete": true,
+            "wall_s": 0.83
+          },
+          "trace": "trajectories/v3_analyst/case_04_error_handlers.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_04_error_handlers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2125,
+            "completion_tokens": 52491,
+            "cost_usd": 0.06995,
+            "model_s": 423.2,
+            "cost_is_complete": true,
+            "wall_s": 0.96
+          },
+          "trace": "trajectories/v3_analyst/case_05_response_shapes.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_05_response_shapes.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2481,
+            "completion_tokens": 38437,
+            "cost_usd": 0.051556,
+            "model_s": 286.3,
+            "cost_is_complete": true,
+            "wall_s": 0.903
+          },
+          "trace": "trajectories/v3_analyst/case_06_query_params.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_06_query_params.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2509,
+            "completion_tokens": 43083,
+            "cost_usd": 0.057701,
+            "model_s": 295.8,
+            "cost_is_complete": true,
+            "wall_s": 0.952
+          },
+          "trace": "trajectories/v3_analyst/case_07_path_converters.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_07_path_converters.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2919,
+            "completion_tokens": 63053,
+            "cost_usd": 0.084242,
+            "model_s": 462.4,
+            "cost_is_complete": true,
+            "wall_s": 0.956
+          },
+          "trace": "trajectories/v3_analyst/case_08_method_view.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_08_method_view.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2181,
+            "completion_tokens": 26358,
+            "cost_usd": 0.03548,
+            "model_s": 198.6,
+            "cost_is_complete": true,
+            "wall_s": 0.867
+          },
+          "trace": "trajectories/v3_analyst/case_09_bulk_status.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_09_bulk_status.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 3,
+            "prompt_tokens": 4061,
+            "completion_tokens": 78714,
+            "cost_usd": 0.104762,
+            "model_s": 582.1,
+            "cost_is_complete": true,
+            "wall_s": 0.93
+          },
+          "trace": "trajectories/v3_analyst/case_10_conditional_update.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_10_conditional_update.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 1832,
+            "completion_tokens": 61396,
+            "cost_usd": 0.081576,
+            "model_s": 516.0,
+            "cost_is_complete": true,
+            "wall_s": 0.926
+          },
+          "trace": "trajectories/v3_analyst/case_11_trailing_slash.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_11_trailing_slash.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 4,
+          "matched": 4,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 3,
+            "prompt_tokens": 3691,
+            "completion_tokens": 38984,
+            "cost_usd": 0.05221,
+            "model_s": 294.3,
+            "cost_is_complete": true,
+            "wall_s": 0.898
+          },
+          "trace": "trajectories/v3_analyst/case_12_pagination_headers.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_12_pagination_headers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 5,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 8,
+            "prompt_tokens": 44480,
+            "completion_tokens": 132228,
+            "cost_usd": 0.177808,
+            "model_s": 1043.6,
+            "cost_is_complete": true,
+            "wall_s": 1.37
+          },
+          "trace": "trajectories/v3_analyst/case_13_restful_todo.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_13_restful_todo.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 9,
+          "matched": 9,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 9,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2445,
+            "completion_tokens": 53308,
+            "cost_usd": 0.07117,
+            "model_s": 412.4,
+            "cost_is_complete": true,
+            "wall_s": 0.842
+          },
+          "trace": "trajectories/v3_analyst/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_14_restful_todo_simple.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 4743,
+            "completion_tokens": 44044,
+            "cost_usd": 0.059952,
+            "model_s": 306.4,
+            "cost_is_complete": true,
+            "wall_s": 0.893
+          },
+          "trace": "trajectories/v3_analyst/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_15_inconsistent_errors.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 4796,
+            "completion_tokens": 48058,
+            "cost_usd": 0.065274,
+            "model_s": 330.0,
+            "cost_is_complete": true,
+            "wall_s": 0.885
+          },
+          "trace": "trajectories/v3_analyst/case_16_state_machine.jsonl",
+          "output_file": "results/migrated/v3_analyst/case_16_state_machine.py",
+          "stop_reason": "parity reached on first attempt"
+        }
+      ]
+    },
+    {
+      "variant": "v4_memory",
+      "label": "+ cross-case memory (full agent)",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 1.0,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 16,
+      "failed_to_run": 0,
+      "llm_calls": 40,
+      "prompt_tokens": 88159,
+      "completion_tokens": 872148,
+      "cost_usd": 1.1683,
+      "model_s": 6540.6,
+      "wall_s": 4.0,
+      "workers": 4,
+      "wave_size": 4,
+      "memory": {
+        "enabled": true,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2724,
+            "completion_tokens": 51623,
+            "cost_usd": 0.069177,
+            "model_s": 371.1,
+            "cost_is_complete": true,
+            "wall_s": 0.842
+          },
+          "trace": "trajectories/v4_memory/case_01_inventory.jsonl",
+          "output_file": "results/migrated/v4_memory/case_01_inventory.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 14,
+          "matched": 14,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 14,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2308,
+            "completion_tokens": 46186,
+            "cost_usd": 0.061817,
+            "model_s": 341.4,
+            "cost_is_complete": true,
+            "wall_s": 0.83
+          },
+          "trace": "trajectories/v4_memory/case_02_blueprint_auth.jsonl",
+          "output_file": "results/migrated/v4_memory/case_02_blueprint_auth.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2290,
+            "completion_tokens": 49557,
+            "cost_usd": 0.066259,
+            "model_s": 384.3,
+            "cost_is_complete": true,
+            "wall_s": 0.76
+          },
+          "trace": "trajectories/v4_memory/case_03_app_config.jsonl",
+          "output_file": "results/migrated/v4_memory/case_03_app_config.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2574,
+            "completion_tokens": 44628,
+            "cost_usd": 0.059333,
+            "model_s": 292.7,
+            "cost_is_complete": true,
+            "wall_s": 0.8
+          },
+          "trace": "trajectories/v4_memory/case_04_error_handlers.jsonl",
+          "output_file": "results/migrated/v4_memory/case_04_error_handlers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2125,
+            "completion_tokens": 52491,
+            "cost_usd": 0.06995,
+            "model_s": 423.2,
+            "cost_is_complete": true,
+            "wall_s": 0.852
+          },
+          "trace": "trajectories/v4_memory/case_05_response_shapes.jsonl",
+          "output_file": "results/migrated/v4_memory/case_05_response_shapes.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2481,
+            "completion_tokens": 38437,
+            "cost_usd": 0.051556,
+            "model_s": 286.3,
+            "cost_is_complete": true,
+            "wall_s": 0.823
+          },
+          "trace": "trajectories/v4_memory/case_06_query_params.jsonl",
+          "output_file": "results/migrated/v4_memory/case_06_query_params.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2509,
+            "completion_tokens": 43083,
+            "cost_usd": 0.057701,
+            "model_s": 295.8,
+            "cost_is_complete": true,
+            "wall_s": 0.852
+          },
+          "trace": "trajectories/v4_memory/case_07_path_converters.jsonl",
+          "output_file": "results/migrated/v4_memory/case_07_path_converters.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2919,
+            "completion_tokens": 63053,
+            "cost_usd": 0.084242,
+            "model_s": 462.4,
+            "cost_is_complete": true,
+            "wall_s": 0.851
+          },
+          "trace": "trajectories/v4_memory/case_08_method_view.jsonl",
+          "output_file": "results/migrated/v4_memory/case_08_method_view.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2181,
+            "completion_tokens": 26358,
+            "cost_usd": 0.03548,
+            "model_s": 198.6,
+            "cost_is_complete": true,
+            "wall_s": 0.822
+          },
+          "trace": "trajectories/v4_memory/case_09_bulk_status.jsonl",
+          "output_file": "results/migrated/v4_memory/case_09_bulk_status.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 3,
+            "prompt_tokens": 4061,
+            "completion_tokens": 78714,
+            "cost_usd": 0.104762,
+            "model_s": 582.1,
+            "cost_is_complete": true,
+            "wall_s": 0.866
+          },
+          "trace": "trajectories/v4_memory/case_10_conditional_update.jsonl",
+          "output_file": "results/migrated/v4_memory/case_10_conditional_update.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 1832,
+            "completion_tokens": 61396,
+            "cost_usd": 0.081576,
+            "model_s": 516.0,
+            "cost_is_complete": true,
+            "wall_s": 0.866
+          },
+          "trace": "trajectories/v4_memory/case_11_trailing_slash.jsonl",
+          "output_file": "results/migrated/v4_memory/case_11_trailing_slash.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 4,
+          "matched": 4,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 4,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 3,
+            "prompt_tokens": 3691,
+            "completion_tokens": 38984,
+            "cost_usd": 0.05221,
+            "model_s": 294.3,
+            "cost_is_complete": true,
+            "wall_s": 0.85
+          },
+          "trace": "trajectories/v4_memory/case_12_pagination_headers.jsonl",
+          "output_file": "results/migrated/v4_memory/case_12_pagination_headers.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 5,
+          "differential_runs": 1,
+          "tool_calls": [
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "search_legacy",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "get_probe_detail",
+            "run_differential"
+          ],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 8,
+            "prompt_tokens": 44480,
+            "completion_tokens": 132228,
+            "cost_usd": 0.177808,
+            "model_s": 1043.6,
+            "cost_is_complete": true,
+            "wall_s": 1.468
+          },
+          "trace": "trajectories/v4_memory/case_13_restful_todo.jsonl",
+          "output_file": "results/migrated/v4_memory/case_13_restful_todo.py",
+          "stop_reason": "full parity reached"
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 9,
+          "matched": 9,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 9,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 2445,
+            "completion_tokens": 53308,
+            "cost_usd": 0.07117,
+            "model_s": 412.4,
+            "cost_is_complete": true,
+            "wall_s": 0.953
+          },
+          "trace": "trajectories/v4_memory/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/migrated/v4_memory/case_14_restful_todo_simple.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 4743,
+            "completion_tokens": 44044,
+            "cost_usd": 0.059952,
+            "model_s": 306.4,
+            "cost_is_complete": true,
+            "wall_s": 0.999
+          },
+          "trace": "trajectories/v4_memory/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/migrated/v4_memory/case_15_inconsistent_errors.py",
+          "stop_reason": "parity reached on first attempt"
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "agent",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 2,
+            "prompt_tokens": 4796,
+            "completion_tokens": 48058,
+            "cost_usd": 0.065274,
+            "model_s": 330.0,
+            "cost_is_complete": true,
+            "wall_s": 0.993
+          },
+          "trace": "trajectories/v4_memory/case_16_state_machine.jsonl",
+          "output_file": "results/migrated/v4_memory/case_16_state_machine.py",
+          "stop_reason": "parity reached on first attempt"
+        }
+      ]
+    }
+  ]
+}

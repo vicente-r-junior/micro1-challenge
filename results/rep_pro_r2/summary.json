@@ -1,0 +1,1066 @@
+{
+  "model": "deepseek/deepseek-v4-pro",
+  "replay": false,
+  "variants": [
+    {
+      "variant": "v0_baseline",
+      "label": "single prompt (baseline)",
+      "cases": 16,
+      "scored": 16,
+      "mean_parity_strict": 0.8637,
+      "median_parity_strict": 1.0,
+      "full_parity_cases": 11,
+      "failed_to_run": 0,
+      "llm_calls": 16,
+      "prompt_tokens": 11024,
+      "completion_tokens": 181571,
+      "cost_usd": 0.721,
+      "model_s": 2721.5,
+      "wall_s": 996.4,
+      "workers": 3,
+      "wave_size": 16,
+      "memory": {
+        "enabled": false,
+        "lessons": 0,
+        "total_hits": 0
+      },
+      "rows": [
+        {
+          "case_id": "case_01_inventory",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 15,
+          "matched": 15,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 15,
+            "matched": 15,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 661,
+            "completion_tokens": 10962,
+            "cost_usd": 0.043465,
+            "model_s": 146.2,
+            "cost_is_complete": true,
+            "wall_s": 149.225
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_01_inventory.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_01_inventory.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_02_blueprint_auth",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.7142857142857143,
+          "parity_lenient": 0.7142857142857143,
+          "probes": 14,
+          "matched": 10,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 14,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 0.7143,
+            "parity_lenient": 0.7143,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "unauthenticated": {
+                "total": 3,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.POST.bad_type  (bad_type on /api/v1/notes)\n  expected: HTTP 201  {'id': 2, 'owner': 'ana', 'text': 12345}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r00.POST.unauthenticated  (unauthenticated on /api/v1/notes)\n  expected: HTTP 401  {'code': 'AUTH_001', 'error': 'missing token'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r01.GET.unauthenticated  (unauthenticated on /api/v1/notes/{})\n  expected: HTTP 401  {'code': 'AUTH_001', 'error': 'missing token'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r02.GET.unauthenticated  (unauthenticated on /api/v1/whoami)\n  expected: HTTP 401  {'code': 'AUTH_001', 'error': 'missing token'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 620,
+            "completion_tokens": 11691,
+            "cost_usd": 0.046461,
+            "model_s": 176.8,
+            "cost_is_complete": true,
+            "wall_s": 179.748
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_02_blueprint_auth.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_02_blueprint_auth.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_03_app_config",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 11,
+          "matched": 11,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 11,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 577,
+            "completion_tokens": 3553,
+            "cost_usd": 0.014178,
+            "model_s": 59.5,
+            "cost_is_complete": true,
+            "wall_s": 62.807
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_03_app_config.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_03_app_config.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_04_error_handlers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 607,
+            "completion_tokens": 13692,
+            "cost_usd": 0.054368,
+            "model_s": 197.8,
+            "cost_is_complete": true,
+            "wall_s": 198.672
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_04_error_handlers.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_04_error_handlers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_05_response_shapes",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 546,
+            "completion_tokens": 12991,
+            "cost_usd": 0.051512,
+            "model_s": 216.2,
+            "cost_is_complete": true,
+            "wall_s": 217.004
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_05_response_shapes.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_05_response_shapes.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_06_query_params",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 6,
+          "matched": 6,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 6,
+            "matched": 6,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_query_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 564,
+            "completion_tokens": 14952,
+            "cost_usd": 0.059301,
+            "model_s": 237.5,
+            "cost_is_complete": true,
+            "wall_s": 238.277
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_06_query_params.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_06_query_params.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_07_path_converters",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 13,
+          "matched": 13,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 13,
+            "matched": 13,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 5,
+                "match": 5
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 588,
+            "completion_tokens": 11880,
+            "cost_usd": 0.047168,
+            "model_s": 162.9,
+            "cost_is_complete": true,
+            "wall_s": 163.608
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_07_path_converters.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_07_path_converters.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_08_method_view",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 17,
+          "matched": 17,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 17,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 2
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 2
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 2
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 579,
+            "completion_tokens": 9812,
+            "cost_usd": 0.038966,
+            "model_s": 144.9,
+            "cost_is_complete": true,
+            "wall_s": 145.753
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_08_method_view.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_08_method_view.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_09_bulk_status",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 8,
+          "matched": 8,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 8,
+            "matched": 8,
+            "matched_status_only": 3,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 2,
+                "match": 2
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 1
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 498,
+            "completion_tokens": 12765,
+            "cost_usd": 0.050717,
+            "model_s": 175.3,
+            "cost_is_complete": true,
+            "wall_s": 176.076
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_09_bulk_status.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_09_bulk_status.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_10_conditional_update",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.7272727272727273,
+          "parity_lenient": 0.7272727272727273,
+          "probes": 11,
+          "matched": 8,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 11,
+            "matched": 8,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.7273,
+            "parity_lenient": 0.7273,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_type": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 2,
+                "match": 2
+              },
+              "unauthenticated": {
+                "total": 2,
+                "match": 2
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r01.PATCH.bad_type  (bad_type on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 409  {'error': 'version conflict', 'expected': 4}\n  note: different status code within the same class",
+            "probe r01.PATCH.malformed_json  (malformed_json on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 409  {'error': 'version conflict', 'expected': 4}\n  note: different status code within the same class",
+            "probe r01.PATCH.missing_field  (missing_field on /docs/{})\n  expected: HTTP 400  {'error': 'title must be a non-empty string'}\n  actual:   HTTP 409  {'error': 'version conflict', 'expected': 4}\n  note: different status code within the same class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 588,
+            "completion_tokens": 13970,
+            "cost_usd": 0.055444,
+            "model_s": 228.1,
+            "cost_is_complete": true,
+            "wall_s": 228.799
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_10_conditional_update.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_10_conditional_update.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_11_trailing_slash",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 10,
+          "matched": 10,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 10,
+            "matched": 10,
+            "matched_status_only": 5,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 2,
+                "match": 2
+              },
+              "happy": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 4,
+                "match": 4
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 366,
+            "completion_tokens": 8559,
+            "cost_usd": 0.03405,
+            "model_s": 131.2,
+            "cost_is_complete": true,
+            "wall_s": 131.973
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_11_trailing_slash.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_11_trailing_slash.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_12_pagination_headers",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.75,
+          "parity_lenient": 0.75,
+          "probes": 4,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 4,
+            "matched": 3,
+            "matched_status_only": 2,
+            "accepted_divergences": 0,
+            "parity_strict": 0.75,
+            "parity_lenient": 0.75,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "bad_query_type": {
+                "total": 1,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 1,
+                "match": 1
+              },
+              "happy": {
+                "total": 1,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.GET.bad_query_type  (bad_query_type on /events)\n  expected: HTTP 200  {'events': [{'id': 1, 'kind': 'click'}, {'id': 2, 'kind': 'click'}, {'id': 3, 'kind': 'click'}, {'id': 4, 'kind': 'click'}, {'id': 5, 'kind': 'click'}], 'page': 1, 'per_page': 5}\n  actual:   HTTP 422  {'detail': [{'input': 'not-a-number', 'loc': ['query', 'page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}, {'input': 'not-a-number', 'loc': ['query', 'per_page'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'type': 'int_parsing'}]}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 535,
+            "completion_tokens": 3292,
+            "cost_usd": 0.013089,
+            "model_s": 52.0,
+            "cost_is_complete": true,
+            "wall_s": 52.709
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_12_pagination_headers.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_12_pagination_headers.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_13_restful_todo",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.29411764705882354,
+          "parity_lenient": 0.29411764705882354,
+          "probes": 17,
+          "matched": 5,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 17,
+            "matched": 5,
+            "matched_status_only": 1,
+            "accepted_divergences": 0,
+            "parity_strict": 0.2941,
+            "parity_lenient": 0.2941,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "wrong_method": {
+                "total": 2,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 2,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 2,
+                "match": 0
+              },
+              "absent_id": {
+                "total": 4,
+                "match": 1
+              },
+              "happy": {
+                "total": 5,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 2,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe r00.DELETE.wrong_method  (wrong_method on /todos)\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.POST.bad_type  (bad_type on /todos)\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r01.POST.malformed_json  (malformed_json on /todos)\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 201  {'task': None}\n  note: different status class",
+            "probe r02.DELETE.absent_id  (absent_id on /todos/{})\n  expected: HTTP 404  {'message': \"Todo absent doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo absent doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r02.POST.wrong_method  (wrong_method on /todos/{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r03.GET.absent_id  (absent_id on /todos/{})\n  expected: HTTP 404  {'message': \"Todo absent doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo absent doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r03.GET.happy  (happy on /todos/{})\n  expected: HTTP 404  {'message': \"Todo todo1 doesn't exist\"}\n  actual:   HTTP 404  {'detail': \"Todo todo1 doesn't exist\"}\n  note: status matches, response body does not",
+            "probe r04.PUT.absent_id  (absent_id on /todos/{})\n  expected: HTTP 201  {'task': 'write the migration'}\n  actual:   HTTP 404  {'detail': \"Todo absent doesn't exist\"}\n  note: different status class",
+            "probe r04.PUT.bad_type  (bad_type on /todos/{})\n  expected: HTTP 201  {'task': '12345'}\n  actual:   HTTP 500  'Internal Server Error'\n  note: different status class",
+            "probe r04.PUT.happy  (happy on /todos/{})\n  expected: HTTP 201  {'task': 'write the migration'}\n  actual:   HTTP 404  {'detail': \"Todo todo1 doesn't exist\"}\n  note: different status class",
+            "probe r04.PUT.malformed_json  (malformed_json on /todos/{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 404  {'detail': \"Todo todo1 doesn't exist\"}\n  note: different status code within the same class",
+            "probe r04.PUT.missing_field  (missing_field on /todos/{})\n  expected: HTTP 201  {'task': None}\n  actual:   HTTP 404  {'detail': \"Todo todo1 doesn't exist\"}\n  note: different status class"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 715,
+            "completion_tokens": 5826,
+            "cost_usd": 0.023198,
+            "model_s": 90.4,
+            "cost_is_complete": true,
+            "wall_s": 91.201
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_13_restful_todo.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_13_restful_todo.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_14_restful_todo_simple",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 0.3333333333333333,
+          "parity_lenient": 0.3333333333333333,
+          "probes": 9,
+          "matched": 3,
+          "passed": false,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 9,
+            "matched": 3,
+            "matched_status_only": 0,
+            "accepted_divergences": 0,
+            "parity_strict": 0.3333,
+            "parity_lenient": 0.3333,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 1
+              },
+              "happy": {
+                "total": 2,
+                "match": 1
+              },
+              "wrong_method": {
+                "total": 1,
+                "match": 0
+              },
+              "malformed_json": {
+                "total": 1,
+                "match": 0
+              },
+              "missing_field": {
+                "total": 1,
+                "match": 0
+              },
+              "bad_type": {
+                "total": 1,
+                "match": 1
+              }
+            }
+          },
+          "failure_details": [
+            "probe global.GET.unknown_path  (absent_id on __global__)\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.GET.absent_id  (absent_id on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.GET.happy  (happy on /{})\n  expected: HTTP 500  {'message': 'Internal Server Error'}\n  actual:   HTTP 404  {'detail': 'Todo not found'}\n  note: different status class",
+            "probe r00.POST.wrong_method  (wrong_method on /{})\n  expected: HTTP 405  {'message': 'The method is not allowed for the requested URL.'}\n  actual:   HTTP 405  {'detail': 'Method Not Allowed'}\n  note: status matches, response body does not",
+            "probe r01.PUT.malformed_json  (malformed_json on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 400  {'detail': \"Missing 'data' form field\"}\n  note: status matches, response body does not",
+            "probe r01.PUT.missing_field  (missing_field on /{})\n  expected: HTTP 400  {'message': 'The browser (or proxy) sent a request that this server could not understand.'}\n  actual:   HTTP 400  {'detail': \"Missing 'data' form field\"}\n  note: status matches, response body does not"
+          ],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 705,
+            "completion_tokens": 9736,
+            "cost_usd": 0.038669,
+            "model_s": 162.1,
+            "cost_is_complete": true,
+            "wall_s": 162.836
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_14_restful_todo_simple.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_14_restful_todo_simple.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_15_inconsistent_errors",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 28,
+          "matched": 28,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 28,
+            "matched": 28,
+            "matched_status_only": 9,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 3,
+                "match": 3
+              },
+              "wrong_method": {
+                "total": 8,
+                "match": 8
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 8,
+                "match": 8
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1488,
+            "completion_tokens": 18903,
+            "cost_usd": 0.075023,
+            "model_s": 280.3,
+            "cost_is_complete": true,
+            "wall_s": 281.104
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_15_inconsistent_errors.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_15_inconsistent_errors.py",
+          "stop_reason": ""
+        },
+        {
+          "case_id": "case_16_state_machine",
+          "arm": "baseline",
+          "ok": true,
+          "parity_strict": 1.0,
+          "parity_lenient": 1.0,
+          "probes": 26,
+          "matched": 26,
+          "passed": true,
+          "repair_turns": 0,
+          "differential_runs": 0,
+          "tool_calls": [],
+          "lessons_added": [],
+          "parity_summary": {
+            "probes": 26,
+            "matched": 26,
+            "matched_status_only": 4,
+            "accepted_divergences": 0,
+            "parity_strict": 1.0,
+            "parity_lenient": 1.0,
+            "app_imports": true,
+            "error": null,
+            "by_kind": {
+              "absent_id": {
+                "total": 4,
+                "match": 4
+              },
+              "wrong_method": {
+                "total": 3,
+                "match": 3
+              },
+              "happy": {
+                "total": 5,
+                "match": 5
+              },
+              "unauthenticated": {
+                "total": 5,
+                "match": 5
+              },
+              "bad_type": {
+                "total": 3,
+                "match": 3
+              },
+              "malformed_json": {
+                "total": 3,
+                "match": 3
+              },
+              "missing_field": {
+                "total": 3,
+                "match": 3
+              }
+            }
+          },
+          "failure_details": [],
+          "error": null,
+          "totals": {
+            "llm_calls": 1,
+            "prompt_tokens": 1387,
+            "completion_tokens": 18987,
+            "cost_usd": 0.075386,
+            "model_s": 260.3,
+            "cost_is_complete": true,
+            "wall_s": 261.233
+          },
+          "trace": "trajectories/rep_pro_r2/v0_baseline/case_16_state_machine.jsonl",
+          "output_file": "results/rep_pro_r2/migrated/v0_baseline/case_16_state_machine.py",
+          "stop_reason": ""
+        }
+      ]
+    }
+  ]
+}

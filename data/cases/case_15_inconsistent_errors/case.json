@@ -1,0 +1,10 @@
+{
+  "id": "case_15_inconsistent_errors",
+  "title": "Six-year-old gateway with three generations of error handling",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Deliberately inconsistent, the way real legacy code is. Three error envelopes coexist, /v1/charge returns 200 with an error body, /v1/users returns 200 with {} for a missing user while /v2 returns 404, and two endpoints return non-object JSON. Every one of those is a thing a rewrite normalises and a client depends on.",
+  "path_values": {"user_id": "u1"},
+  "body_values": {"user_id": "u1", "amount": 10}
+}

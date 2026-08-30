@@ -1,0 +1,10 @@
+{
+  "id": "case_10_conditional_update",
+  "title": "If-Match precondition with 409 and 428",
+  "origin": "synthetic - written for this benchmark",
+  "licence": "MIT (this repository)",
+  "tier": "A",
+  "notes": "Control flow depends on a request header, and two uncommon statuses (409, 428) carry application error codes. A migration that models the header as an optional typed parameter loses the 428 branch.",
+  "path_values": {"doc_id": "d1"},
+  "probe_headers": {"If-Match": "W/\"3\""}
+}

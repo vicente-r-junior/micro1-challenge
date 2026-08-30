@@ -1,0 +1,11 @@
+{
+  "id": "case_13_restful_todo",
+  "title": "Flask-RESTful todo API (real, vendored unmodified)",
+  "origin": "https://github.com/flask-restful/flask-restful/blob/88cce53a8cd65830bf1815185a42ba24e5db78c6/examples/todo.py",
+  "commit": "88cce53a8cd65830bf1815185a42ba24e5db78c6",
+  "licence": "BSD-3-Clause (Twilio, Inc.) - permissive, vendored with the notice intact",
+  "tier": "A",
+  "notes": "Real third-party code. Routes are registered with api.add_resource and the request fields are declared through reqparse at module level, far from the handler. abort(404, message=...) produces Flask-RESTful's own error envelope, not Flask's.",
+  "path_values": {"todo_id": "todo1"},
+  "body_values": {"task": "write the migration"}
+}
