@@ -507,7 +507,7 @@ submission was damaging it, and every check that existed still passed. Writing
 the verification step *into* the tool — parse what you just wrote, refuse if it
 is broken — is the same move as the rest of this project, applied to itself.
 
-### H17 — a backup of the credentials file was not ignored
+### H15 — a backup of the credentials file was not ignored
 
 **Tried:** keep credentials out of the repository by git-ignoring `.env`, and
 verify the built archive rather than the working tree.

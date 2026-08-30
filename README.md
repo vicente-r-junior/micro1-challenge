@@ -10,6 +10,10 @@ micro1 Frontier Engineering Challenge 2026 · individual entry
 > agent configuration or the model recolours them from the committed results.
 > It is the fastest way to see what actually changed.
 
+> **Walkthrough video** — a five-minute tour of the problem, the verifier, and
+> one live migration against real third-party code.
+> Link: _see the HackerEarth submission form_.
+
 ---
 
 ## The user and the bottleneck
@@ -162,6 +166,48 @@ only bar that matters, because you do not deploy 92% of a service.
 | **`v2_repair` + tool loop** | **16/16** | **100%** | 25 | $0.73 | 71 min |
 | `v3_analyst` + brief | 16/16 | 100% | 40 | $1.17 | 109 min |
 | `v4_memory` + ledger | 16/16 | 100% | 40 | $1.17 | 109 min |
+
+**Three of those five rows tie at 16/16.** That is a real finding — the last two
+components bought nothing, and Part 3 of the changelog says so with the cost
+attached — but it also means this table understates the range the agent covers.
+The five-model table further down is where the spread actually lives.
+
+### What the 212 probes are made of
+
+A reviewer should know the shape of the denominator before reading a percentage,
+so here it is.
+
+| Probe kind | Count | Share |
+|---|---|---|
+| `happy` | 57 | 26.9% |
+| `wrong_method` | 45 | 21.2% |
+| `absent_id` | 42 | 19.8% |
+| `missing_field` | 18 | 8.5% |
+| `bad_type` | 18 | 8.5% |
+| `malformed_json` | 18 | 8.5% |
+| `unauthenticated` | 10 | 4.7% |
+| `bad_query_type` | 4 | 1.9% |
+
+Two things follow that work against the headline number, and both are worth
+saying out loud rather than leaving in the code.
+
+**41% of the set is `wrong_method` and `absent_id`** — the two classes cheapest
+to get right, because they mostly ask the framework to reject a request rather
+than asking the application to compute an answer.
+
+**26% of probes (55 of 212) are scored on their status code alone.** Those are
+the ones where the legacy app replied with Flask's own HTML error page. The
+exemption is deliberately narrow — `src/parity.py::_body_is_application_output`
+requires a 4xx/5xx status *and* an HTML content type, so a CSV export, a
+plain-text response and an HTML page served with a 200 are all compared in full.
+It was wider once: an earlier version relaxed the check for *any* non-JSON body
+and quietly stopped comparing 8 of 13 probes on one case. That is recorded as
+H13 in [`CHANGELOG.md`](CHANGELOG.md).
+
+So "100% parity" means: every probe reproduced the legacy status, and every
+probe whose body the legacy app actually authored reproduced that body too. It
+does not mean the tool reproduced Flask's error markup, which no FastAPI
+migration can or should.
 
 ### The result that changed the project
 

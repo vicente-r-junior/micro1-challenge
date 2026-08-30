@@ -65,7 +65,7 @@ a replay that claimed to be free would be describing the cache, not the work.
 docker compose run --rm test        # or: make test
 ```
 
-44 tests, no model involved. They cover the parts that decide correctness:
+47 tests, no model involved. They cover the parts that decide correctness:
 
 - route extraction from decorators **and** from `add_url_rule` + `MethodView`
 - probe determinism, and that the 405 probe never hits a sibling handler
@@ -162,6 +162,43 @@ Every number in this table is measured, not estimated.
 | A case reports `legacy app failed to run` | the legacy module cannot be imported standalone | that is tier B by definition; see [`docs/hard-case.md`](docs/hard-case.md) |
 | Sandbox timeout | slow machine, or a generated module that blocks on import | raise `--timeout`; the default is 90 s per replay |
 | Numbers differ from `results/REPORT.md` | you ran without `--replay`, so the models were called live | these models are not deterministic at temperature 0; only the replay reproduces |
+
+### A receipt for the cache
+
+The cache is the obvious place to fake a result, so here is a live call placed
+beside its committed entry. Same case, same prompt, cache bypassed, real
+provider, on 2026-08-30:
+
+```
+prompt key   462092221395ca89253eec34383e46a1…   identical on both sides
+
+                         committed cache     live call
+model                 deepseek/deepseek-v4-flash        (same)
+prompt tokens                        661           661
+completion tokens                  24218         25922
+cost (USD)                        0.0320        0.0342
+latency (s)                        151.7         161.0
+behavioural parity                  100%           87%
+```
+
+Read the rows in order:
+
+- **661 prompt tokens on both sides.** The committed entry was produced by this
+  exact prompt, byte for byte — which is also why the key matches.
+- **24,218 against 25,922 completion tokens.** The model is not deterministic,
+  which is the entire reason a cache exists. A second live call, made minutes
+  apart, returned 19,342 — three runs, three lengths.
+- **100% against 87% parity.** The live migration came out *worse* than the
+  recorded one, and both live calls landed on the same 87%. Numbers move between
+  runs; removing that movement is what the replay is for, and it is why every
+  figure in this repository comes from a fixed recording rather than from
+  whatever the model produces today.
+
+What this does **not** prove: that all 344 entries across the seven committed
+cache files came from a provider. Nothing short of a signed response would,
+and no provider signs them. What it establishes is that the entries are keyed
+by real prompts, that their metadata is consistent with a real call, and that
+a missing entry stops the run instead of being silently skipped.
 
 ### A note on trust
 

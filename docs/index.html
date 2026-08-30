@@ -510,6 +510,38 @@ footer a{color:var(--ink-2)}
       </div>
 
       <div class="stack-tight prose" style="margin-top:14px">
+        <p style="color:var(--ink-2)"><strong>Three of those five rows tie at 16/16.</strong> That is a real finding &mdash; the last two components bought nothing, and the changelog says so with the cost attached &mdash; but it also means this table understates the range the agent covers. The five-model table below is where the spread actually lives.</p>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <h3>What the 212 probes are made of</h3>
+        <p style="color:var(--ink-2)">A reviewer should know the shape of the denominator before reading a percentage, so here it is.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>Probe kind</th><th>Count</th><th>Share</th><th>What it asks</th></tr></thead>
+          <tbody>
+            <tr><td class="num"><code>happy</code></td><td class="num">57</td><td class="num">26.9%</td><td>a valid request, the answer the clients depend on</td></tr>
+            <tr><td class="num"><code>wrong_method</code></td><td class="num">45</td><td class="num">21.2%</td><td>a verb the route does not serve</td></tr>
+            <tr><td class="num"><code>absent_id</code></td><td class="num">42</td><td class="num">19.8%</td><td>a path parameter that does not exist</td></tr>
+            <tr><td class="num"><code>missing_field</code></td><td class="num">18</td><td class="num">8.5%</td><td>a body with a required key removed</td></tr>
+            <tr><td class="num"><code>bad_type</code></td><td class="num">18</td><td class="num">8.5%</td><td>a field of the wrong type</td></tr>
+            <tr><td class="num"><code>malformed_json</code></td><td class="num">18</td><td class="num">8.5%</td><td>a body that is not JSON at all</td></tr>
+            <tr><td class="num"><code>unauthenticated</code></td><td class="num">10</td><td class="num">4.7%</td><td>the request without its credential</td></tr>
+            <tr><td class="num"><code>bad_query_type</code></td><td class="num">4</td><td class="num">1.9%</td><td>a query string the handler will try to cast</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <p style="color:var(--ink-2)">Two things follow that work <em>against</em> the headline number, and both are worth saying out loud rather than leaving in the code.</p>
+        <p style="color:var(--ink-2)"><strong>41% of the set is <code>wrong_method</code> and <code>absent_id</code></strong> &mdash; the two classes cheapest to get right, because they mostly ask the framework to reject a request rather than asking the application to compute an answer.</p>
+        <p style="color:var(--ink-2)"><strong>26% of probes, 55 of 212, are scored on their status code alone.</strong> Those are the ones where the legacy app replied with Flask&rsquo;s own HTML error page. The exemption is deliberately narrow: <code>parity.py</code> requires a 4xx/5xx status <em>and</em> an HTML content type, so a CSV export, a plain-text response and an HTML page served with a 200 are all compared in full. It was wider once &mdash; an earlier version relaxed the check for <em>any</em> non-JSON body and quietly stopped comparing 8 of 13 probes on one case.</p>
+        <p style="color:var(--ink-2)">So &ldquo;100% parity&rdquo; means: every probe reproduced the legacy status, and every probe whose body the legacy app actually authored reproduced that body too. It does not mean the tool reproduced Flask&rsquo;s error markup, which no FastAPI migration can or should.</p>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
         <h3>The result that changed the project</h3>
         <p style="color:var(--ink-2)">Split the same run by where the code came from.</p>
       </div>
@@ -662,7 +694,7 @@ make record            <span class="c"># re-runs everything live</span></pre><bu
 
   <footer>
     <div class="cols">
-      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 47 tests &middot; 16 benchmark cases &middot; 88 agent trajectories &middot; a 22-entry improvement changelog</p></div>
+      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 47 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 24-entry improvement changelog</p></div>
       <div class="card"><h3 style="color:var(--ink)">Provenance</h3><p>Two cases are real flask-restful code, BSD-3-Clause, vendored unmodified. One AGPL case is fetched on demand, never redistributed.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Agent use</h3><p>Every model call, tool call, decision and approval is recorded as JSONL. The coding-agent session that built this is included, redacted.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Author</h3><p>Vicente Jr &mdash; built for the micro1 Frontier Engineering Challenge 2026.<br>

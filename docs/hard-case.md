@@ -11,7 +11,14 @@ from **flowintel**, an open-source incident-response platform, pinned at commit
 `6a6e56af`. 1017 lines, a Flask blueprint wiring MISP threat-intelligence
 objects into case management.
 
-The file is **AGPL-3.0**, so it is not copied into this repository. `case.json`
+**This module is not in the package you downloaded, and cannot be.** It is
+AGPL-3.0: redistributing it would place this repository under that licence, and
+the challenge requires every component to be used according to its terms. What
+ships is the URL, the pinned commit, the licence, and a fetch script — so the
+numbers below are reproducible only with network access, which is the one place
+this project asks for any. Everything else runs offline.
+
+The file is AGPL-3.0, so it is not copied into this repository. `case.json`
 records the URL, the commit and the licence, and `fetch.py` downloads it on
 demand into a git-ignored path. Reproduce with:
 
