@@ -279,6 +279,13 @@ removed"*.
 >
 > So I measured both, and I removed both.
 
+**DO** — Switch to **VS Code**. Open **`CHANGELOG.md`**. Scroll fast, top to
+bottom, so the length registers.
+
+> And all of that is in the changelog. Seventeen times I got the harness wrong.
+>
+> Every entry is one decision, and the evidence that forced the next one.
+
 ---
 
 # Block 7 — where it fails · 25 s
@@ -321,6 +328,11 @@ removed"*.
 
 # If you run over five minutes
 
+The spoken text is **660 words**. At a clear, unhurried pace that is about
+4:35, and the pauses and window switches written into the blocks add roughly
+another twenty seconds — so a clean take lands near **4:50 against a hard 5:00
+limit**. That is real but thin.
+
 **Time your read-through first**, then cut from this list in order until you are
 under 4:35. Each cut is exact — delete the boxed lines named, nothing else.
 
@@ -331,9 +343,12 @@ under 4:35. Each cut is exact — delete the boxed lines named, nothing else.
 | 3 | **Block 8**, the two lines about `"error"` and `"detail"` | **~12 s** | Detail on the hot take. The rule that follows still lands. |
 | 4 | **Block 0**, *"I will be moving between a report, some code, and a terminal."* | **~5 s** | A small courtesy. |
 
-**Never cut Block 4, Block 5, or the last three lines of Block 8.** The brief
-requires a full execution and the removed experiment; the approval gate is the
-ground rule on human oversight; and the closing rule is the insight the whole
+**Never cut Block 4, Block 5, the changelog beat in Block 6, or the last three
+lines of Block 8.** The brief names seven things the video must contain — the
+problem, the baseline, one execution end to end, the final comparison, the
+changelog, the change that mattered most, and the experiment you removed — and
+those four moments are where five of them live. The approval gate is also the
+ground rule on human oversight, and the closing line is the insight the whole
 project is built on.
 
 **Never fix an overrun by speaking faster.** Speed is the first thing that makes

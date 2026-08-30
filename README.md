@@ -16,6 +16,63 @@ micro1 Frontier Engineering Challenge 2026 · individual entry
 
 ---
 
+## The baseline solution and the advanced solution
+
+The challenge asks for both, and asks that the advanced one be a real
+improvement rather than a cosmetic variation. Here they are, named, with the
+command that runs each and the measured difference between them.
+
+| | **Baseline solution** | **Advanced solution** |
+|---|---|---|
+| Name in the code | `v0_baseline` | `v2_repair` |
+| What it is | one prompt: the legacy module in, a FastAPI module out | the same migrator, plus a behaviour contract and an autonomous repair loop with four deterministic tools and a differential oracle |
+| Run it | `docker compose run --rm reproduce` — the report covers both | same command; both appear in [`results/REPORT.md`](results/REPORT.md) |
+| Shippable migrations | **12/16** | **16/16** |
+| On real third-party code | **0/2** | **2/2** |
+| Cost | $0.27 | $0.73 |
+
+The improvement is not that the second one writes better code. It is the same
+migrator with the same model. The difference is that the advanced solution can
+**find out that it was wrong** — it replays the legacy application's own
+responses against the migration and repairs against the diff — and the baseline
+cannot. That is why the column that moves from 0/2 to 2/2 is the third-party
+one, on code neither version had seen.
+
+Two further variants, `v3_analyst` and `v4_memory`, were built, measured and
+**removed**: they cost 60% more and produced zero additional shippable
+migrations. Part 3 of [`CHANGELOG.md`](CHANGELOG.md) records both, with the
+evidence.
+
+### Where each required item lives
+
+| Required | Where |
+|---|---|
+| Complete solution code | this repository; `src/` is 15 modules, all written for this challenge ([`NOTICE.md`](NOTICE.md)) |
+| Improvement changelog | [`CHANGELOG.md`](CHANGELOG.md) — 26 entries, each tied to the evidence that forced the next decision, closing with the main failure mode and the hot take |
+| Reproduction guide | [`REPRODUCTION.md`](REPRODUCTION.md) — clean environment, exact commands, pinned versions, runtime and cost |
+| Agent trajectories | [`trajectories/`](trajectories/) — 243 JSONL runs, every tool call and result, plus the human checkpoints; the coding-agent session that built this is in [`trajectories/build/`](trajectories/build/) |
+| Archive | `submission.zip`, built by `make package`, which verifies the archive rather than the working tree |
+| Solution video | see above |
+
+### On the rule about consequential actions
+
+The consequential action in this tool is **writing generated code into someone's
+source tree**, and it is gated: the run stops, prints the parity result and a
+diffstat, and waits for a human. Answer anything but `y` and the file is not
+written. That gate is exercised by a test, and every answer is recorded in the
+trajectory.
+
+The generated code is also *executed*, to find out what it does. That runs in a
+subprocess, in a throwaway directory, under a timeout — enough to contain an
+accident, and **not a security boundary**, which
+[`src/sandbox.py`](src/sandbox.py) states in full. Every command this README
+gives runs inside the container, where the container is the boundary; the one
+exception is called out where it appears.
+
+---
+
+---
+
 ## The user and the bottleneck
 
 A team is running a Flask service that works. It has been in production for

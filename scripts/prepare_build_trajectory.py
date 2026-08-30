@@ -80,7 +80,7 @@ legacy source with `ast`, probes are derived from them by fixed rules, and those
 probes are replayed against the *original Flask app*. Its answers became the
 specification.
 
-**3. The harness was wrong several times before it was right.** Fifteen
+**3. The harness was wrong several times before it was right.** Seventeen
 corrections are documented in `CHANGELOG.md` Part 2. The ones worth reading are
 the three that produced confident, plausible, wrong numbers: a response cache
 that could never record its first entry (an empty cache is falsy in Python), a
