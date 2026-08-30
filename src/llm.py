@@ -42,6 +42,15 @@ class CacheMiss(LLMError):
     """Raised in replay mode when a request is not in the cache."""
 
 
+class NoCredentials(LLMError):
+    """The provider rejected the request for lack of a usable key.
+
+    Raised in place of the provider SDK's own exception so the person running
+    the tool gets a sentence they can act on instead of a stack trace from three
+    libraries down.
+    """
+
+
 def _key(model: str, temperature: float, payload: Any) -> str:
     blob = json.dumps(
         {"model": model, "temperature": temperature, "payload": payload},
@@ -108,6 +117,29 @@ def _usage(response: Any) -> tuple[int, int]:
         int(getattr(usage, "prompt_tokens", 0) or 0),
         int(getattr(usage, "completion_tokens", 0) or 0),
     )
+
+
+def _cannot_call(exc: Exception) -> Optional[str]:
+    """Is the provider refusing to serve us at all, and why?
+
+    A missing key, a rejected key and an empty balance are three different
+    errors from the SDK and the same problem for the person at the keyboard:
+    this model will not answer. Each gets a sentence they can act on instead of
+    a stack trace from three libraries down.
+    """
+    name = type(exc).__name__.lower()
+    text = str(exc).lower()
+    if "no credits" in text or "insufficient" in text or "quota" in text or "billing" in text:
+        return "the account has no credits left"
+    if (
+        "authentication" in name
+        or "permissiondenied" in name
+        or "api_key" in text
+        or "api key" in text
+        or "unauthorized" in text
+    ):
+        return "no usable API key"
+    return None
 
 
 def _rejects_temperature(exc: Exception) -> bool:
@@ -239,6 +271,17 @@ class LLMClient:
         try:
             response = self._litellm.completion(**kwargs)  # type: ignore[union-attr]
         except Exception as exc:
+            reason = _cannot_call(exc)
+            if reason:
+                raise NoCredentials(
+                    f"{self.model} will not answer: {reason}.\n\n"
+                    "  Either fix the account or use a different provider --\n"
+                    "      edit .env: MIGRATION_MODEL and the matching key\n\n"
+                    "  or use the committed cache instead, which needs no key:\n"
+                    "      --replay\n\n"
+                    "  Note that --replay only covers the benchmark's own cases. Migrating\n"
+                    "  a new file is a new prompt, so that needs a live model."
+                ) from None
             if not _rejects_temperature(exc) or self._omit_temperature:
                 raise
             # Retry on the model's own default rather than failing the case. The

@@ -32,7 +32,7 @@ load_env()
 
 from cases import Case, load_cases  # noqa: E402
 from checkpoint import HumanCheckpoint  # noqa: E402
-from llm import CacheMiss, LLMClient, ResponseCache, resolve_model  # noqa: E402
+from llm import CacheMiss, LLMClient, NoCredentials, ResponseCache, resolve_model  # noqa: E402
 from memory import LessonLedger  # noqa: E402
 from orchestrator import CaseResult, run_agent, run_baseline  # noqa: E402
 from tracing import Tracer, default_trace_path  # noqa: E402
@@ -126,6 +126,10 @@ def run_variant(
                 f"\nReplay cache does not cover {variant}/{case.id}.\n{exc}\n"
                 "Re-record it with a provider key and without --replay."
             ) from exc
+        except NoCredentials as exc:
+            with print_lock:
+                print(f"  [{variant}] {case.id} ... NO KEY")
+            raise SystemExit(f"\n{exc}") from None
         except Exception as exc:  # a broken case must not lose the whole run
             with print_lock:
                 print(f"  [{variant}] {case.id} … ERROR {type(exc).__name__}: {exc}")

@@ -28,7 +28,7 @@ load_env()
 
 from cases import Case  # noqa: E402
 from checkpoint import HumanCheckpoint  # noqa: E402
-from llm import CacheMiss, LLMClient, ResponseCache, resolve_model  # noqa: E402
+from llm import CacheMiss, LLMClient, NoCredentials, ResponseCache, resolve_model  # noqa: E402
 from memory import DEFAULT_PATH, LessonLedger  # noqa: E402
 from orchestrator import run_agent  # noqa: E402
 from tracing import Tracer  # noqa: E402
@@ -173,8 +173,8 @@ def main(argv: Optional[list[str]] = None) -> int:
             checkpoint=HumanCheckpoint(mode, tracer),
             output_path=out_path,
         )
-    except CacheMiss as exc:
-        print(f"error: {exc}", file=sys.stderr)
+    except (CacheMiss, NoCredentials) as exc:
+        print(f"\nerror: {exc}", file=sys.stderr)
         return 2
 
     if not result.ok:
