@@ -1,10 +1,31 @@
-"""Isolated execution of untrusted application code.
+"""Subprocess execution of untrusted application code, and its limits.
 
 Both the legacy Flask app and the generated FastAPI app are executed here. The
 generated app in particular is model output that has never been reviewed, so it
 runs in a throwaway directory, in a separate process, under a wall-clock
 timeout, and its result comes back as JSON over a file rather than as a live
-object. Nothing it does can touch the harness or the repository.
+object. That is enough to keep a crash, a hang or an `exit()` from taking the
+harness down with it, and enough that a module which writes to a relative path
+writes into a directory that is deleted afterwards.
+
+**It is not a security boundary, and calling it one would be a lie.** This is
+`subprocess.run` with a different working directory. There is no namespace, no
+seccomp filter, no read-only mount, no unprivileged user and no network block.
+Generated code that uses an absolute path can read this repository; code that
+opens a socket reaches the network. The isolation that does exist is against
+*accidents*, which is what model output mostly produces -- not against a model
+that has been prompted to attack the machine.
+
+The reason that is acceptable here is the deployment, not the code: every
+command this project documents for a reader runs inside the container defined
+by the repository's Dockerfile, and the container is the boundary. Running
+`python src/migrate.py` directly on a workstation runs model-written code on
+that workstation with the caller's privileges, and `README.md` says so where it
+prints that command.
+
+A real boundary would be a per-run container with `--network none`, a read-only
+root, a non-root user and CPU and memory limits. That is the correct next step
+and it is not implemented.
 """
 
 from __future__ import annotations

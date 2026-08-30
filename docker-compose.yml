@@ -1,17 +1,23 @@
 services:
-  # What a judge runs first. No API key, no network: the whole benchmark is
-  # replayed from data/llm_cache.jsonl and must print the same table as the
-  # committed results/REPORT.md.
+  # What a judge runs first. No API key and no network -- the second is
+  # enforced, not promised: network_mode "none" leaves the container with only
+  # a loopback interface, so if any of this quietly reached a provider it would
+  # fail here instead of succeeding unnoticed. The whole benchmark is replayed
+  # from data/llm_cache.jsonl and must print the same table as the committed
+  # results/REPORT.md.
   reproduce:
     build: .
+    network_mode: "none"
     volumes: [".:/app"]
     command: >
       python src/evaluate.py --variants all --replay --checkpoint auto --workers 4
       --trace-root /tmp/replay-trajectories
 
-  # The harness self-tests. Fast, and they do not need a model at all.
+  # The harness self-tests. Fast, and they do not need a model at all -- so
+  # they run with no network either, which is what makes that claim checkable.
   test:
     build: .
+    network_mode: "none"
     volumes: [".:/app"]
     command: python -m pytest tests/ -q
 

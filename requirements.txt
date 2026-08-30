@@ -1,18 +1,28 @@
 # Runtime for the migration agent and the differential harness.
-litellm>=1.60          # one interface to OpenAI / Anthropic / DeepSeek / local models
-pydantic>=2.6
+#
+# Every version is pinned exactly, and that is load-bearing rather than tidy.
+# The results in results/REPORT.md are produced by executing two applications
+# and comparing their responses byte for byte, so the libraries that serve
+# those responses are part of the measurement: a different Werkzeug changes a
+# 404 body, a different FastAPI changes a validation error, and the report
+# would move for a reason that has nothing to do with the migration. These are
+# the versions the committed results were produced with, resolved from the
+# image the reproduction runs in.
+
+litellm==1.98.0          # one interface to OpenAI / Anthropic / DeepSeek / local models
+pydantic==2.13.5
 
 # Needed to EXECUTE the applications under test, not just to import the harness.
-flask>=3.0             # runs every legacy app to record its contract
-flask-restful>=0.3.10  # two benchmark cases are real Flask-RESTful modules
-fastapi>=0.109         # runs every migrated app
-httpx>=0.26            # fastapi.testclient transport
+Flask==3.1.3             # runs every legacy app to record its contract
+Flask-RESTful==0.3.10    # two benchmark cases are real Flask-RESTful modules
+fastapi==0.141.1         # runs every migrated app
+httpx==0.28.1            # fastapi.testclient transport
 
 # A generated migration may legitimately reach for these, and a missing one
 # looks identical to a behavioural failure: the module does not import, every
-# probe fails, and the case scores 0%. They are pinned here so the sandbox
-# matches what a real FastAPI project would have installed.
-uvicorn>=0.27          # the standard ASGI server; migrations often import it
-python-multipart>=0.0.9  # required by FastAPI for Form() and file uploads
+# probe fails, and the case scores 0%. They are installed so the sandbox
+# matches what a real FastAPI project would have.
+uvicorn==0.52.4          # the standard ASGI server; migrations often import it
+python-multipart==0.0.32 # required by FastAPI for Form() and file uploads
 
-pytest>=8.0            # harness self-tests
+pytest==9.1.1            # harness self-tests

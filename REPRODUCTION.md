@@ -65,7 +65,7 @@ a replay that claimed to be free would be describing the cache, not the work.
 docker compose run --rm test        # or: make test
 ```
 
-48 tests, no model involved. They cover the parts that decide correctness:
+49 tests, no model involved. They cover the parts that decide correctness:
 
 - route extraction from decorators **and** from `add_url_rule` + `MethodView`
 - probe determinism, and that the 405 probe never hits a sibling handler
@@ -108,7 +108,7 @@ module, a `_MIGRATION_REPORT.md` for the pull request, and a JSONL trajectory.
 
 ## What data is required
 
-Nothing external. The fifteen tier-A cases are committed under `data/cases/` and
+Nothing external. The sixteen tier-A cases are committed under `data/cases/` and
 run offline.
 
 The one tier-B case is **not** committed: it is a real AGPL-3.0 file from the

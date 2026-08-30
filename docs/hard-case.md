@@ -1,8 +1,10 @@
 # The hard case: what happens on real code
 
-Every case in tier A was written for this benchmark. That is honest but it is
-also convenient, so this document reports what the tool does when it is pointed
-at a real production Flask module that nobody wrote for it.
+Fourteen of the sixteen tier-A cases were written for this benchmark. The other
+two are real flask-restful modules, vendored unmodified — 122 lines between
+them, and small. That is honest but it is still convenient, so this document
+reports what the tool does when it is pointed at a real production Flask module
+that nobody wrote for it and that nobody trimmed to fit.
 
 ## The subject
 

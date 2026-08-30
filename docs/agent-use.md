@@ -32,7 +32,7 @@ prompt is in the source and reproduced in its trajectory.
 |---|---|---|
 | **Analyst** | none | Reads the legacy module, writes a migration brief listing the externally observable risks. |
 | **Migrator** | none | Writes the FastAPI module from the source, the brief, the AST route inventory and the lessons ledger. |
-| **Repair** | `get_probe_detail`, `search_legacy`, `run_differential`, `submit` | Given a behavioural diff, inspects, hypothesises, patches and re-tests. Bounded at 14 turns and 4 differential runs. |
+| **Repair** | `get_probe_detail`, `search_legacy`, `run_differential`, `submit` | Given a behavioural diff, inspects, hypothesises, patches and re-tests. Bounded at 8 turns and 3 differential runs. |
 | **Reflector** | none | Turns confirmed failures into general rules for the ledger. |
 
 Notably, **none of them decides whether the migration is correct.** That is

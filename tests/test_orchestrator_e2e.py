@@ -206,3 +206,21 @@ def test_migration_never_overwrites_its_own_source(case, tmp_path):
             output_path=case.path,
         )
     assert case.path.read_text() == LEGACY      # untouched
+
+
+def test_checkpoint_refuses_the_write_when_no_one_can_answer(capsys):
+    """A pipe, a CI job or a container with no TTY must not crash.
+
+    The prompt used to raise EOFError and take the process down with a
+    traceback after the migration had already been produced. Silence is read as
+    "no": the write is refused, the reason is printed, and the caller gets a
+    normal return.
+    """
+    from checkpoint import HumanCheckpoint
+
+    def no_input(_prompt):
+        raise EOFError
+
+    gate = HumanCheckpoint("interactive", prompt_func=no_input)
+    assert gate.approve("parity 100%", "--- a\n+++ b\n") is False
+    assert "not written" in capsys.readouterr().out

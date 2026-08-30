@@ -102,8 +102,11 @@ Steps 1, 2, 3, 5 contain no model at all. That is the design.
 
 ## The agent
 
-Six levers, six purposeful choices, each one measured separately in
-[`CHANGELOG.md`](CHANGELOG.md):
+Six levers, six purposeful choices. Five were isolated by the ablation below;
+the sixth, cross-case memory, **could not be** — the repair loop clears the
+failures its ledger would have learned from, so `v4` reproduced `v3` byte for
+byte and the component was removed. Each is documented in
+[`CHANGELOG.md`](CHANGELOG.md), including that one.
 
 | Lever | Component | What it does |
 |---|---|---|
@@ -112,7 +115,7 @@ Six levers, six purposeful choices, each one measured separately in
 | Better tools | **4 deterministic tools** | `get_probe_detail`, `search_legacy`, `run_differential`, `submit` |
 | Verification | **Differential oracle** | the legacy app's own responses; no model votes on correctness |
 | Memory | **Lesson ledger** | confirmed failures on earlier cases become rules injected into later ones |
-| Orchestration | **Repair agent** | an autonomous tool loop, bounded at 14 turns and 4 differential runs |
+| Orchestration | **Repair agent** | an autonomous tool loop, bounded at 8 turns and 3 differential runs |
 
 The repair agent is the only one with tools, and it decides what to look at. It
 can pull up a single probe to see exactly what was sent and what each side
@@ -220,7 +223,7 @@ Split the same run by where the code came from:
 | `v2_repair` | 14/14 | **2/2** |
 
 I designed fourteen migration traps and a current model walked through twelve of
-them. Then two hundred lines of ordinary flask-restful code, aimed at nothing in
+them. Then a hundred and twenty-two lines of ordinary flask-restful code, aimed at nothing in
 particular, and it failed both.
 
 **A benchmark written by the author of the tool measures the author's
@@ -230,7 +233,7 @@ at length, including why real Flask modules are so hard to obtain (most of them
 cannot be executed in isolation).
 
 The repair loop is what closed that column: `case_13` 59% → 76% → **100%**,
-`case_14` 33% → 67% → **100%**, in four and five turns with one differential run
+`case_14` 33% → 67% → **100%**, in five and four turns with one differential run
 each.
 
 ### Five models, two vendors, three generations
@@ -286,6 +289,20 @@ were run again from scratch on identical input.
 
 *(Compared over the cases that completed in both samples; two `flash` calls hit
 an API timeout in sample 2 and are excluded rather than scored as failures.)*
+
+**On denominators, because they are the easiest place to flatter a result.** A
+run can fail two ways and they are not the same failure. If the model returns no
+code, or code that will not parse or import, the model failed at the task: that
+is a migration nobody can ship, and it is counted — `gpt-4o-mini` is reported
+above as **1/16** and **5/16**, not 1/14 and 5/15, and the three cases where it
+returned no code at all are three of those losses. If instead the *provider*
+timed out, nothing about the model was measured, and scoring a zero would report
+an infrastructure problem as a capability problem; those are excluded, and the
+sentence above says so. The per-run files under `results/` are the raw output of
+the harness and use its narrower internal denominator, which is why
+`results/cross_vendor/REPORT.md` prints 1/14 where this table prints 1/16. Every
+row's `cases`, `scored` and `failed_to_run` are in the matching `summary.json`,
+so the arithmetic is checkable either way.
 
 The synthetic score moves by up to three cases between identical runs, and the
 ordering between the two DeepSeek models **reverses** — the "stronger model did
@@ -352,7 +369,7 @@ Everything that decides correctness in this project is deterministic, so all of
 it can be checked with the models switched off entirely.
 
 ```bash
-docker compose run --rm test        # 48 tests, ~12s
+docker compose run --rm test        # 49 tests, ~12s
 docker compose run --rm reproduce   # the full benchmark, ~40s
 ```
 
@@ -415,8 +432,17 @@ To watch a single migration happen, with the human approval gate on:
 python src/migrate.py data/cases/case_01_inventory/legacy_app.py
 ```
 
+> **This runs model-written code on your machine.** The harness executes both
+> applications in a subprocess, in a throwaway directory, under a timeout — that
+> contains an accident, not an attacker. It is not a security boundary and
+> `src/sandbox.py` says so in full. Every other command in this README runs
+> inside the container, where the container is the boundary; this one does not.
+> Prefer `docker compose run --rm demo` unless you have a reason.
+
 It prints the parity result and a diff summary, then asks before writing
-anything. Answer `n` and nothing reaches disk.
+anything. Answer `n` and **the migration is not written** — the run's own
+trajectory is still recorded, because a rejected migration is a result worth
+keeping, but no generated code reaches your source tree.
 
 ### Without Docker
 
@@ -482,7 +508,7 @@ along with the version worth building next: probe a *running* service over HTTP
 rather than an imported module — same oracle, same metric, no import problem.
 
 A second, smaller one, visible in the trajectories: the repair agent
-over-inspects. On `case_13` it burned four of eight turns and eighteen probe
+over-inspects. On `case_13` it burned five of eight turns and eighteen probe
 lookups before writing a line of code, and invented a probe id that does not
 exist. Exploration is cheap and feels productive, so a budget spent on it is a
 budget spent on nothing.

@@ -160,14 +160,23 @@ def _cannot_call(exc: Exception) -> Optional[str]:
     text = str(exc).lower()
     if "no credits" in text or "insufficient" in text or "quota" in text or "billing" in text:
         return "the account has no credits left"
+    # A key that is absent and a key that is wrong are the same problem for the
+    # person at the keyboard, but providers report them very differently: some
+    # raise AuthenticationError, some wrap a 401 in a provider-named exception,
+    # and some only say "invalid_api_key" in the body. Matching on any of those
+    # is what keeps a wrong key from arriving as a stack trace.
     if (
         "authentication" in name
         or "permissiondenied" in name
         or "api_key" in text
         or "api key" in text
+        or "apikey" in text
         or "unauthorized" in text
+        or "invalid_api_key" in text
+        or "incorrect api key" in text
+        or "401" in text
     ):
-        return "no usable API key"
+        return "no usable API key -- it is missing, wrong, or not valid for this model"
     return None
 
 

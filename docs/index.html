@@ -320,7 +320,7 @@ footer a{color:var(--ink-2)}
     <h1>Does this migration still do what the old one did?</h1>
     <p class="lede">A Flask&nbsp;&rarr;&nbsp;FastAPI migration agent whose verifier is <em>not</em> a language model. Writing the new code is the easy half &mdash; a model does it in eight seconds. The hard half is earning the right to merge it.</p>
     <div class="meta">
-      <span>16 cases</span><span>212 probes</span><span>5 models</span><span>7 baseline runs</span><span>48 tests</span><span>reproduces in 23&nbsp;s, offline</span>
+      <span>16 cases</span><span>212 probes</span><span>5 models</span><span>7 baseline runs</span><span>49 tests</span><span>reproduces in 23&nbsp;s, offline</span>
     </div>
   </header>
 
@@ -636,7 +636,7 @@ footer a{color:var(--ink-2)}
         <div class="path">
           <h3>Path A &mdash; no AI at all <span class="cost">&lt;1 min &middot; $0.00</span></h3>
           <p>No API key. No network. Everything that decides correctness here is deterministic, so all of it can be checked with the models switched off.</p>
-          <div class="cmd"><pre><span class="c"># 48 tests, no model involved</span>
+          <div class="cmd"><pre><span class="c"># 49 tests, no model involved</span>
 docker compose run --rm test
 
 <span class="c"># the full five-variant ablation, from the committed cache</span>
@@ -694,7 +694,7 @@ make record            <span class="c"># re-runs everything live</span></pre><bu
 
   <footer>
     <div class="cols">
-      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 48 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 25-entry improvement changelog</p></div>
+      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 49 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 26-entry improvement changelog</p></div>
       <div class="card"><h3 style="color:var(--ink)">Provenance</h3><p>Two cases are real flask-restful code, BSD-3-Clause, vendored unmodified. One AGPL case is fetched on demand, never redistributed.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Agent use</h3><p>Every model call, tool call, decision and approval is recorded as JSONL. The coding-agent session that built this is included, redacted.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Author</h3><p>Vicente Jr &mdash; built for the micro1 Frontier Engineering Challenge 2026.<br>

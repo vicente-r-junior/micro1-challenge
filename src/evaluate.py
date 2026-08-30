@@ -30,6 +30,7 @@ from config import describe_providers, load_env  # noqa: E402
 
 load_env()
 
+from agents import MAX_TOOL_TURNS  # noqa: E402
 from cases import Case, load_cases  # noqa: E402
 from checkpoint import HumanCheckpoint  # noqa: E402
 from llm import CacheMiss, LLMClient, NoCredentials, ResponseCache, resolve_model  # noqa: E402
@@ -323,7 +324,7 @@ def markdown_report(
             "",
             f"- Cases needing repair: {len(turns)}/{len(rows)}",
             f"- Repair turns when used: {min(turns) if turns else 0}–{max(turns) if turns else 0} "
-            f"(budget {8})",
+            f"(budget {MAX_TOOL_TURNS})",
             "- Tool calls: "
             + (", ".join(f"`{k}` ×{v}" for k, v in sorted(tool_use.items())) or "none"),
             f"- Lessons in the ledger at the end: {last['memory'].get('lessons', 0)}",

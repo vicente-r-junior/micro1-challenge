@@ -59,7 +59,19 @@ class HumanCheckpoint:
         print(summary)
         print(_diffstat(diff))
         while True:
-            answer = self._prompt(PROMPT).strip().lower()
+            try:
+                answer = self._prompt(PROMPT).strip().lower()
+            except EOFError:
+                # No one is at the keyboard -- a pipe, a CI job, a container
+                # started without a TTY. The safe reading of silence is "no":
+                # refuse the write, say why, and exit without a traceback.
+                print(
+                    "\nNo input available, so the migration was not written. "
+                    "Run this attached to a terminal to approve it, or pass "
+                    "--checkpoint auto to accept without asking."
+                )
+                self._log("<no tty>", "interactive")
+                return False
             if answer in ("d", "diff"):
                 print(diff)
                 continue

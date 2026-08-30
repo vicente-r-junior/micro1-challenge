@@ -49,7 +49,7 @@ The baseline — one direct prompt, no verification — produced:
 Same model, same prompt, same harness, same run.
 
 I designed fourteen traps and a modern model walked through twelve of them. Then
-it hit two hundred lines of ordinary open-source code it had never been aimed at
+it hit a hundred and twenty-two lines of open-source code it had never been aimed at
 and failed both, by:
 
 - **dropping a route entirely** — `GET /todos` returned 200 before the migration

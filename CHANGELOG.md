@@ -557,6 +557,29 @@ turned back on the project itself.
 
 ---
 
+### H17 — the approval gate crashed when nobody was at the keyboard
+
+**Tried:** block every write behind a human answer, and read that answer from
+stdin.
+
+**Evidence:** found by running the documented command with stdin closed, the way
+a pipeline or a container without a TTY would. `input()` raised `EOFError` after
+the migration had already been produced and scored, so the run ended in a
+traceback through three frames instead of a result — the worst possible moment,
+because the work was done and the only thing left was to decide.
+
+**Decision:** treat silence as refusal. The gate catches `EOFError`, prints why
+nothing was written and how to proceed (`--checkpoint auto`, or a terminal),
+records `<no tty>` in the trajectory so the trace still shows a decision was
+reached, and returns normally. A test drives the gate with a prompt that raises.
+
+**Why it is in this document:** the safe default was already chosen — the
+question was only *how* it failed. A gate that refuses to write is correct; a
+gate that refuses to write by crashing teaches the reader that the tool is
+broken rather than that their answer was needed.
+
+---
+
 ---
 
 ## Part 3 — what was removed
