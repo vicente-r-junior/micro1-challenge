@@ -76,6 +76,13 @@ goes Browser → VS Code → Terminal in that order.
 - [ ] Only Screen A is being captured
 - [ ] Run `make reproduce` once beforehand so Docker is warm
 - [ ] Browser zoom at 100%, page scrolled to the very top
+- [ ] Terminal **at least 40 rows tall** — Block 4 prints 34 lines and must not
+      scroll
+- [ ] `rm -f /tmp/demo_fastapi.py` — Block 5 proves the file is *not* created,
+      which fails if one is left over from a rehearsal
+- [ ] Dry-run both terminal commands once. Both were verified working today:
+      Block 4 prints 34 lines ending in `parity 100%`, and Block 5 with `n`
+      prints `not written (approval declined)` and then `No such file`
 
 ## How to sound senior
 
@@ -178,8 +185,9 @@ crashes"*.
 python src/show_trajectory.py trajectories/cross_model/v2_repair/case_02_blueprint_auth.jsonl --compact
 ```
 
-**DO** — 19 coloured lines, one screen. There are only **three** things to point
-at, in this order:
+**DO** — 34 coloured lines. It fits one screen if your terminal is 40 rows or
+taller, so check that before you record — if it scrolls, the shot is ruined.
+There are only **three** things to point at, in this order:
 
 1. the yellow **★ FIRST DIFFERENTIAL** — 11 out of 14
 2. the three **legacy 401 … got 500** lines
