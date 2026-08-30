@@ -286,8 +286,14 @@ docker compose run --rm reproduce
 ```
 
 That prints the results table in about sixteen seconds, with **no API key and no
-network access**. It must match [`results/REPORT.md`](results/REPORT.md) exactly
-— the file is committed, so `git diff` after the run should be empty.
+network access**. It must match [`results/REPORT.md`](results/REPORT.md)
+exactly — the file is committed, so **`git diff` after the run comes back
+empty**. Both results files are byte-deterministic: run it twice and you get
+identical bytes.
+
+The replay writes its trajectories to `/tmp` rather than over the committed
+ones, so checking the numbers never destroys the record of the runs that
+produced them.
 
 Prefer a zip? [Download it here](https://github.com/vicente-r-junior/micro1-challenge/archive/refs/heads/main.zip), unzip, and
 run the same command from inside the folder.

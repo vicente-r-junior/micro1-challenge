@@ -20,7 +20,8 @@ test:
 	$(PY) -m pytest tests/ -q
 
 reproduce:
-	$(PY) src/evaluate.py --variants all --replay --checkpoint auto --workers 4
+	$(PY) src/evaluate.py --variants all --replay --checkpoint auto --workers 4 \
+	  --trace-root /tmp/replay-trajectories
 
 record:
 	$(PY) src/evaluate.py --variants all --checkpoint auto

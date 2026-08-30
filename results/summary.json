@@ -87,7 +87,7 @@
             "model_s": 151.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_01_inventory.jsonl",
+          "trace": "v0_baseline/case_01_inventory.jsonl",
           "output_file": "results/migrated/v0_baseline/case_01_inventory.py",
           "stop_reason": ""
         },
@@ -154,7 +154,7 @@
             "model_s": 97.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_02_blueprint_auth.jsonl",
+          "trace": "v0_baseline/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v0_baseline/case_02_blueprint_auth.py",
           "stop_reason": ""
         },
@@ -221,7 +221,7 @@
             "model_s": 93.9,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_03_app_config.jsonl",
+          "trace": "v0_baseline/case_03_app_config.jsonl",
           "output_file": "results/migrated/v0_baseline/case_03_app_config.py",
           "stop_reason": ""
         },
@@ -284,7 +284,7 @@
             "model_s": 149.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_04_error_handlers.jsonl",
+          "trace": "v0_baseline/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v0_baseline/case_04_error_handlers.py",
           "stop_reason": ""
         },
@@ -350,7 +350,7 @@
             "model_s": 59.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_05_response_shapes.jsonl",
+          "trace": "v0_baseline/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v0_baseline/case_05_response_shapes.py",
           "stop_reason": ""
         },
@@ -405,7 +405,7 @@
             "model_s": 48.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_06_query_params.jsonl",
+          "trace": "v0_baseline/case_06_query_params.jsonl",
           "output_file": "results/migrated/v0_baseline/case_06_query_params.py",
           "stop_reason": ""
         },
@@ -456,7 +456,7 @@
             "model_s": 21.6,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_07_path_converters.jsonl",
+          "trace": "v0_baseline/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v0_baseline/case_07_path_converters.py",
           "stop_reason": ""
         },
@@ -519,7 +519,7 @@
             "model_s": 42.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_08_method_view.jsonl",
+          "trace": "v0_baseline/case_08_method_view.jsonl",
           "output_file": "results/migrated/v0_baseline/case_08_method_view.py",
           "stop_reason": ""
         },
@@ -582,7 +582,7 @@
             "model_s": 25.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_09_bulk_status.jsonl",
+          "trace": "v0_baseline/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v0_baseline/case_09_bulk_status.py",
           "stop_reason": ""
         },
@@ -649,7 +649,7 @@
             "model_s": 82.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_10_conditional_update.jsonl",
+          "trace": "v0_baseline/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v0_baseline/case_10_conditional_update.py",
           "stop_reason": ""
         },
@@ -700,7 +700,7 @@
             "model_s": 90.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_11_trailing_slash.jsonl",
+          "trace": "v0_baseline/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v0_baseline/case_11_trailing_slash.py",
           "stop_reason": ""
         },
@@ -757,7 +757,7 @@
             "model_s": 48.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_12_pagination_headers.jsonl",
+          "trace": "v0_baseline/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v0_baseline/case_12_pagination_headers.py",
           "stop_reason": ""
         },
@@ -828,7 +828,7 @@
             "model_s": 106.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_13_restful_todo.jsonl",
+          "trace": "v0_baseline/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v0_baseline/case_13_restful_todo.py",
           "stop_reason": ""
         },
@@ -898,7 +898,7 @@
             "model_s": 108.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_14_restful_todo_simple.jsonl",
+          "trace": "v0_baseline/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v0_baseline/case_14_restful_todo_simple.py",
           "stop_reason": ""
         },
@@ -961,7 +961,7 @@
             "model_s": 76.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_15_inconsistent_errors.jsonl",
+          "trace": "v0_baseline/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v0_baseline/case_15_inconsistent_errors.py",
           "stop_reason": ""
         },
@@ -1028,7 +1028,7 @@
             "model_s": 180.9,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v0_baseline/case_16_state_machine.jsonl",
+          "trace": "v0_baseline/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v0_baseline/case_16_state_machine.py",
           "stop_reason": ""
         }
@@ -1119,7 +1119,7 @@
             "model_s": 222.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_01_inventory.jsonl",
+          "trace": "v1_contract/case_01_inventory.jsonl",
           "output_file": "results/migrated/v1_contract/case_01_inventory.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1186,7 +1186,7 @@
             "model_s": 345.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_02_blueprint_auth.jsonl",
+          "trace": "v1_contract/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v1_contract/case_02_blueprint_auth.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1253,7 +1253,7 @@
             "model_s": 82.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_03_app_config.jsonl",
+          "trace": "v1_contract/case_03_app_config.jsonl",
           "output_file": "results/migrated/v1_contract/case_03_app_config.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1316,7 +1316,7 @@
             "model_s": 459.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_04_error_handlers.jsonl",
+          "trace": "v1_contract/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v1_contract/case_04_error_handlers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1379,7 +1379,7 @@
             "model_s": 274.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_05_response_shapes.jsonl",
+          "trace": "v1_contract/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v1_contract/case_05_response_shapes.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1434,7 +1434,7 @@
             "model_s": 155.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_06_query_params.jsonl",
+          "trace": "v1_contract/case_06_query_params.jsonl",
           "output_file": "results/migrated/v1_contract/case_06_query_params.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1485,7 +1485,7 @@
             "model_s": 368.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_07_path_converters.jsonl",
+          "trace": "v1_contract/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v1_contract/case_07_path_converters.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1548,7 +1548,7 @@
             "model_s": 327.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_08_method_view.jsonl",
+          "trace": "v1_contract/case_08_method_view.jsonl",
           "output_file": "results/migrated/v1_contract/case_08_method_view.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1611,7 +1611,7 @@
             "model_s": 70.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_09_bulk_status.jsonl",
+          "trace": "v1_contract/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v1_contract/case_09_bulk_status.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1678,7 +1678,7 @@
             "model_s": 217.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_10_conditional_update.jsonl",
+          "trace": "v1_contract/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v1_contract/case_10_conditional_update.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1729,7 +1729,7 @@
             "model_s": 386.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_11_trailing_slash.jsonl",
+          "trace": "v1_contract/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v1_contract/case_11_trailing_slash.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1784,7 +1784,7 @@
             "model_s": 140.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_12_pagination_headers.jsonl",
+          "trace": "v1_contract/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v1_contract/case_12_pagination_headers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -1852,7 +1852,7 @@
             "model_s": 352.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_13_restful_todo.jsonl",
+          "trace": "v1_contract/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v1_contract/case_13_restful_todo.py",
           "stop_reason": ""
         },
@@ -1919,7 +1919,7 @@
             "model_s": 256.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_14_restful_todo_simple.jsonl",
+          "trace": "v1_contract/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v1_contract/case_14_restful_todo_simple.py",
           "stop_reason": ""
         },
@@ -1982,7 +1982,7 @@
             "model_s": 205.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_15_inconsistent_errors.jsonl",
+          "trace": "v1_contract/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v1_contract/case_15_inconsistent_errors.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2049,7 +2049,7 @@
             "model_s": 151.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v1_contract/case_16_state_machine.jsonl",
+          "trace": "v1_contract/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v1_contract/case_16_state_machine.py",
           "stop_reason": "parity reached on first attempt"
         }
@@ -2140,7 +2140,7 @@
             "model_s": 222.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_01_inventory.jsonl",
+          "trace": "v2_repair/case_01_inventory.jsonl",
           "output_file": "results/migrated/v2_repair/case_01_inventory.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2207,7 +2207,7 @@
             "model_s": 345.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_02_blueprint_auth.jsonl",
+          "trace": "v2_repair/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v2_repair/case_02_blueprint_auth.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2274,7 +2274,7 @@
             "model_s": 82.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_03_app_config.jsonl",
+          "trace": "v2_repair/case_03_app_config.jsonl",
           "output_file": "results/migrated/v2_repair/case_03_app_config.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2337,7 +2337,7 @@
             "model_s": 459.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_04_error_handlers.jsonl",
+          "trace": "v2_repair/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v2_repair/case_04_error_handlers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2400,7 +2400,7 @@
             "model_s": 274.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_05_response_shapes.jsonl",
+          "trace": "v2_repair/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v2_repair/case_05_response_shapes.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2455,7 +2455,7 @@
             "model_s": 155.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_06_query_params.jsonl",
+          "trace": "v2_repair/case_06_query_params.jsonl",
           "output_file": "results/migrated/v2_repair/case_06_query_params.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2506,7 +2506,7 @@
             "model_s": 368.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_07_path_converters.jsonl",
+          "trace": "v2_repair/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v2_repair/case_07_path_converters.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2569,7 +2569,7 @@
             "model_s": 327.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_08_method_view.jsonl",
+          "trace": "v2_repair/case_08_method_view.jsonl",
           "output_file": "results/migrated/v2_repair/case_08_method_view.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2632,7 +2632,7 @@
             "model_s": 70.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_09_bulk_status.jsonl",
+          "trace": "v2_repair/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v2_repair/case_09_bulk_status.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2699,7 +2699,7 @@
             "model_s": 217.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_10_conditional_update.jsonl",
+          "trace": "v2_repair/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v2_repair/case_10_conditional_update.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2750,7 +2750,7 @@
             "model_s": 386.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_11_trailing_slash.jsonl",
+          "trace": "v2_repair/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v2_repair/case_11_trailing_slash.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2805,7 +2805,7 @@
             "model_s": 140.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_12_pagination_headers.jsonl",
+          "trace": "v2_repair/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v2_repair/case_12_pagination_headers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -2891,7 +2891,7 @@
             "model_s": 489.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_13_restful_todo.jsonl",
+          "trace": "v2_repair/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v2_repair/case_13_restful_todo.py",
           "stop_reason": "full parity reached"
         },
@@ -2964,7 +2964,7 @@
             "model_s": 387.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_14_restful_todo_simple.jsonl",
+          "trace": "v2_repair/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v2_repair/case_14_restful_todo_simple.py",
           "stop_reason": "full parity reached"
         },
@@ -3027,7 +3027,7 @@
             "model_s": 205.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_15_inconsistent_errors.jsonl",
+          "trace": "v2_repair/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v2_repair/case_15_inconsistent_errors.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3094,7 +3094,7 @@
             "model_s": 151.5,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v2_repair/case_16_state_machine.jsonl",
+          "trace": "v2_repair/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v2_repair/case_16_state_machine.py",
           "stop_reason": "parity reached on first attempt"
         }
@@ -3185,7 +3185,7 @@
             "model_s": 371.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_01_inventory.jsonl",
+          "trace": "v3_analyst/case_01_inventory.jsonl",
           "output_file": "results/migrated/v3_analyst/case_01_inventory.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3252,7 +3252,7 @@
             "model_s": 341.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_02_blueprint_auth.jsonl",
+          "trace": "v3_analyst/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v3_analyst/case_02_blueprint_auth.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3319,7 +3319,7 @@
             "model_s": 384.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_03_app_config.jsonl",
+          "trace": "v3_analyst/case_03_app_config.jsonl",
           "output_file": "results/migrated/v3_analyst/case_03_app_config.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3382,7 +3382,7 @@
             "model_s": 292.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_04_error_handlers.jsonl",
+          "trace": "v3_analyst/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v3_analyst/case_04_error_handlers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3445,7 +3445,7 @@
             "model_s": 423.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_05_response_shapes.jsonl",
+          "trace": "v3_analyst/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v3_analyst/case_05_response_shapes.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3500,7 +3500,7 @@
             "model_s": 286.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_06_query_params.jsonl",
+          "trace": "v3_analyst/case_06_query_params.jsonl",
           "output_file": "results/migrated/v3_analyst/case_06_query_params.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3551,7 +3551,7 @@
             "model_s": 295.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_07_path_converters.jsonl",
+          "trace": "v3_analyst/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v3_analyst/case_07_path_converters.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3614,7 +3614,7 @@
             "model_s": 462.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_08_method_view.jsonl",
+          "trace": "v3_analyst/case_08_method_view.jsonl",
           "output_file": "results/migrated/v3_analyst/case_08_method_view.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3677,7 +3677,7 @@
             "model_s": 198.6,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_09_bulk_status.jsonl",
+          "trace": "v3_analyst/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v3_analyst/case_09_bulk_status.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3744,7 +3744,7 @@
             "model_s": 582.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_10_conditional_update.jsonl",
+          "trace": "v3_analyst/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v3_analyst/case_10_conditional_update.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3795,7 +3795,7 @@
             "model_s": 516.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_11_trailing_slash.jsonl",
+          "trace": "v3_analyst/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v3_analyst/case_11_trailing_slash.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3850,7 +3850,7 @@
             "model_s": 294.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_12_pagination_headers.jsonl",
+          "trace": "v3_analyst/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v3_analyst/case_12_pagination_headers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -3934,7 +3934,7 @@
             "model_s": 1043.6,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_13_restful_todo.jsonl",
+          "trace": "v3_analyst/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v3_analyst/case_13_restful_todo.py",
           "stop_reason": "full parity reached"
         },
@@ -3997,7 +3997,7 @@
             "model_s": 412.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_14_restful_todo_simple.jsonl",
+          "trace": "v3_analyst/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v3_analyst/case_14_restful_todo_simple.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4060,7 +4060,7 @@
             "model_s": 306.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_15_inconsistent_errors.jsonl",
+          "trace": "v3_analyst/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v3_analyst/case_15_inconsistent_errors.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4127,7 +4127,7 @@
             "model_s": 330.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v3_analyst/case_16_state_machine.jsonl",
+          "trace": "v3_analyst/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v3_analyst/case_16_state_machine.py",
           "stop_reason": "parity reached on first attempt"
         }
@@ -4218,7 +4218,7 @@
             "model_s": 371.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_01_inventory.jsonl",
+          "trace": "v4_memory/case_01_inventory.jsonl",
           "output_file": "results/migrated/v4_memory/case_01_inventory.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4285,7 +4285,7 @@
             "model_s": 341.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_02_blueprint_auth.jsonl",
+          "trace": "v4_memory/case_02_blueprint_auth.jsonl",
           "output_file": "results/migrated/v4_memory/case_02_blueprint_auth.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4352,7 +4352,7 @@
             "model_s": 384.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_03_app_config.jsonl",
+          "trace": "v4_memory/case_03_app_config.jsonl",
           "output_file": "results/migrated/v4_memory/case_03_app_config.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4415,7 +4415,7 @@
             "model_s": 292.7,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_04_error_handlers.jsonl",
+          "trace": "v4_memory/case_04_error_handlers.jsonl",
           "output_file": "results/migrated/v4_memory/case_04_error_handlers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4478,7 +4478,7 @@
             "model_s": 423.2,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_05_response_shapes.jsonl",
+          "trace": "v4_memory/case_05_response_shapes.jsonl",
           "output_file": "results/migrated/v4_memory/case_05_response_shapes.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4533,7 +4533,7 @@
             "model_s": 286.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_06_query_params.jsonl",
+          "trace": "v4_memory/case_06_query_params.jsonl",
           "output_file": "results/migrated/v4_memory/case_06_query_params.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4584,7 +4584,7 @@
             "model_s": 295.8,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_07_path_converters.jsonl",
+          "trace": "v4_memory/case_07_path_converters.jsonl",
           "output_file": "results/migrated/v4_memory/case_07_path_converters.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4647,7 +4647,7 @@
             "model_s": 462.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_08_method_view.jsonl",
+          "trace": "v4_memory/case_08_method_view.jsonl",
           "output_file": "results/migrated/v4_memory/case_08_method_view.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4710,7 +4710,7 @@
             "model_s": 198.6,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_09_bulk_status.jsonl",
+          "trace": "v4_memory/case_09_bulk_status.jsonl",
           "output_file": "results/migrated/v4_memory/case_09_bulk_status.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4777,7 +4777,7 @@
             "model_s": 582.1,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_10_conditional_update.jsonl",
+          "trace": "v4_memory/case_10_conditional_update.jsonl",
           "output_file": "results/migrated/v4_memory/case_10_conditional_update.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4828,7 +4828,7 @@
             "model_s": 516.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_11_trailing_slash.jsonl",
+          "trace": "v4_memory/case_11_trailing_slash.jsonl",
           "output_file": "results/migrated/v4_memory/case_11_trailing_slash.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4883,7 +4883,7 @@
             "model_s": 294.3,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_12_pagination_headers.jsonl",
+          "trace": "v4_memory/case_12_pagination_headers.jsonl",
           "output_file": "results/migrated/v4_memory/case_12_pagination_headers.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -4967,7 +4967,7 @@
             "model_s": 1043.6,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_13_restful_todo.jsonl",
+          "trace": "v4_memory/case_13_restful_todo.jsonl",
           "output_file": "results/migrated/v4_memory/case_13_restful_todo.py",
           "stop_reason": "full parity reached"
         },
@@ -5030,7 +5030,7 @@
             "model_s": 412.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_14_restful_todo_simple.jsonl",
+          "trace": "v4_memory/case_14_restful_todo_simple.jsonl",
           "output_file": "results/migrated/v4_memory/case_14_restful_todo_simple.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -5093,7 +5093,7 @@
             "model_s": 306.4,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_15_inconsistent_errors.jsonl",
+          "trace": "v4_memory/case_15_inconsistent_errors.jsonl",
           "output_file": "results/migrated/v4_memory/case_15_inconsistent_errors.py",
           "stop_reason": "parity reached on first attempt"
         },
@@ -5160,7 +5160,7 @@
             "model_s": 330.0,
             "cost_is_complete": true
           },
-          "trace": "trajectories/v4_memory/case_16_state_machine.jsonl",
+          "trace": "v4_memory/case_16_state_machine.jsonl",
           "output_file": "results/migrated/v4_memory/case_16_state_machine.py",
           "stop_reason": "parity reached on first attempt"
         }

@@ -77,6 +77,11 @@ class CaseResult:
         """
         data = asdict(self)
         data["totals"] = {k: v for k, v in data["totals"].items() if k != "wall_s"}
+        # Relative to the trace root, so a replay that writes its trajectories
+        # elsewhere still produces an identical summary. The absolute path is
+        # printed by the CLI, where it is useful.
+        if data.get("trace"):
+            data["trace"] = "/".join(Path(data["trace"]).parts[-2:])
         return data
 
 
