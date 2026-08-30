@@ -6,7 +6,7 @@ services:
     build: .
     volumes: [".:/app"]
     command: >
-      python src/evaluate.py --variants all --replay --checkpoint auto
+      python src/evaluate.py --variants all --replay --checkpoint auto --workers 4
 
   # The harness self-tests. Fast, and they do not need a model at all.
   test:

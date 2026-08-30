@@ -325,7 +325,8 @@ def markdown_report(
             f"- Lessons in the ledger at the end: {last['memory'].get('lessons', 0)}",
             f"- Probes scored on status alone (framework error pages): "
             f"{status_only}/{probe_total}",
-            f"- Concurrency: {last['workers']} workers, wave size {last['wave_size']}",
+            f"- Concurrency: {last['workers']} workers, wave size {last['wave_size']} "
+            f"(affects wall-clock only, never a score)",
         ]
 
     return "\n".join(lines) + "\n"
