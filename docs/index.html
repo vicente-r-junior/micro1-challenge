@@ -307,7 +307,7 @@ footer a{color:var(--ink-2)}
       <a href="#how">Mechanism</a>
       <a href="#agent">Agent</a>
       <a href="#results">Results</a>
-      <a href="#verify">Verify it</a>
+      <a href="#changelog">Changelog</a> <a href="#verify">Verify it</a>
       <a href="#limits">Limits</a>
     </nav>
   </div>
@@ -643,6 +643,27 @@ footer a{color:var(--ink-2)}
         </table>
       </div>
       <p class="note">The memory row costs <em>nothing extra</em> for a reason worth knowing: its ledger finished with <strong>zero lessons</strong>, so the prompts were identical to the row above and every call was a cache hit. It only learns from failures that survive repair, and the repair loop had already eliminated them. <strong>A component fed by another component's failures is dead code the moment that component stops failing.</strong></p>
+    </div>
+
+    <div class="stack" id="changelog" style="margin-top:34px;scroll-margin-top:60px">
+      <div class="stack-tight prose">
+        <div class="eyebrow">How it changed</div>
+        <h2>Seventeen times the harness was wrong before it was right</h2>
+        <p style="color:var(--ink-2)">Every number on this page comes from a harness that was measuring the wrong thing several times over. The full changelog has 26 entries, each one a decision and the evidence that forced the next. These three are the ones that produced <em>confident, plausible, wrong</em> numbers &mdash; the kind you ship.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th>What broke</th><th>How it was caught</th><th>What it had been reporting</th></tr></thead>
+          <tbody>
+            <tr><td><strong>The cache could never record its first response</strong><br><span style="color:var(--ink-3)">an empty cache is falsy in Python, so the write was skipped</span></td><td>a test that asserts a cache is both empty and not <code>None</code></td><td class="lose">reproducibility that did not exist</td></tr>
+            <tr><td><strong>A parser failure was scored as a failed migration</strong><br><span style="color:var(--ink-3)">the model returned valid code with two stray characters</span></td><td>a variant scoring 0% on a case the one below it aced</td><td class="lose">a working migration, as a failure</td></tr>
+            <tr><td><strong>The oracle had stopped checking a third of one case</strong><br><span style="color:var(--ink-3)">a relaxation written for error pages swallowed CSV and plain text</span></td><td>counting how many probes compared bodies at all</td><td class="lose">8 of 13 probes unverified, as 100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">The pattern in all three: the harness reported a number, the number looked reasonable, and nothing about it was true. That is the argument this whole project makes, turned on the project itself &mdash; which is why the changelog is written as evidence rather than as a release note.</p>
     </div>
   </section>
 

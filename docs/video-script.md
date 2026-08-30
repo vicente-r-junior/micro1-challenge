@@ -11,7 +11,7 @@ direction to you, and none of it is said out loud.
 
 **DO** — a plain bold line like this is an **action**. Never spoken.
 
-`# Block 4 — why a model cannot check a model · 20 s` — headings are **labels
+`# 4 · One real run` — headings are **labels
 for you**, so you can find your place. Never spoken. Neither is the duration.
 
 There is no transition to say between blocks. The cut *is* the transition.
@@ -48,7 +48,7 @@ Slack, no notifications, no personal tabs.
 
 | Window | What is open | Used in |
 |---|---|---|
-| **VS Code** | `data/cases/case_14_restful_todo_simple/legacy_app.py` | Block 1 |
+| **Terminal** | cleared, in the repo root | scene 10 only |
 | **Browser** | `docs/index.html`, scrolled to the top | Blocks 2, 3, 6 |
 | **Terminal** | in the repo root, font at 18–20pt | Blocks 4, 5 |
 
@@ -76,21 +76,19 @@ goes Browser → VS Code → Terminal in that order.
 - [ ] Only Screen A is being captured
 - [ ] Run `make reproduce` once beforehand so Docker is warm
 - [ ] Browser zoom at 100%, page scrolled to the very top
-- [ ] Terminal **at least 40 rows tall** — Block 4 prints 34 lines and must not
-      scroll
-- [ ] `rm -f /tmp/demo_fastapi.py` — Block 5 proves the file is *not* created,
-      which fails if one is left over from a rehearsal
-- [ ] Dry-run both terminal commands once. Both were verified working today:
-      Block 4 prints 34 lines ending in `parity 100%`, and Block 5 with `n`
-      prints `not written (approval declined)` and then `No such file`
+- [ ] Browser is the **only** window you share until scene 10
+- [ ] Run `rm -f /tmp/demo_fastapi.py` **before recording** — scene 10 proves
+      the file is *not* created, and a leftover from a rehearsal contradicts you
+- [ ] Dry-run scene 10 once. Verified working today: with `n` it prints
+      `not written (approval declined)`, and `ls` then says `No such file`
 
 ## How to sound senior
 
 Not vocabulary — choices. Four habits:
 
 1. **Lead with the decision, not the feature.** The script already does this.
-2. **Say a trade-off out loud.** The last line of Block 6 is one.
-3. **Name the limit before they find it.** Same line.
+2. **Say a trade-off out loud.** Scene 6 is one.
+3. **Name the limit before they find it.** Scene 8.
 4. **Never narrate the screen.** Do not say "here I click". Say what it means.
 
 No apologising. No "I tried to". No "I hope". State what you measured.
@@ -101,163 +99,128 @@ reads as confidence, rushing reads as nerves.
 
 ---
 
-# Block 0 — the open · 15 s
+> **How this works now.** One window: the report page, scrolled top to bottom in
+> its own order. You never switch apps until the very last scene. Every scene is
+> **scroll to the heading, stop, then talk** — never scroll and talk at once.
+>
+> The page's own navigation bar is your running order:
+> **Measurements → Mechanism → Agent → Results → Changelog → Limits**.
+> If you lose your place, click the next name in that bar.
 
-**DO** — Camera only. No screen share yet.
+---
+
+# 1 · Open · camera, no screen yet · 16 words
 
 > Hi, I am Vicente. I built an agent that migrates Flask to FastAPI.
 >
-> Let me start with the problem.
-
-**Do not** thank anyone here. The sign-off is the last line of Block 8.
+> The hard part was never writing the new code.
 
 ---
 
-# Block 1 — the problem · 35 s
+# 2 · Measurements · 45 words
 
-**DO** — Switch to **VS Code**, showing
-`data/cases/case_14_restful_todo_simple/legacy_app.py`.
+**DO** — Share the browser. Page at the **very top**. Then talk.
 
-> This is a Flask service. It runs in production.
+> A model rewrites a Flask service in eight seconds. That part is easy.
 >
-> The team wants FastAPI. Writing the new code is easy.
+> Proving the new one behaves the same is the part that stops teams.
+
+**DO** — Scroll to the grid. **Stop scrolling.** Then talk.
+
+> Each cell is one request, sent to both apps. Green means the same answer.
 >
-> A model does it in eight seconds.
->
-> The hard part is proof. Nobody can prove the new app behaves the same.
->
-> And the old one is what every client was built on.
+> I wrote fourteen cases. A model passed eleven.
+
+**DO** — Cursor on the two rows marked **REAL**. Then talk.
+
+> These two are not mine. Real open-source code. Zero out of two.
 
 ---
 
-# Block 2 — how I measure it · 40 s
+# 3 · What it broke · 38 words
 
-**DO** — Switch to the **Browser**. Click **Measurements**. Controls on
-**"one prompt"** and **gpt-5.5**.
+**DO** — Click **Mechanism** in the nav, or scroll to *"The regressions that
+matter are not crashes"*. Stop. Then talk.
 
-> How do I know a migration is correct?
+> None of it was a crash. The app started, and it lied.
+
+**DO** — Cursor on the **last row of that table**. **Wait two seconds.** Then talk.
+
+> Here the old app had a bug. It returned five hundred.
 >
-> Each green cell is one request, sent to both apps. Green means the same answer.
+> The migration fixed it. Now it returns four zero four.
 >
-> I wrote fourteen test cases. A modern model passed eleven.
-
-**DO** — Cursor on the two rows tagged **REAL**. Leave it there. *Then* speak.
-
-> These two are not mine. This is real open-source code.
->
-> Zero out of two.
+> Better code. Different contract. Every client that retries on five hundred breaks tomorrow.
 
 ---
 
-# Block 3 — what it broke · 40 s
+# 4 · One real run · 40 words
 
-**DO** — Same page. Scroll to *"The regressions that matter are not crashes"*.
+**DO** — Click **Agent** in the nav. Stop at *"One repair, turn by turn"*. Then talk.
 
-> So what broke? None of it is a crash.
+> One real run, start to finish.
 >
-> One route disappeared. Every error message changed shape.
+> The old app wants a token. Without one, four zero one.
 >
-> But this one is my favourite.
-
-**DO** — Cursor on the **last row**. **Pause two seconds.** *Then* speak.
-
-> The old app had a bug. It returned five hundred.
+> The migration answered five hundred. The guard broke.
 >
-> The migration fixed it. Now it says four zero four.
+> The agent read the three that failed, wrote a fix, tested again.
 >
-> Better code. Different contract.
->
-> Because every client that retries on five hundred breaks tomorrow.
+> Fourteen out of fourteen.
 
 ---
 
-# Block 4 — one real run · 40 s
+# 5 · Baseline, and advanced · 40 words
 
-**DO** — Switch to the **Terminal**. Paste, and **say nothing while it prints**:
+**DO** — Click **Results**. Stop at the baseline/advanced table. Then talk.
 
-```bash
-python src/show_trajectory.py trajectories/cross_model/v2_repair/case_02_blueprint_auth.jsonl --compact
-```
-
-**DO** — Hands off the mouse. Just read. The judge can see the screen.
-
-> This is one real run.
+> The baseline is one prompt. Twelve out of sixteen, and zero on real code.
 >
-> The old app wants a token. Without one, it answers four zero one.
+> The advanced one is the same model, with a repair loop.
 >
-> The migration answered five hundred. So the guard broke.
->
-> The agent read the three requests that failed. It wrote a fix, and tested again.
+> Sixteen out of sixteen. Two out of two on real code.
 
-**DO** — *Now* point at the green `parity 100%`. **One gesture, and that is the
-only one in this block.**
-
-> Fourteen out of fourteen. I only told it: eight turns.
-
----
-
-# Block 5 — the human in the loop · 25 s
-
-**DO** — Clear the stale file first, or the demo lies:
-
-```bash
-rm -f /tmp/demo_fastapi.py
-```
-
-**DO** — Then paste:
-
-```bash
-python src/migrate.py data/cases/case_14_restful_todo_simple/legacy_app.py --out /tmp/demo_fastapi.py --replay --no-memory
-```
-
-> Before it writes anything, it asks me.
-
-**DO** — Type **`n`**, Enter. Then:
-
-```bash
-ls /tmp/demo_fastapi.py
-```
-
-> I said no. And nothing was written.
-
----
-
-# Block 6 — does it work? · 60 s
-
-**DO** — Browser. **Measurements**. **gpt-5.5**, **"one prompt"** — 44 red cells.
-
-> Does this actually work?
-
-**DO** — Click **"+ repair loop"**. **Say nothing for two seconds** while the 44
-red cells turn green.
+**DO** — Scroll back up to the grid. Set **gpt-5.5** and **"one prompt"** — 44 red
+cells. Click **"+ repair loop"**. **Say nothing for two seconds.**
 
 > That is the repair loop. The change that mattered most.
 
-**DO** — Click through the models: **gpt-4o-mini → gpt-5.4-mini → ds-v4-pro**.
+---
 
-> Does a better model fix it? I ran the baseline seven times.
->
-> Five models, two companies. Thirteen tries on real code. Zero passed.
+# 6 · Models, and what I removed · 34 words
 
-**DO** — Click **Results**, scroll to *"Two components were removed"*.
+**DO** — Click the models across the top, slowly. Then talk.
 
-> And two parts of my agent did not pay for themselves.
->
-> Sixty percent more cost. Zero more results. So I removed both.
+> Does a better model fix it? Five models, two companies. Thirteen tries on real
+> code, and zero passed.
 
-**DO** — VS Code. Open **`CHANGELOG.md`**. Scroll fast, top to bottom.
+**DO** — Scroll to *"Two components were removed"*. Stop. Then talk.
 
-> It is all in the changelog. Seventeen times I got the harness wrong.
+> Two parts of my agent did not pay for themselves. Sixty percent more cost, zero
+> more results. So I removed both.
 
-**DO** — Camera.
+---
+
+# 7 · Changelog · 16 words
+
+**DO** — Click **Changelog** in the nav. Stop. Then talk.
+
+> Seventeen times my own harness was wrong. Every entry here is a number I
+> believed, and should not have.
+
+---
+
+# 8 · The limit · 12 words
+
+**DO** — Click **Limits**. Stop. Then talk.
 
 > One limit. The old app has to run. If it needs a database, I record nothing.
 
 ---
 
-# Block 8 — the take, and out · 55 s
+# 9 · The take · 42 words
 
-**DO** — Camera. Slow right down. This is the ending.
+**DO** — Camera, or leave the page still. Slow right down.
 
 > The easy answer is to let a model write the tests.
 >
@@ -267,79 +230,100 @@ red cells turn green.
 >
 > The test and the code make the same mistake, together.
 >
-> So, my rule. A verifier needs its truth from something the agent cannot change.
+> My rule: a verifier needs truth from something the agent cannot change.
 >
 > Here that was easy. The old app is still running, and it answers everything.
 
-**DO** — One beat of silence. Then, flat and short:
+---
+
+# 10 · One thing, live · 18 words
+
+**DO** — Switch to the **Terminal**, already open and cleared. Paste:
+
+```bash
+python src/migrate.py data/cases/case_14_restful_todo_simple/legacy_app.py --out /tmp/demo_fastapi.py --replay --no-memory
+```
+
+**DO** — Let it finish. Then talk.
+
+> Last thing. Before it writes anything, it asks me.
+
+**DO** — Type **`n`**, Enter. Then paste:
+
+```bash
+ls /tmp/demo_fastapi.py
+```
+
+> I said no. Nothing was written.
+
+**DO** — One beat. Then, flat and short:
 
 > Thank you for watching.
 
 ---
 
-# Timing — read this before you record again
+# Timing — do this once before you record
 
-The first attempt ran long, and that was a fault in the script, not in you. It
-was written at 145 words a minute. **You read at 81** — measured from your own
-run: 244 words in about three minutes, pauses and clicks included. At that pace
-the old script was 7:50. It was never going to fit.
+The first two attempts ran long. That was the script's fault twice over: it was
+sized at 145 words a minute against your measured **81**, and it made you switch
+windows and point at things while talking. Both are gone.
 
-This version is **400 words**, and its sentences are much shorter, which is what
-actually costs time — a long sentence in a second language is where you stop and
-restart. Short lines should carry you faster than 81.
+This version is **374 spoken words** and one window. At 81 words a minute that is
+4:37, which leaves only about twenty seconds for scrolling. **But 81 was measured
+on the old script** — long sentences, four apps, pointing mid-sentence. Those are
+exactly what slows a reader down in a second language. Short lines and "stop,
+then talk" should put you nearer 95, which is 3:56 and comfortable.
 
-## The ninety-second test
+You do not have to guess. Measure it.
 
-Do this once before recording. Stopwatch, out loud, at the pace you would use on
-camera:
+## The two-minute test
 
-**Read Blocks 0 to 3. Nothing else.** That is 174 words.
+Stopwatch, out loud, camera pace. **Read scenes 1 to 4. Nothing else.** That is
+169 words.
 
-| Your time | What it means | What to do |
-|---|---|---|
-| under **1:50** | you are at 95+ wpm | record the script as written, you have margin |
-| **1:50 – 2:10** | you are near 85 wpm | make **cut A** below, then record |
-| over **2:10** | still around 80 | make **cut A and cut B**, then record |
-
-The test is the whole point: it tells you before you press record, instead of
-you finding out at Block 4 with two minutes left.
+| Your time | What to do |
+|---|---|
+| under **1:50** | record as written, you have real margin |
+| **1:50 – 2:10** | make **cut A**, then record |
+| over **2:10** | make **cut A and cut B**, then record |
 
 ## The two cuts, in order
 
-**Cut A — Block 6, the models line.** Delete:
+**Cut A — scene 8, the limit.** Delete the whole scene, all sixteen words. The
+brief does not require it and the report page carries it in writing. **Saves ~12 s.**
 
-> Does a better model fix it? I ran the baseline seven times.
+**Cut B — scene 6, the first line.** Delete:
 
-Keep the line after it. You lose the setup, not the evidence. **Saves ~9 s.**
+> Does a better model fix it? Five models, two companies.
 
-**Cut B — Block 3, the two middle findings.** Delete:
-
-> One route disappeared. Every error message changed shape.
-
-Go straight from *"None of it is a crash"* to *"But this one is my favourite"*.
-The five-hundred story is the best moment in the video and it survives intact.
-**Saves ~8 s.**
+Keep *"Thirteen tries on real code, and zero passed."* You lose the setup, not
+the evidence. **Saves ~7 s.**
 
 ## Never cut these
 
-Block 4, Block 5, any of Block 6, and the last four lines of Block 8.
+Scenes 4, 5, 6's second half, 7, 9, and 10.
 
 The brief names seven things the video must contain: the problem, the baseline,
 one execution end to end, the final comparison, the changelog, the change that
-mattered most, and the experiment you removed. Block 6 alone holds four of them.
-Block 5 is the human-approval ground rule. Block 8 is the insight the whole
-project is built on.
+mattered most, and the experiment you removed. Scene 4 is the execution. Scene 5
+is the baseline against the advanced solution *and* the change that mattered.
+Scene 6 is the removed experiment. Scene 7 is the changelog. Scene 9 is the
+insight the whole project is built on, and scene 10 is the human-approval ground
+rule.
 
-## Two rules for the take itself
+## Three rules for the take
+
+**Stop, then talk.** Every scene says it. Scroll to the heading, let the page
+settle, take a breath, then speak. A judge watching a still page while you
+explain it looks deliberate. A judge watching you scroll and talk looks lost.
 
 **Never fix an overrun by speaking faster.** Speed is the first thing that makes
-an accent hard to follow, and a judge who has to work to understand you stops
-hearing the argument.
+an accent hard to follow, and a judge working to understand you stops hearing the
+argument. If you are long, cut.
 
-**Never point and speak at the same time.** That is what made Block 4 hard. Every
-block now separates them: the **DO** happens, *then* you talk, or you talk and
-*then* point. Block 4 has exactly one gesture in it now, and it comes after the
-sentence is finished.
+**If you lose your place, use the nav bar.** Measurements, Mechanism, Agent,
+Results, Changelog, Limits — that is the running order, it is on screen the whole
+time, and clicking it looks like navigation rather than rescue.
 
 # Words to practise
 
@@ -368,13 +352,13 @@ sentence is finished.
 
 - [ ] Under 5:00
 - [ ] The baseline shown **and** its silent regression shown
-- [ ] One execution, uncut (Block 4)
-- [ ] The approval gate refusing the write (Block 5)
-- [ ] Comparison grid on screen (Block 6)
-- [ ] The change that mattered most, said out loud (Block 6)
-- [ ] The removed experiment, said out loud (Block 6)
-- [ ] The changelog, on screen and explained (Block 6)
-- [ ] The limitation, volunteered (Block 6, last line)
-- [ ] The hot take (Block 8)
+- [ ] One execution, uncut (scene 4)
+- [ ] The approval gate refusing the write (scene 5)
+- [ ] Comparison grid on screen (scene 6)
+- [ ] The change that mattered most, said out loud (scene 6)
+- [ ] The removed experiment, said out loud (scene 6)
+- [ ] The changelog, on screen and explained (scene 6)
+- [ ] The limitation, volunteered (scene 8)
+- [ ] The hot take (scene 9)
 - [ ] Terminal readable at laptop size
 - [ ] Audio clear, no room echo
