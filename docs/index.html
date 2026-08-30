@@ -492,6 +492,28 @@ footer a{color:var(--ink-2)}
     <div class="stack">
       <div class="stack-tight prose">
         <div class="eyebrow">Results</div>
+        <h2>The baseline solution, and the advanced one</h2>
+        <p style="color:var(--ink-2)">Both are in the same report and the same command runs them. The advanced one is not a better prompt &mdash; it is the same migrator, with the same model, that can <strong>find out it was wrong</strong>.</p>
+      </div>
+
+      <div class="tw">
+        <table>
+          <thead><tr><th></th><th>Baseline solution</th><th>Advanced solution</th></tr></thead>
+          <tbody>
+            <tr><td>Name in the code</td><td class="num"><code>v0_baseline</code></td><td class="num"><code>v2_repair</code></td></tr>
+            <tr><td>What it is</td><td>one prompt: legacy module in, FastAPI module out</td><td>the same migrator, plus a behaviour contract and an autonomous repair loop over a differential oracle</td></tr>
+            <tr class="hi"><td>Shippable migrations</td><td class="num">12/16</td><td class="num win"><strong>16/16</strong></td></tr>
+            <tr class="hi"><td>On real third-party code</td><td class="num">0/2</td><td class="num win"><strong>2/2</strong></td></tr>
+            <tr><td>Cost</td><td class="num">$0.27</td><td class="num">$0.73</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:14px">
+        <p style="color:var(--ink-2)">The column that moves from 0/2 to 2/2 is the third-party one &mdash; code neither version had seen. Two further variants were built, measured and <strong>removed</strong>: 60% more cost, zero more shippable migrations.</p>
+      </div>
+
+      <div class="stack-tight prose" style="margin-top:26px">
         <h2>Shippable, not average</h2>
         <p style="color:var(--ink-2)"><strong>Shippable</strong> means every probe reproduces the legacy status and body. It is the only bar that matters, because nobody deploys 92% of a service. Each variant adds exactly one component to the one above it, over the same cases with the same model.</p>
       </div>
@@ -694,7 +716,7 @@ make record            <span class="c"># re-runs everything live</span></pre><bu
 
   <footer>
     <div class="cols">
-      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 49 tests &middot; 16 benchmark cases &middot; 243 recorded agent trajectories &middot; a 26-entry improvement changelog</p></div>
+      <div class="card"><h3 style="color:var(--ink)">In the repository</h3><p>15 modules &middot; 49 tests &middot; 16 benchmark cases &middot; 244 recorded agent trajectories &middot; a 26-entry improvement changelog</p></div>
       <div class="card"><h3 style="color:var(--ink)">Provenance</h3><p>Two cases are real flask-restful code, BSD-3-Clause, vendored unmodified. One AGPL case is fetched on demand, never redistributed.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Agent use</h3><p>Every model call, tool call, decision and approval is recorded as JSONL. The coding-agent session that built this is included, redacted.</p></div>
       <div class="card"><h3 style="color:var(--ink)">Author</h3><p>Vicente Jr &mdash; built for the micro1 Frontier Engineering Challenge 2026.<br>

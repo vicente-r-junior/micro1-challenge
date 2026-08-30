@@ -50,7 +50,7 @@ evidence.
 | Complete solution code | this repository; `src/` is 15 modules, all written for this challenge ([`NOTICE.md`](NOTICE.md)) |
 | Improvement changelog | [`CHANGELOG.md`](CHANGELOG.md) — 26 entries, each tied to the evidence that forced the next decision, closing with the main failure mode and the hot take |
 | Reproduction guide | [`REPRODUCTION.md`](REPRODUCTION.md) — clean environment, exact commands, pinned versions, runtime and cost |
-| Agent trajectories | [`trajectories/`](trajectories/) — 243 JSONL runs, every tool call and result, plus the human checkpoints; the coding-agent session that built this is in [`trajectories/build/`](trajectories/build/) |
+| Agent trajectories | [`trajectories/`](trajectories/) — 244 JSONL runs, every tool call and result, plus the human checkpoints; the coding-agent session that built this is in [`trajectories/build/`](trajectories/build/) |
 | Archive | `submission.zip`, built by `make package`, which verifies the archive rather than the working tree |
 | Solution video | see above |
 
