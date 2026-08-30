@@ -172,8 +172,12 @@ def run_variant(
         "prompt_tokens": sum(r.totals.get("prompt_tokens", 0) for r in rows),
         "completion_tokens": sum(r.totals.get("completion_tokens", 0) for r in rows),
         "cost_usd": round(sum(r.totals.get("cost_usd", 0.0) for r in rows), 4),
+        # model_s is the summed latency of the calls, so it describes the work
+        # and is identical on every replay. Wall-clock is deliberately not
+        # recorded here: on a replay it measures the reader's CPU, and a results
+        # file that is meant to be diffed should not carry a field that moves
+        # for a reason unrelated to the result.
         "model_s": round(sum(r.totals.get("model_s", 0.0) for r in rows), 1),
-        "wall_s": round(time.time() - started, 1),
         "workers": workers,
         "wave_size": wave_size,
         "memory": ledger.stats(),

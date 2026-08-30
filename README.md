@@ -275,6 +275,23 @@ in [`CHANGELOG.md`](CHANGELOG.md#part-3--what-was-removed).
 The point of the whole project is that a claim should be checkable. So this one
 is too, and there are two ways to do it depending on how much you want to spend.
 
+### Start here
+
+Docker is the only prerequisite. Three lines, from nothing:
+
+```bash
+git clone https://github.com/vicente-r-junior/micro1-challenge.git
+cd micro1-challenge
+docker compose run --rm reproduce
+```
+
+That prints the results table in about sixteen seconds, with **no API key and no
+network access**. It must match [`results/REPORT.md`](results/REPORT.md) exactly
+— the file is committed, so `git diff` after the run should be empty.
+
+Prefer a zip? [Download it here](https://github.com/vicente-r-junior/micro1-challenge/archive/refs/heads/main.zip), unzip, and
+run the same command from inside the folder.
+
 ### Path A — without any AI at all
 
 **No API key. No network. No cost. About 25 seconds total.**

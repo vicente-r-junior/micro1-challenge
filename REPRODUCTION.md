@@ -9,9 +9,13 @@ network access at run time**.
 ## The one command
 
 ```bash
-git clone <this-repository> && cd <this-repository>
+git clone https://github.com/vicente-r-junior/micro1-challenge.git
+cd micro1-challenge
 docker compose run --rm reproduce
 ```
+
+Docker is the only prerequisite. Or [download the zip](https://github.com/vicente-r-junior/micro1-challenge/archive/refs/heads/main.zip)
+and run the same command from inside the folder.
 
 That builds the image, replays the entire benchmark from the response cache
 committed in `data/llm_cache.jsonl`, and prints the results table. It must match
